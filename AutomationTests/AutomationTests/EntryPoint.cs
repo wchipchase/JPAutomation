@@ -48,5 +48,11 @@ namespace AutomationTests
         {
             Actions.ContactUsActions.AddNewInvalidMessage(Data.Messages.Message1.firstName);
         }
+
+        [TearDown]
+        public void CleanUp()
+        {
+            Driver.driver.Quit();
+        }
     }
 }

@@ -15,8 +15,8 @@ namespace AutomationTests.Actions
         public static void InitializeDriver()
         {
             Driver.driver = new ChromeDriver();
-            Driver.driver.Navigate().GoToUrl(Config.BaseURL);
-            Driver.WaitForElementUpTo(Config.ElementsWaitingTimeout);
+            Driver.driver.Navigate().GoToUrl(Config.Config.BaseURL);
+            Driver.WaitForElementUpTo(Config.Config.ElementsWaitingTimeout);
         }
 
         public static void AddNewValidMessage(string firstName, string lastName, string email, string phone,
