@@ -19,11 +19,6 @@ namespace AutomationTests
         {
         }
 
-        [SetUp]
-        public void initialize()
-        {
-            Actions.ContactUsActions.InitializeDriver();
-        }
         private static object[] Messages01Cases =
         {
             new object[] {typeof(Data.Messages), "Ted", "Thompson", "ted@test.com", "555-555-0000", "206 Main St", "Suite 100", "Miami", "F", "30111", "This is a test message"},
@@ -52,7 +47,7 @@ namespace AutomationTests
         [TearDown]
         public void CleanUp()
         {
-            Driver.driver.Quit();
+            Driver.WebDriver.Quit();
         }
     }
 }

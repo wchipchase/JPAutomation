@@ -36,6 +36,12 @@ namespace AutomationTests.Config
         }
 
         static List<DataCollection> dataCol = new List<DataCollection>();
+        static int totalRowCount;
+
+        public static int GetTotalRowCount()
+        {
+            return totalRowCount;
+        }
 
         public static void PopulateInCollection(string filename)
         {

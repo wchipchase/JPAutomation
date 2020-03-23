@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 using AutomationTests.ConfigElements;
 using AutomationTests.PageObjects;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace AutomationTests.Actions
 {
     class ContactUsActions
     {
-        public static void InitializeDriver()
-        {
-            Driver.driver = new ChromeDriver();
-            Driver.driver.Navigate().GoToUrl(Config.Config.BaseURL);
-            Driver.WaitForElementUpTo(Config.Config.ElementsWaitingTimeout);
-        }
-
         public static void AddNewValidMessage(string firstName, string lastName, string email, string phone,
             string address1, string address2, string city, string state, string zipcode, string message)
         {
@@ -35,7 +29,8 @@ namespace AutomationTests.Actions
             contact.HowHear_Web_Add.Click();
             contact.Ex_Cust_No.Click();
             contact.Message_TextBox.SendKeys(message);
-
+            contact.Send_Message_Btn.Click();
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you! We have received your message."));
         }
 
         public static void AddNewInvalidMessage(string firstName)
@@ -43,7 +38,7 @@ namespace AutomationTests.Actions
             ContactUsPageObjects contact = new ContactUsPageObjects();
             contact.FirstName.SendKeys(firstName);
             contact.Send_Message_Btn.Click();
-            Assert.IsTrue(Driver.driver.PageSource.Contains("Oops! You did not complete the form properly"));
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Oops! You did not complete the form properly"));
 
         }
     }

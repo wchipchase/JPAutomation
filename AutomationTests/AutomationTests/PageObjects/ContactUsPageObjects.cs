@@ -13,7 +13,7 @@ namespace AutomationTests.PageObjects
     {
         public ContactUsPageObjects()
         {
-            PageFactory.InitElements(Driver.driver, this);
+            PageFactory.InitElements(Driver.WebDriver, this);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Name, Using = "firstName")]
