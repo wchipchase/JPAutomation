@@ -1,0 +1,49 @@
+﻿using AutomationTests.ConfigElements;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.PageObjects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage
+{
+    class CartPageObjects
+    {
+        public CartPageObjects()
+        {
+            PageFactory.InitElements(Driver.WebDriver, this);
+        }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "o-cart-overview__title")]
+        public IWebElement YourCartPageLabel { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-input-toggle__switch")]
+        public IWebElement RecurringOrderSlider { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//button[@class='m-input-number__increment-button']/span[@class='h-icon h-icon--chevron-down-small']")]
+        public IWebElement IncrementArrowOrder { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//button[@class='m-input-number__decrement-button']/span[@class='h-icon h-icon--chevron-down-small']")]
+        public IWebElement DecrementArrowOrder { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-cart-item__price']/span[contains(.,'€73.50')]")]
+        public IWebElement PPMProductPriceCart { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-cart-item__price']/span[contains(.,'€286.00')]")]
+        public IWebElement PPSProductPriceCart { get; set; }
+        
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "input-number")]
+        public IWebElement NumOfProductOrder { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-cart-group__total-value")]
+        public IWebElement MonthlyTotalCart { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-order-summary__total-price")]
+        public IWebElement SummaryTotalCart { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Proceed to checkout']")]
+        public IWebElement ProceedToCheckoutButton { get; set; }
+    }
+}

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutomationTests.ConfigElements;
+using AutomationTests.PageActions;
 using AutomationTests.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium.Internal;
@@ -35,13 +36,13 @@ namespace AutomationTests
         [Test, Order(1)]
         public void AddNewMessage()
         {
-            Actions.ContactUsActions.AddNewValidMessage(Data.Messages.Message1.firstName, Data.Messages.Message1.lastName, Data.Messages.Message1.email, Data.Messages.Message1.phone, Data.Messages.Message1.address1, Data.Messages.Message1.address2, Data.Messages.Message1.city, Data.Messages.Message1.state, Data.Messages.Message1.zipCode, Data.Messages.Message1.messageBox);
+            ContactUsActions.AddNewValidMessage(Data.Messages.Message1.firstName, Data.Messages.Message1.lastName, Data.Messages.Message1.email, Data.Messages.Message1.phone, Data.Messages.Message1.address1, Data.Messages.Message1.address2, Data.Messages.Message1.city, Data.Messages.Message1.state, Data.Messages.Message1.zipCode, Data.Messages.Message1.messageBox);
         }
 
         [Test, Order(2)]
         public void TestMessageErrorResponse()
         {
-            Actions.ContactUsActions.AddNewInvalidMessage(Data.Messages.Message1.firstName);
+            ContactUsActions.AddNewInvalidMessage(Data.Messages.Message1.firstName);
         }
 
         [TearDown]
