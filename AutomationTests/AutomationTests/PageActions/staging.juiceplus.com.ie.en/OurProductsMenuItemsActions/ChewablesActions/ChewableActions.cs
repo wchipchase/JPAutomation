@@ -92,7 +92,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 
                 copo.AddToCartOrder.Click();
                 NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
                 try
@@ -217,32 +217,90 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
             {
                 NavigationActions.NavigateOurProductsChewablesClick();
                 ChewablesPageObjects cpo = new ChewablesPageObjects();
-                Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("€"));
+                try
+                {
+                    Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
+                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("€"));
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e); ;
+                }
+
                 LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ScrollViewport();
                 cpo.ShopNowBerryChewables.Click();
                 ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Berry Chewables"));
+                try
+                {
+                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Berry Chewables"));
+                }
+                catch (Exception e)
+                {
+
+                    throw;
+                }
+
                 cpo.ScrollViewport();
                 var NumOfProducts = copo.NumOfProductOrder.GetAttribute("value");
-                Assert.That(NumOfProducts, Is.EqualTo("1"));
+
+                try
+                {
+                    Assert.That(NumOfProducts, Is.EqualTo("1"));
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e); ;
+                }
+                
                 copo.IncrementArrowOrder.Click();
                 var incrProductCount = copo.NumOfProductOrder.GetAttribute("value");
                 Thread.Sleep(500);
-                Assert.That(incrProductCount, Is.EqualTo("2"));
+
+                try
+                {
+                    Assert.That(incrProductCount, Is.EqualTo("2"));
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e); ;
+                }
+                
                 copo.DecrementArrowOrder.Click();
                 var decrProductCount = copo.NumOfProductOrder.GetAttribute("value");
-                Assert.That(decrProductCount, Is.EqualTo("1"));
+
+                try
+                {
+                    Assert.That(decrProductCount, Is.EqualTo("1"));
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e); ;
+                }
+                
                 copo.AddToCartOrder.Click();
                 NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
-                Thread.Sleep(3000);
-                Assert.That(NumInCart, Is.EqualTo("1"));
+                Thread.Sleep(1000);
+
+                try
+                {
+                    Assert.That(NumInCart, Is.EqualTo("1"));
+                }
+                catch (Exception e)
+                {
+
+                    throw;
+                }
+                
                 nav.CartIconCounter.Click();
             }
             catch (ArgumentException e)

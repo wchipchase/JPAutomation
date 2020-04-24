@@ -23,16 +23,16 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.OurProductsMen
         public IWebElement PriceOrderOmega { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Add to cart']")]
-        public IWebElement AddToCartOrderOmega { get; set; }
+        public IWebElement AddToCartOrder{ get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//button[@class='m-input-number__increment-button']/span[@class='h-icon h-icon--chevron-down-small']")]
-        public IWebElement IncrementArrowOrderOmega { get; set; }
+        public IWebElement IncrementArrowOrder { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//button[@class='m-input-number__decrement-button']/span[@class='h-icon h-icon--chevron-down-small']")]
-        public IWebElement DecrementArrowOrderOmega { get; set; }
+        public IWebElement DecrementArrowOrder { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "input-number")]
-        public IWebElement NumOfProductOrderOmega { get; set; }
+        public IWebElement NumOfProductOrder { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".h-icon--download")]
         public IWebElement IngredientsDownloadOmega { get; set; }

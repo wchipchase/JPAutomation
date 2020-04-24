@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage
@@ -14,6 +15,21 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage
         public CartPageObjects()
         {
             PageFactory.InitElements(Driver.WebDriver, this);
+        }
+
+        public void ScrollToProceedToCheckoutClick()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver.WebDriver;
+            js.ExecuteScript("window.scrollBy(0,1000)");
+            Thread.Sleep(500);
+            ProceedToCheckoutButton.Click();
+        }
+
+        public void NavigateToProceedToCheckoutAndClick()
+        {
+            CartPageObjects cpo = new CartPageObjects();
+            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+            js.ExecuteScript("arguments[0].click();", cpo.ProceedToCheckoutButton);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "o-cart-overview__title")]
@@ -42,6 +58,9 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-order-summary__total-price")]
         public IWebElement SummaryTotalCart { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-input-toggle__inner-button")]
+        public IWebElement PayInFullorInstallmentsSlider { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Proceed to checkout']")]
         public IWebElement ProceedToCheckoutButton { get; set; }

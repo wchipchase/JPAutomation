@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.UpliftPage
@@ -36,5 +37,12 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.UpliftPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[@class='m-accordion__trigger-icon']/span[@class='h-icon h-icon--chevron-down']")]
         public IWebElement FaqDownArrowUplift { get; set; }
+
+        public void ScrollViewport()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver.WebDriver;
+            js.ExecuteScript("window.scrollBy(0,1000)");
+            Thread.Sleep(500);
+        }
     }
 }

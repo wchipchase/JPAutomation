@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run start-time="2020-04-24 14:18:50Z">
+  <command-line><![CDATA["C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe" C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe]]></command-line>
+</test-run>

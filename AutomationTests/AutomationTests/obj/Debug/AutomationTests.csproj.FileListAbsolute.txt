@@ -103,7 +103,6 @@ C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bi
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\ExcelDataReader.DataSet.dll
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\ExcelDataReader.dll
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\nunit.framework.dll
-C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\Shouldly.dll
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.dll
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.Support.dll
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\ExcelDataReader.pdb
@@ -112,7 +111,6 @@ C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bi
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\nunit.framework.pdb
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\nunit.framework.xml
-C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\Shouldly.pdb
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.xml
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.Support.xml
 C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csprojAssemblyReference.cache

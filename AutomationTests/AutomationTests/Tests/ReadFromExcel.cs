@@ -3,7 +3,7 @@ using AutomationTests.Config;
 using NUnit.Framework;
 using System.Diagnostics;
 
-namespace AutomationTests
+namespace AutomationTests.Tests
 {
     [TestFixture]
     public class ReadFromExcel

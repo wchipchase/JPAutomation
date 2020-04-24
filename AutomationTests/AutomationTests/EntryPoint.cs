@@ -12,7 +12,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Support.PageObjects;
 
-namespace AutomationTests
+namespace AutomationTests.Tests
 {
     class EntryPoint
     {

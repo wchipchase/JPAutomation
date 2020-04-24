@@ -9,7 +9,12 @@ namespace AutomationTests.ConfigElements
     public static class Driver {
         // Privatize the _webDriver member; use the WebDriver as the only external exposure to the driver
         private static IWebDriver _webDriver;
+
+        public static IWebDriver driver { get; set; }
+
         public static IWebDriver WebDriver {
+
+
             get {
                 // _webDriver = _webDriver == null ? GetWebDriver : _webDriver
                 _webDriver = _webDriver ?? GetWebDriver();

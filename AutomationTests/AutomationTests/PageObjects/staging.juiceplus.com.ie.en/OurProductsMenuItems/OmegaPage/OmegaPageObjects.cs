@@ -33,7 +33,7 @@ namespace AutomationTests.PageObjects.OmegaPage
         public IWebElement DecrementOrderOmega { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Download']")]
-        public IWebElement IngredientsDownloadrOmega { get; set; }
+        public IWebElement IngredientsDownloadOmega { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[@class='m-accordion__trigger-icon']/span[@class='h-icon h-icon--chevron-down']")]
         public IWebElement FaqDownArrowOmega { get; set; }

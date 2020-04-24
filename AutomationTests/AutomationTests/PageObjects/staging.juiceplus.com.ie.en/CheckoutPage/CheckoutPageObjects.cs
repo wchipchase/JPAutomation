@@ -11,6 +11,7 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
 {
     class CheckoutPageObjects
     {
+
         public CheckoutPageObjects()
         {
             PageFactory.InitElements(Driver.WebDriver, this);
@@ -97,8 +98,11 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//label[contains(.,'No')]")]
         public IWebElement ReferringRepNoRadioButton { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-typeahead__input")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@name='referral.partnerName']//input[@class='m-typeahead__input']")]
         public IWebElement ReferringRepNameIdTextbox { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[contains(.,'Martin Deegan')]")]
+        public IWebElement ReferringRepNameTextbox { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "m-order-summary__item-price")]
         public IWebElement OrderSummaryItemPrice { get; set; }

@@ -1,7 +1,11 @@
 ﻿using AutomationTests.ConfigElements;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductActions;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.ChewablesActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.CompleteActions;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.IndividualCapsuleActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.OmegaActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.UpliftActions;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -32,7 +36,7 @@ namespace AutomationTests
         }
 
         [Test]
-        public void CheckoutBerryCapsules()
+        public void CheckoutBerryCapsulesVisa()
         {
             CapsuleActions.AddBerryCapsuleToCart();
             CartActions.CheckoutWithCartItemsVisa();
@@ -56,6 +60,55 @@ namespace AutomationTests
         public void CheckoutBerryChewablesVisa()
         {
             ChewableActions.AddBerryChewablesToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutOmegaBlendVisa()
+        {
+            OmegaActions.AddOmegaBlendToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutUpliftVisa()
+        {
+            UpliftActions.AddUpliftToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutCompleteShakesVisa()
+        {
+            CompleteActions.AddCompleteJuicePlusShakesToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutCompleteJuiceBarsVisa()
+        {
+            CompleteActions.AddCompleteJuicePlusBarsToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutCompleteVegetableSoupVisa()
+        {
+            CompleteActions.AddCompleteVegetableSoupToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutCompleteCombiBoxVisa()
+        {
+            CompleteActions.AddCompleteCombiBoxToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+        [Test]
+        public void CheckoutCompleteBoosterVisa()
+        {
+            CompleteActions.AddCompleteBoosterToCart();
             CartActions.CheckoutWithCartItemsVisa();
         }
 
@@ -100,6 +153,70 @@ namespace AutomationTests
         public void CheckoutBerryChewablesMC()
         {
             ChewableActions.AddBerryChewablesToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutOmegaBlendMC()
+        {
+            OmegaActions.AddOmegaBlendToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutUpliftMC()
+        {
+            UpliftActions.AddUpliftToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutCompleteShakesMC()
+        {
+            CompleteActions.AddCompleteJuicePlusShakesToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutCompleteJuiceBarsMC()
+        {
+            CompleteActions.AddCompleteJuicePlusBarsToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutCompleteVegetableSoupMC()
+        {
+            CompleteActions.AddCompleteVegetableSoupToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutCompleteCombiBoxMC()
+        {
+            CompleteActions.AddCompleteCombiBoxToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutCompleteBoosterMC()
+        {
+            CompleteActions.AddCompleteBoosterToCart();
+            CartActions.CheckoutWithCartItemsMC();
+        }
+
+        [Test]
+        public void CheckoutMixedProductUplifSinglePayRecurringOrderCapsulesSingleOrderInstallmentsVisa()
+        {
+            MixedProductActions.AddUpliftInstallmentPayCapsulePayInFullRecurringToCart();
+            CartActions.CheckoutWithCartItemsVisa();
+        }
+
+
+        [Test]
+        public void CheckoutMixedProductUplifSinglePayRecurringOrderCapsulesSingleOrderInstallmentsMC()
+        {
+            MixedProductActions.AddUpliftInstallmentPayCapsulePayInFullRecurringToCart();
             CartActions.CheckoutWithCartItemsMC();
         }
 

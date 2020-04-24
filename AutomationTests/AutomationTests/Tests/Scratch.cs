@@ -1,9 +1,13 @@
 ﻿using AutomationTests.Config;
 using AutomationTests.ConfigElements;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductActions;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsActions;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.ChewablesActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.CompleteActions;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.IndividualCapsuleActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.OmegaActions;
+using AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.UpliftActions;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage;
@@ -28,8 +32,8 @@ namespace AutomationTests.Tests
         [Test]
         public void CheckoutPremiumChewables()
         {
-            ChewableActions.AddPremiumChewablesToCart();
-            CartActions.CheckoutWithCartItemsMC();
+            MixedProductActions.AddUpliftInstallmentPayCapsulePayInFullRecurringToCart();
+            CartActions.CheckoutWithCartItemsVisa();
         }
 
         public void TearDown()

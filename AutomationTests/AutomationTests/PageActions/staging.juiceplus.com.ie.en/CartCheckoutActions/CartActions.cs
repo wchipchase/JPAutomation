@@ -34,22 +34,33 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 throw;
             }
         }
+
+        public static void NavigateToProceedToCheckoutAndClick()
+        {
+            CartPageObjects cpo = new CartPageObjects();
+            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+            js.ExecuteScript("arguments[0].click();", cpo.ProceedToCheckoutButton);
+        }
+
         public static void CheckoutWithCartItemsVisa()
         {
             try
             {
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
                 WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
                 NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-                nav.CheckoutButton.Click();
-                //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Proceed to checkout']")));
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your Cart"));
-                CartPageObjects cpo = new CartPageObjects();
-                cpo.ProceedToCheckoutButton.Click();
+                //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+                //nav.CheckoutButton.Click();
+                ////waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Proceed to checkout']")));
+                //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your Cart"));
+                //CartPageObjects cpo = new CartPageObjects();
+                //cpo.ProceedToCheckoutButton.Click();
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Checkout as guest']")));
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("New to Juice Plus+?"));
                 CheckoutPageObjects cop = new CheckoutPageObjects();
                 cop.CheckoutAsGuestButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Shipping Address"));
+                Thread.Sleep(500);
                 cop.FirstNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.FirstNameShipping.FirstName);
                 cop.LastNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.LastNameShipping.LastName);
                 cop.DaytimePhoneNumberShippingTextbox.SendKeys(AddressInfo.ShippingAddress.PrimaryPhoneShipping.PrimaryPhone);
@@ -58,19 +69,21 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cop.StreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.StreetAddShipping.StreetAdd);
                 cop.OptionalStreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.OptionalStreetShipping.OptionalStreet);
                 cop.CityDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CityShipping.City);
-//                cop.StateDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.StateShipping.State);
                 cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
-                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-                js.ExecuteScript("arguments[0].click();", cop.ReferringRepNoRadioButton);
+                js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
+                cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
+                Thread.Sleep(3000);
+                cop.ReferringRepNameTextbox.Click();
                 cop.ProceedToCheckoutButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));
-                //               cop.VisaPaymentMethodButton.Click();
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("payment.cardNumber")));
+                Thread.Sleep(500);
                 cop.PaymentCCNumberTextbox.SendKeys(CreditCardInfo.CreditCardNumber.VisaCCNum.ccnumberValid);
                 cop.PaymentCCExpirationDateTextbox.SendKeys(CreditCardInfo.CCExpDate.VisaCCExpDate.VisaCCExpDateValid);
                 cop.PaymentCVVTextbox.SendKeys(CreditCardInfo.CreditCardCCV.VisaCCV.VisaCCVValid);
                 js.ExecuteScript("arguments[0].click();", cop.TOSAcceptCheckbox);
-                js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);
-                
+                js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);   
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-checkout-confirmation__title")));
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you, your order has been confirmed!"));
             }
@@ -85,12 +98,14 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
         {
             try
             {
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
                 WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
                 NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-                nav.CheckoutButton.Click();
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your Cart"));
-                CartPageObjects cpo = new CartPageObjects();
-                cpo.ProceedToCheckoutButton.Click();
+                //nav.CheckoutButton.Click();
+                //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your Cart"));
+                //CartPageObjects cpo = new CartPageObjects();
+                //cpo.ProceedToCheckoutButton.Click();
+
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Checkout as guest']")));
                 try
                 {
@@ -104,6 +119,8 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 CheckoutPageObjects cop = new CheckoutPageObjects();
                 cop.CheckoutAsGuestButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Shipping Address"));
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("shipping.contact.firstName")));
+                Thread.Sleep(500);
                 cop.FirstNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.FirstNameShipping.FirstName);
                 cop.LastNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.LastNameShipping.LastName);
                 cop.DaytimePhoneNumberShippingTextbox.SendKeys(AddressInfo.ShippingAddress.PrimaryPhoneShipping.PrimaryPhone);
@@ -113,10 +130,14 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cop.OptionalStreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.OptionalStreetShipping.OptionalStreet);
                 cop.CityDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CityShipping.City);
                 cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
-                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-                js.ExecuteScript("arguments[0].click();", cop.ReferringRepNoRadioButton);
+                js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
+                cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
+                cop.ReferringRepNameTextbox.Click();
                 cop.ProceedToCheckoutButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("payment.cardNumber")));
+                Thread.Sleep(500);
                 js.ExecuteScript("arguments[0].click();", cop.MCPaymentMethodButton);
                 cop.PaymentCCNumberTextbox.SendKeys(CreditCardInfo.CreditCardNumber.MasterCardCCNum.ccnumberValid);
                 cop.PaymentCCExpirationDateTextbox.SendKeys(CreditCardInfo.CCExpDate.MasterCardCCExpDate.MasterCardCCExpDateValid);
