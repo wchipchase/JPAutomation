@@ -1,5 +1,6 @@
 ﻿using AutomationTests.ConfigElements;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsActions;
+using AutomationTests.PageObjects.OmegaPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.OurProductsMenuItems.UpliftPage;
@@ -19,12 +20,19 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
     class UpliftActions
     {
         public static void AddUpliftToCart()
+
         {
+
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationActions.NavigateOurProductsOmegaClick();
+            UpliftOrderPageObjects uopo = new UpliftOrderPageObjects();
+            UpliftPageObjects upo = new UpliftPageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+
             try
             {
-                WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
                 NavigationActions.NavigateOurProductsOmegaClick();
-                UpliftPageObjects upo = new UpliftPageObjects();
+                
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -36,11 +44,11 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e);
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
+                
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 upo.ScrollViewport();
-                UpliftOrderPageObjects uopo = new UpliftOrderPageObjects();
+
                 var NumOfProducts = uopo.NumOfProductOrder.GetAttribute("value");
                 try
                 {
@@ -94,11 +102,9 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
 
                 nav.CartIconCounter.Click();
-
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
                 nav.CheckoutButton.Click();
-                //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Proceed to checkout']")));
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your Cart"));
+                upo.NavigateToProceedToCheckoutAndClick();
 
             }
             catch (ArgumentException e)

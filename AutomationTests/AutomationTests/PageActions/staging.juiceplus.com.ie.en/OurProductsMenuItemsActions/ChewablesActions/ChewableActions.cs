@@ -2,6 +2,7 @@
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsActions;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CapsulesPage;
+using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.ChewablesPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.OurProductsMenuItems.ChewablesPage;
 using NUnit.Framework;
@@ -20,11 +21,18 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
     {
         public static void AddPremiumChewablesToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CapsulesPageObjects caps = new CapsulesPageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            ChewablesPageObjects cpo = new ChewablesPageObjects();
+            ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
             try
             {
-                WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(5));
+
                 NavigationActions.NavigateOurProductsChewablesClick();
-                ChewablesPageObjects cpo = new ChewablesPageObjects();
+                
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -35,13 +43,11 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
 
                     Console.WriteLine(e);
                 }
-
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ScrollViewport();
                 cpo.ShopNowPremiumChewables.Click();
-                ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
+                
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Premium Chewables"));
@@ -91,7 +97,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
                 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -112,11 +118,21 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
             {
                 Console.WriteLine(e);
             }
-
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
         }
 
         public static void AddFruitsAndVegetablesChewablesToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CapsulesPageObjects caps = new CapsulesPageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            ChewablesPageObjects cpo = new ChewablesPageObjects();
+            ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
+
             try
             {
                 NavigationActions.NavigateOurProductsChewablesClick();
@@ -130,17 +146,15 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
 
                     Console.WriteLine(e); ;
                 }
-                ChewablesPageObjects cpo = new ChewablesPageObjects();
 
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ScrollViewport();
                 cpo.ShopNowFruitVegetableChewables.Click();
-                ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
+
                 try
                 {
-                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Fruit & Vegetable Chewables"));
+                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Fruit & Vegetable Soft Chewables"));
                 }
                 catch (Exception e)
                 {
@@ -188,7 +202,6 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
                 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -208,15 +221,26 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
             {
                 Console.WriteLine(e);
             }
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
 
         }
 
         public static void AddBerryChewablesToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CapsulesPageObjects caps = new CapsulesPageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            ChewablesPageObjects cpo = new ChewablesPageObjects();
+            ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
+
             try
             {
                 NavigationActions.NavigateOurProductsChewablesClick();
-                ChewablesPageObjects cpo = new ChewablesPageObjects();
+
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -228,12 +252,11 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ScrollViewport();
                 cpo.ShopNowBerryChewables.Click();
-                ChewablesOrderPageObjects copo = new ChewablesOrderPageObjects();
+
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Berry Chewables"));
@@ -285,11 +308,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
                 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 try
                 {
@@ -307,6 +329,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
             {
                 Console.WriteLine(e);
             }
+
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
         }
 
         public static void ClickViewRangeButtonOmegaBlend()

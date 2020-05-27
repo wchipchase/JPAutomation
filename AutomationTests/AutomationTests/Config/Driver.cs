@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
 namespace AutomationTests.ConfigElements
@@ -29,6 +30,7 @@ namespace AutomationTests.ConfigElements
             webDriver.Manage().Window.Maximize();
             WaitForElementUpTo(webDriver, Config.Config.ElementsWaitingTimeout);
             return webDriver;
+            
         }
 
         private static void WaitForElementUpTo(IWebDriver webDriver, int seconds = 10) {

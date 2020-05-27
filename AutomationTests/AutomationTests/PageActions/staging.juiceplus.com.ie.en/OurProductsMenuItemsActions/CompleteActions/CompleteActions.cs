@@ -1,9 +1,12 @@
 ﻿using AutomationTests.ConfigElements;
 using AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsActions;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en;
+using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CompletePage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.OurProductsMenuItems.CompletePage;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +20,17 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
     {
         public static void AddCompleteJuicePlusShakesToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CompletePageObjects cpo = new CompletePageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
+
             try
             {
                 NavigationActions.NavigateOurProductsCompleteClick();
-                CompletePageObjects cpo = new CompletePageObjects();
+                
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -32,11 +42,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ClickShakesCompleteShopNow();
-                CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+                
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Vanilla Shake"));
@@ -85,7 +94,6 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -108,14 +116,25 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 Console.WriteLine(e);
             }
 
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
+
         }
 
         public static void AddCompleteJuicePlusBarsToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CompletePageObjects cpo = new CompletePageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
+
             try
             {
                 NavigationActions.NavigateOurProductsCompleteClick();
-                CompletePageObjects cpo = new CompletePageObjects();
+
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -127,11 +146,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ClickCompleteJuiceBarsShopNow();
-                CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Chocolate Bar"));
@@ -180,7 +198,6 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -203,14 +220,24 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 Console.WriteLine(e);
             }
 
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
+
         }
 
         public static void AddCompleteVegetableSoupToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CompletePageObjects cpo = new CompletePageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
             try
             {
                 NavigationActions.NavigateOurProductsCompleteClick();
-                CompletePageObjects cpo = new CompletePageObjects();
+
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -222,11 +249,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ClickCompleteVegetableSoupShopNow();
-                CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Vegetable Soup"));
@@ -275,7 +301,6 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -298,14 +323,25 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 Console.WriteLine(e);
             }
 
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
+
         }
 
         public static void AddCompleteCombiBoxToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CompletePageObjects cpo = new CompletePageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
+
             try
             {
                 NavigationActions.NavigateOurProductsCompleteClick();
-                CompletePageObjects cpo = new CompletePageObjects();
+
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -317,11 +353,11 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
+
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ClickCompleteCombiBoxShopNow();
-                CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Vanilla Shake Combi Box"));
@@ -370,7 +406,6 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -393,14 +428,25 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 Console.WriteLine(e);
             }
 
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
+
         }
 
         public static void AddCompleteBoosterToCart()
         {
+            WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+            CompletePageObjects cpo = new CompletePageObjects();
+            LandingPageObjects lan = new LandingPageObjects();
+            CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+            CartPageObjects carp = new CartPageObjects();
+
             try
             {
                 NavigationActions.NavigateOurProductsCompleteClick();
-                CompletePageObjects cpo = new CompletePageObjects();
+
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
@@ -412,11 +458,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                LandingPageObjects lan = new LandingPageObjects();
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 cpo.ClickCompleteJuiceBarsShopNow();
-                CompleteOrderPageObjects copo = new CompleteOrderPageObjects();
+
                 try
                 {
                     Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Chocolate Bar"));
@@ -465,7 +510,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 }
 
                 copo.AddToCartOrder.Click();
-                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+
                 Thread.Sleep(1000);
                 var NumInCart = nav.CartIconCounter.Text;
                 Console.WriteLine(NumInCart);
@@ -488,6 +533,9 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                 Console.WriteLine(e);
             }
 
+            waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
+            nav.CheckoutButton.Click();
+            carp.NavigateToProceedToCheckoutAndClick();
         }
     }
 }

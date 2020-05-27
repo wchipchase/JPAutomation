@@ -1,4 +1,5 @@
 ﻿using AutomationTests.ConfigElements;
+using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System;
@@ -15,6 +16,13 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.UpliftPage
         public UpliftPageObjects()
         {
             PageFactory.InitElements(Driver.WebDriver, this);
+        }
+
+        public void NavigateToProceedToCheckoutAndClick()
+        {
+            CartPageObjects cpo = new CartPageObjects();
+            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+            js.ExecuteScript("arguments[0].click();", cpo.ProceedToCheckoutButton);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-product-detail-header__title")]

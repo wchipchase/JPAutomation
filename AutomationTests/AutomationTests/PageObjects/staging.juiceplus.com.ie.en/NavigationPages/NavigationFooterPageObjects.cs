@@ -49,7 +49,7 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.Navigation
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[.='One Simple Change']")]
         public IWebElement OneSimpleChangeFooter { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Healthy Starts for Families')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[@href='/ie/en/live-better/healthy-family/healthy-starts-for-families']")]
         public IWebElement HealthyStartsLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='app']/div/footer/div/div[2]/div/div/div[4]/nav/div/div/ul/li[3]/a")]

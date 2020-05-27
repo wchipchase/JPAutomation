@@ -22,12 +22,12 @@ namespace AutomationTests.Config
 
             public static class PrimaryPhoneShipping
             {
-                public static string PrimaryPhone = "999-999-9999";
+                public static string PrimaryPhone = "0876618679";
             }
 
             public static class AlternatePhoneShipping
             {
-                public static string AlternatePhone = "888-888-8888";
+                public static string AlternatePhone = "0876618679";
             }
 
             public static class EmailShipping
@@ -51,7 +51,7 @@ namespace AutomationTests.Config
 
             public static class CityShipping
             {
-                public static string City = "Columbia";
+                public static string City = "Dublin";
             }
 
             public static class StateShipping
@@ -61,7 +61,7 @@ namespace AutomationTests.Config
 
             public static class CountyShipping
             {
-                public static string County = "Maury";
+                public static string County = "Cork";
             }
         }
     }

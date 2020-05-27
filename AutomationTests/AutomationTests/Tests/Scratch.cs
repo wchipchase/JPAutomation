@@ -30,7 +30,7 @@ namespace AutomationTests.Tests
     class Scratch
     {
         [Test]
-        public void CheckoutPremiumChewables()
+        public void CheckoutPremiumChewablesLoggedInRep()
         {
             MixedProductActions.AddUpliftInstallmentPayCapsulePayInFullRecurringToCart();
             CartActions.CheckoutWithCartItemsVisa();

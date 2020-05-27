@@ -6,6 +6,7 @@ using AutomationTests.PageObjects.staging.juiceplus.com.ie.en;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CapsulesPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage;
+using AutomationTests.PageObjects.staging.juiceplus.com.ie.en.ChewablesPage;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -37,9 +38,17 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
 
         public static void NavigateToProceedToCheckoutAndClick()
         {
-            CartPageObjects cpo = new CartPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", cpo.ProceedToCheckoutButton);
+            try
+            {
+                CartPageObjects cpo = new CartPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", cpo.ProceedToCheckoutButton);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void CheckoutWithCartItemsVisa()
@@ -49,6 +58,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
                 WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
                 NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                ChewablesPageObjects cpo = new ChewablesPageObjects();
                 //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-icon-badge__counter")));
                 //nav.CheckoutButton.Click();
                 ////waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Proceed to checkout']")));
@@ -72,6 +82,9 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
                 js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
                 cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(cop.ReferringRepNameTextbox).Perform();
+                cpo.ScrollViewport();
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
                 Thread.Sleep(3000);
                 cop.ReferringRepNameTextbox.Click();
@@ -101,6 +114,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
                 WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
                 NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                ChewablesPageObjects cpo = new ChewablesPageObjects();
                 //nav.CheckoutButton.Click();
                 //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your Cart"));
                 //CartPageObjects cpo = new CartPageObjects();
@@ -132,7 +146,10 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
                 js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
                 cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
+                cpo.ScrollViewport();
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
+                Actions action = new Actions(Driver.WebDriver);
+                action.MoveToElement(cop.ReferringRepNameTextbox).Perform();
                 cop.ReferringRepNameTextbox.Click();
                 cop.ProceedToCheckoutButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));
@@ -145,6 +162,56 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 js.ExecuteScript("arguments[0].click();", cop.TOSAcceptCheckbox);
                 js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);
 
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-checkout-confirmation__title")));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you, your order has been confirmed!"));
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
+
+        public static void CheckoutWithCartItemsVisaLoggedInRep()
+        {
+            try
+            {
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                WebDriverWait waitForElement = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                ChewablesPageObjects cpo = new ChewablesPageObjects();
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Checkout as guest']")));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("New to Juice Plus+?"));
+                CheckoutPageObjects cop = new CheckoutPageObjects();
+                cop.LoginUsernamePasswordButton.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Shipping Address"));
+                Thread.Sleep(500);
+                cop.FirstNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.FirstNameShipping.FirstName);
+                cop.LastNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.LastNameShipping.LastName);
+                cop.DaytimePhoneNumberShippingTextbox.SendKeys(AddressInfo.ShippingAddress.PrimaryPhoneShipping.PrimaryPhone);
+                cop.AlternatePhoneNumberShippingTextbox.SendKeys(AddressInfo.ShippingAddress.AlternatePhoneShipping.AlternatePhone);
+                cop.EmailShippingTextbox.SendKeys(AddressInfo.ShippingAddress.EmailShipping.Email);
+                cop.StreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.StreetAddShipping.StreetAdd);
+                cop.OptionalStreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.OptionalStreetShipping.OptionalStreet);
+                cop.CityDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CityShipping.City);
+                cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
+                js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
+                cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(cop.ReferringRepNameTextbox).Perform();
+                cpo.ScrollViewport();
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
+                Thread.Sleep(3000);
+                cop.ReferringRepNameTextbox.Click();
+                cop.ProceedToCheckoutButton.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));
+                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("payment.cardNumber")));
+                Thread.Sleep(500);
+                cop.PaymentCCNumberTextbox.SendKeys(CreditCardInfo.CreditCardNumber.VisaCCNum.ccnumberValid);
+                cop.PaymentCCExpirationDateTextbox.SendKeys(CreditCardInfo.CCExpDate.VisaCCExpDate.VisaCCExpDateValid);
+                cop.PaymentCVVTextbox.SendKeys(CreditCardInfo.CreditCardCCV.VisaCCV.VisaCCVValid);
+                js.ExecuteScript("arguments[0].click();", cop.TOSAcceptCheckbox);
+                js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-checkout-confirmation__title")));
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you, your order has been confirmed!"));
             }

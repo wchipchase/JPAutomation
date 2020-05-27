@@ -46,52 +46,55 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[.='Newsletter']")]
         public IWebElement NewsletterLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Overview')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Overview')]")]
         public IWebElement LiveBetterOverviewLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Healthy Family')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Healthy Starts for Families')]")]
         public IWebElement LiveBetterHealthyFamilyLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Active Lifestyle')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Active Lifestyle')]")]
         public IWebElement LiveBetterActiveLifestyleLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Feel Good, Look Your Best')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Feel Good, Look Your Best')]")]
         public IWebElement LiveBetterFeelGoodLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'One Simple Change')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'One Simple Change')]")]
         public IWebElement LiveBetterOneSimpleChangeLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = " //div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Overview')]")]
         public IWebElement OurProductsOverviewLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Capsules')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Capsules')]")]
         public IWebElement OurProductsCapsulesLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Chewables')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Chewables')]")]
         public IWebElement OurProductsChewablesLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Omega')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Omega Blend')]")]
         public IWebElement OurProdutcsOmegaLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Complete')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Complete by Juice Plus+')]")]
         public IWebElement OurProductsCompleteLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Uplift')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Uplift by Juice Plus+')]")]
         public IWebElement OurProductsUpliftLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'What is Juice Plus+?')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'What is Juice Plus+?')]")]
         public IWebElement OurProductsWhatIsJuicePlusLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Overview')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Clinical Research')]")]
+        public IWebElement OurProductsClinicalResearch { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Overview')]")]
         public IWebElement OurCommunityOverviewLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Blog')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Blog')]")]
         public IWebElement OurCommunityBlogLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--tooltip']//a[contains(.,'Giving Back')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Giving Back')]")]
         public IWebElement OurCommunityGivingBackLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//ul[@class='m-navigation-list ']//a[contains(.,'Let's Go Beyond')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[contains(.,'Let's Go Beyond')]")]
         public IWebElement OurCommunityGoBeyondLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Live Better')]")]

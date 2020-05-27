@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsActions
 {
@@ -19,301 +20,597 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsAct
         
         public static void NavigateOurProductsCapsulesClick()
         {
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProductsCapsulesLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Capsules"));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
 
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProductsCapsulesLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Capsules"));
+
             
         }
 
         public static void NavigateOurProductsOverViewClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProductsOverviewLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Products"));
+
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProductsOverviewLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Products"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
 
         public static void NavigateOurProductsChewablesClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProductsChewablesLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Chewables"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProductsChewablesLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Chewables"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurProductsOmegaClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProdutcsOmegaLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Omega Blend"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProdutcsOmegaLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Omega Blend"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurProductsCompleteClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProductsCompleteLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Complete"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProductsCompleteLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Complete"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurProductsUpliftClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProductsUpliftLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Uplift"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProductsUpliftLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Uplift"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurProductsWhatIsJuicePlusClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurProductsNavLink).Perform();
-            nav.OurProductsWhatIsJuicePlusLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("What is Juice Plus+"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurProductsNavLink).Perform();
+                nav.OurProductsNavLink.Click();
+                nav.OurProductsWhatIsJuicePlusLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("What is Juice Plus+"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
 
         }
 
 
         public static void NavigateLiveBetterOverviewClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.LiveBetterNavigationLink).Perform();
-            nav.LiveBetterOverviewLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Live Better"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.LiveBetterNavigationLink).Perform();
+                nav.LiveBetterNavLink.Click();
+                nav.LiveBetterOverviewLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Live Better"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateLiveBetterHealthyFamilyClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.LiveBetterNavLink).Perform();
-            nav.LiveBetterHealthyFamilyLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Healthy Family"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.LiveBetterNavLink).Perform();
+                nav.LiveBetterNavLink.Click();
+                nav.LiveBetterHealthyFamilyLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Healthy Family"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         
 
         public static void NavigateLiveBetterActiveLifestyleClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.LiveBetterNavLink).Perform();
-            nav.LiveBetterActiveLifestyleLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Active Lifestyle"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.LiveBetterNavLink).Perform();
+                nav.LiveBetterNavLink.Click();
+                nav.LiveBetterActiveLifestyleLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Active Lifestyle"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateLiveBetterFeelGoodLookGoodClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.LiveBetterNavLink).Perform();
-            nav.LiveBetterFeelGoodLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Feel Good, Look Your Best"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.LiveBetterNavLink).Perform();
+                nav.LiveBetterNavLink.Click();
+                nav.LiveBetterFeelGoodLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Feel Good, Look Your Best"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateLiveBetterOneSimpleChangeClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.LiveBetterNavLink).Perform();
-            nav.LiveBetterOneSimpleChangeLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("One Simple Change"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.LiveBetterNavLink).Perform();
+                nav.LiveBetterNavLink.Click();
+                nav.LiveBetterOneSimpleChangeLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("One Simple Change"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurCommunityOverviewClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurCommunityNavLink).Perform();
-            nav.OurCommunityOverviewLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Our Community"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurCommunityNavLink).Perform();
+                nav.OurCommunityNavLink.Click();
+                nav.OurCommunityOverviewLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Our Community"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurCommunityBlogClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurCommunityNavLink).Perform();
-            nav.OurCommunityBlogLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Blog"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurCommunityNavLink).Perform();
+                nav.OurCommunityNavLink.Click();
+                nav.OurCommunityBlogLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Blog"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateOurCommunityGivingBackClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            Actions action = new Actions(Driver.WebDriver);
-            action.MoveToElement(nav.OurCommunityNavLink).Perform();
-            nav.OurCommunityGivingBackLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Giving Back"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurCommunityNavLink).Perform();
+                nav.OurCommunityNavLink.Click();
+                nav.OurCommunityGivingBackLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Giving Back"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
-        //public static void NavigateOurCommunityGoBeyondClick()
-        //{
-        //    NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-        //    Actions action = new Actions(Driver.WebDriver);
-        //    action.MoveToElement(nav.OurCommunityNavLink).Perform();
-        //    nav.OurCommunityGoBeyondLink.Click();
-        //    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Let's Go Beyond"));
-        //}
+        public static void NavigateOurCommunityGoBeyondClick()
+        {
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                //Actions action = new Actions(Driver.WebDriver);
+                //action.MoveToElement(nav.OurCommunityNavLink).Perform();
+                nav.OurCommunityNavLink.Click();
+                nav.OurCommunityGoBeyondLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Let's Go Beyond"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
 
         public static void NavigateJoinUsClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            nav.JoinUsNavigationLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Join Us"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                nav.JoinUsNavigationLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Join Us"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavSearchIconClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            nav.SearchIcon.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Capsules"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                nav.SearchIcon.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Capsules"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static void NavLoginButtonClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            nav.LoginButton.Click();
-            //Assert.IsTrue(Driver.WebDriver.PageSource.Contains(""));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                nav.LoginButton.Click();
+                //Assert.IsTrue(Driver.WebDriver.PageSource.Contains(""));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavNewsletterClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            nav.NewsletterLink.Click();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Login"));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                nav.NewsletterLink.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains(""));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavCartIconClick()
         {
-            NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
-            nav.CartIconCounter.Click();
-            //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("You have no itmes in your cart."));
+            try
+            {
+                NavigationHeaderPageObjects nav = new NavigationHeaderPageObjects();
+                nav.CartIconCounter.Click();
+                //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("You have no itmes in your cart."));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateFacebookClick()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.FacebookIcon);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("facebook"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.FacebookIcon);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("facebook"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateInstagramClick()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.InstagramIcon);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("juiceplus_uk"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.InstagramIcon);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("juiceplus_uk"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateYoutubeClick()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.YoutubeIcon);
-            //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice PLUS+"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.YoutubeIcon);
+                //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice PLUS+"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateCompany_AboutUs()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.AboutUsFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("About the Juice Plus+ Company"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.AboutUsFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("About Juice Plus+"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateCompany_GivingBack()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.GivingBackFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Giving Back"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.GivingBackFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Giving Back"));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateCompany_ContactUs()
-        {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.ContactUsFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Contact Us"));
+
+        {try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.ContactUsFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Contact Us"));
+            }
+        catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static void NavigateJuicePlus_HowCapsAreMade()
-        {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.HowCapsulesAreMadeFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("How are Juice Plus+ capsules made?"));
+        {try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.HowCapsulesAreMadeFooter);
+                Thread.Sleep(5000);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("How are Juice Plus+ capsules made?"));
+            }
+        catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateJuicePlus_ClinicalResearch()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.ClinicalResearchFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Clinical Research"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.ClinicalResearchFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ Clinical Research"));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateJuicePlus_InformedChoice()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.InformedChoiceFooter);
-            Driver.WebDriver.Close();
-            //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Informed-Choice Certification"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.InformedChoiceFooter);
+                Driver.WebDriver.Close();
+                //Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Informed-Choice Certification"));
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static void NavigateResources_OneSimpleChange()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.OneSimpleChangeFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("One Simple Change"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.OneSimpleChangeFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("One Simple Change"));
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static void NavigateResources_HealthyStartforFamilies()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.HealthyStartsLink);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Healthy Starts for Families"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.HealthyStartsLink);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Join the Study and enjoy free product for your child!"));
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
+
+
         public static void NavigateResources_LetsGoBeyond()
+            
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.GoBeyondFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Let's Go Beyond"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.GoBeyondFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Let's Go Beyond"));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateMore_TowerGarden()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.TowerGardenFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Grow Your Own Food with Tower Garden"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.TowerGardenFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Grow Your Own Food with Tower Garden"));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         public static void NavigateCountrySelect()
         {
-            NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
-            IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
-            js.ExecuteScript("arguments[0].click();", nav.CountryLocationFooter);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Choose your country and language"));
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.CountryLocationFooter);
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Choose your country and language"));
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
         }
 
         public static void NavigateTermsOfUse()

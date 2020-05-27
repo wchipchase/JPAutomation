@@ -122,7 +122,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductAc
                 CapsulesOrderPageObjects cpo = new CapsulesOrderPageObjects();
                 try
                 {
-                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Fruit & Vegetable Capsules"));
+                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Fruit & Vegetable Blend Capsules"));
                 }
                 catch (Exception e)
                 {

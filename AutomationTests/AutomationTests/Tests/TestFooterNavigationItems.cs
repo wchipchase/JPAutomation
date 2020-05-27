@@ -22,11 +22,11 @@ namespace AutomationTests
             NavigationActions.NavigateCompany_GivingBack();
             NavigationActions.NavigateCompany_ContactUs();
             NavigationActions.NavigateJuicePlus_HowCapsAreMade();
-            NavigationActions.NavigateJuicePlus_ClinicalResearch();
+            //NavigationActions.NavigateJuicePlus_ClinicalResearch();
             //NavigationActions.NavigateJuicePlus_InformedChoice();
             NavigationActions.NavigateResources_OneSimpleChange();
             NavigationActions.NavigateResources_HealthyStartforFamilies();
-            NavigationActions.NavigateResources_LetsGoBeyond();
+            //NavigationActions.NavigateResources_LetsGoBeyond();
             NavigationActions.NavigateTermsOfUse();
             NavigationActions.NavigatePrivacyPolicy();
             NavigationActions.NavigateReturnPolicy();
