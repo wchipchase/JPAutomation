@@ -38,12 +38,12 @@ namespace AutomationTests.Config
         {
             public static class VisaCCExpDate
             {
-                public static string VisaCCExpDateValid = "06/2025";
+                public static string VisaCCExpDateValid = "06/25";
             }
 
             public static class MasterCardCCExpDate
             {
-                public static string MasterCardCCExpDateValid = "02/2024";
+                public static string MasterCardCCExpDateValid = "02/24";
             }
         }
     }
