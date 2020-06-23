@@ -19,7 +19,6 @@ namespace AutomationTests
     class ProductCheckout
     {
 
-        [Test]
         public void CheckoutPremiumCapsulesVisa()
         {
             CapsuleActions.AddPremiumCapsuleToCart();
@@ -220,9 +219,17 @@ namespace AutomationTests
             CartActions.CheckoutWithCartItemsMC();
         }
 
+        /*[SetUp]
+        public void Setup()
+        {
+            Console.WriteLine("Setup");
+            Driver.InitializeDriver();
+        }*/
+
         [TearDown]
         public void TearDown()
         {
+            Console.WriteLine("TearDown");
             Driver.Teardown();
         }
 

@@ -87,6 +87,8 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cpo.ScrollViewport();
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
                 Thread.Sleep(3000);
+                js.ExecuteScript("arguments[0].scrollIntoView({block: 'center'});", waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]"))));
+                Thread.Sleep(3000);
                 cop.ReferringRepNameTextbox.Click();
                 cop.ProceedToCheckoutButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));

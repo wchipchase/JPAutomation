@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="0" runstate="Runnable" testcasecount="34" result="Failed" total="1" passed="0" failed="1" inconclusive="0" skipped="0" asserts="2" engine-version="3.11.1.0" clr-version="4.0.30319.42000" start-time="2020-06-11 17:40:41Z" end-time="2020-06-11 17:40:48Z" duration="6.420829">
+  <command-line><![CDATA["C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\ReportUnit.1.2.1\tools\nunit3-console.exe"  AutomationTests.dll  --where "cat=='smoke'" --testparam "ENV='asfasf'"]]></command-line>
+  <filter>
+    <cat>smoke</cat>
+  </filter>
+  <test-suite type="Assembly" id="0-1040" name="AutomationTests.dll" fullname="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.dll" runstate="Runnable" testcasecount="34" result="Failed" site="Child" start-time="2020-06-11 17:40:42Z" end-time="2020-06-11 17:40:48Z" duration="5.975232" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="2">
+    <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17763.0" platform="Win32NT" cwd="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug" machine-name="MEM-IT-LT07" user="jcrocker" user-domain="NSANET" culture="en-US" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug" />
+      <setting name="TestParametersDictionary" value="[ENV, 'asfasf']">
+        <item key="ENV" value="'asfasf'" />
+      </setting>
+      <setting name="TestParameters" value="ENV='asfasf'" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="RuntimeFramework" value="net-4.0" />
+      <setting name="NumberOfTestWorkers" value="12" />
+    </settings>
+    <properties>
+      <property name="_PID" value="12136" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="0-1041" name="AutomationTests" fullname="AutomationTests" runstate="Runnable" testcasecount="34" result="Failed" site="Child" start-time="2020-06-11 17:40:42Z" end-time="2020-06-11 17:40:48Z" duration="5.960274" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="2">
+      <properties />
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="0-1000" name="ProductCheckout" fullname="AutomationTests.ProductCheckout" classname="AutomationTests.ProductCheckout" runstate="Runnable" testcasecount="28" result="Failed" site="Child" start-time="2020-06-11 17:40:42Z" end-time="2020-06-11 17:40:48Z" duration="5.956353" total="1" passed="0" failed="1" warnings="0" inconclusive="0" skipped="0" asserts="2">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="0-1001" name="CheckoutPremiumCapsulesVisa" fullname="AutomationTests.ProductCheckout.CheckoutPremiumCapsulesVisa" methodname="CheckoutPremiumCapsulesVisa" classname="AutomationTests.ProductCheckout" runstate="Runnable" seed="723405085" result="Failed" label="Error" start-time="2020-06-11 17:40:42Z" end-time="2020-06-11 17:40:48Z" duration="5.947227" asserts="2">
+          <properties>
+            <property name="Category" value="smoke" />
+          </properties>
+          <failure>
+            <message><![CDATA[OpenQA.Selenium.NoSuchElementException : Could not find element by: By.XPath: //*[@id='app']/div/div/div/div[2]/button  1)   Expected: True
+  But was:  False
+
+]]></message>
+            <stack-trace><![CDATA[   at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)
+   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()
+   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at OpenQA.Selenium.IWebElement.Click()
+   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.IndividualCapsuleActions.CapsuleActions.AddPremiumCapsuleToCart() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\IndividualCapsuleActions\CapsuleActions.cs:line 46
+   at AutomationTests.ProductCheckout.CheckoutPremiumCapsulesVisa() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 25]]></stack-trace>
+          </failure>
+          <output><![CDATA[Setup
+ENV: 'asfasf'
+OpenQA.Selenium.NoSuchElementException: Could not find element by: By.XPath: //a[contains(.,'Our Products')]
+   at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)
+   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()
+   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at OpenQA.Selenium.IWebElement.Click()
+   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsActions.NavigationActions.NavigateOurProductsCapsulesClick() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\NavigationsActions\NavigationActions.cs:line 28
+NUnit.Framework.AssertionException:   Expected: True
+  But was:  False
+
+   at NUnit.Framework.Assert.ReportFailure(String message) in D:\a\1\s\src\NUnitFramework\framework\Assert.cs:line 394
+   at NUnit.Framework.Assert.That[TActual](TActual actual, IResolveConstraint expression, String message, Object[] args) in D:\a\1\s\src\NUnitFramework\framework\Assert.That.cs:line 241
+   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.IndividualCapsuleActions.CapsuleActions.AddPremiumCapsuleToCart() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\IndividualCapsuleActions\CapsuleActions.cs:line 37
+TearDown
+]]></output>
+          <assertions>
+            <assertion result="Failed">
+              <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+              <stack-trace><![CDATA[   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.IndividualCapsuleActions.CapsuleActions.AddPremiumCapsuleToCart() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\IndividualCapsuleActions\CapsuleActions.cs:line 37
+   at AutomationTests.ProductCheckout.CheckoutPremiumCapsulesVisa() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 25
+]]></stack-trace>
+            </assertion>
+            <assertion result="Error">
+              <message><![CDATA[OpenQA.Selenium.NoSuchElementException : Could not find element by: By.XPath: //*[@id='app']/div/div/div/div[2]/button]]></message>
+              <stack-trace><![CDATA[   at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)
+   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()
+   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at OpenQA.Selenium.IWebElement.Click()
+   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.IndividualCapsuleActions.CapsuleActions.AddPremiumCapsuleToCart() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\IndividualCapsuleActions\CapsuleActions.cs:line 46
+   at AutomationTests.ProductCheckout.CheckoutPremiumCapsulesVisa() in C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 25]]></stack-trace>
+            </assertion>
+          </assertions>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

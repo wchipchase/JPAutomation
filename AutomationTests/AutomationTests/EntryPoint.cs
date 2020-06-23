@@ -18,6 +18,7 @@ namespace AutomationTests.Tests
     {
         static void Main()
         {
+            Console.WriteLine("asdasd");
         }
 
         private static object[] Messages01Cases =

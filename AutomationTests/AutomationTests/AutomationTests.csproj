@@ -51,20 +51,67 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="ExtentReports, Version=4.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExtentReports.4.0.3\lib\ExtentReports.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.2\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.7.2\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.7.2\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,6 +129,14 @@
     <Compile Include="Config\AddressInfo.cs" />
     <Compile Include="Config\CreditCardInfo.cs" />
     <Compile Include="PageActions\ContactUsActions.cs" />
+    <Compile Include="PageActions\juiceplus.com\CheckoutActions.cs" />
+    <Compile Include="PageActions\juiceplus.com\CartActions.cs" />
+    <Compile Include="PageActions\juiceplus.com\BuyActions.cs" />
+    <Compile Include="PageActions\juiceplus.com\NavigationActions.cs" />
+    <Compile Include="PageActions\juiceplusvirtualfranchise.com\NavigationsActions\NavigationActions.cs" />
+    <Compile Include="PageActions\rc.nsaonline.com\VirtualOfficeActions\ComposeEmailActions.cs" />
+    <Compile Include="PageActions\rc.nsaonline.com\VirtualOfficeActions\NavigationActions.cs" />
+    <Compile Include="PageActions\rc.nsaonline.com\VirtualOfficeActions\LoginActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\MixedProductActions\MixedProductActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\NavigationsActions\NavigationActions.cs" />
@@ -94,8 +149,21 @@
     <Compile Include="Config\ExcelOperations.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\OmegaActions\OmegaActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\UpliftActions\UpliftActions.cs" />
+    <Compile Include="PageActions\towergarden.com\BuyActions.cs" />
+    <Compile Include="PageActions\towergarden.com\CartActions.cs" />
+    <Compile Include="PageActions\towergarden.com\CheckoutActions.cs" />
+    <Compile Include="PageActions\towergarden.com\NavigationActions.cs" />
     <Compile Include="PageObjects\ContactUsPageObjects.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="PageObjects\juiceplus.com\CheckoutPage.cs" />
+    <Compile Include="PageObjects\juiceplus.com\CartPage.cs" />
+    <Compile Include="PageObjects\juiceplus.com\BuyPage.cs" />
+    <Compile Include="PageObjects\juiceplus.com\Header.cs" />
+    <Compile Include="PageObjects\juiceplus.com\MainPage.cs" />
+    <Compile Include="PageObjects\juiceplusvirtualfranchise.com\NavigationPages\NavigationHeaderPageObjects.cs" />
+    <Compile Include="PageObjects\rc.nsaonline.com\ComposeEmailPage.cs" />
+    <Compile Include="PageObjects\rc.nsaonline.com\MainPage.cs" />
+    <Compile Include="PageObjects\rc.nsaonline.com\LoginPage.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\CartPage\CartPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\CheckoutPage\CheckoutPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\CapsulesPage\CapsulesOrderPageObjects.cs" />
@@ -112,13 +180,24 @@
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\UpliftPage\UpliftOrderPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\UpliftPage\UpliftPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\WhatIsJuicePlusPage\WhatIsJuicePlusPageObjects.cs" />
+    <Compile Include="PageObjects\towergarden.com\BuyPage.cs" />
+    <Compile Include="PageObjects\towergarden.com\CartPage.cs" />
+    <Compile Include="PageObjects\towergarden.com\CheckoutPage.cs" />
+    <Compile Include="PageObjects\towergarden.com\Header.cs" />
+    <Compile Include="PageObjects\towergarden.com\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Juice Plus\CreateARO.cs" />
+    <Compile Include="Tests\Tower Garden\CreateARO.cs" />
+    <Compile Include="Tests\Virtual Franchise\TestHeaderNavigationItems.cs" />
     <Compile Include="Tests\ReadFromExcel.cs" />
     <Compile Include="Tests\Scratch.cs" />
     <Compile Include="Tests\ProductCheckout.cs" />
     <Compile Include="Tests\TestFooterNavigationItems.cs" />
     <Compile Include="Tests\TestHeaderNavigationItems.cs" />
     <Compile Include="Tests\TestLandingPageElements.cs" />
+    <Compile Include="Tests\Virtual Office\LoginTest - Copy.cs" />
+    <Compile Include="Tests\Virtual Office\VirtualOfficeComposeEmailTest.cs" />
+    <Compile Include="Tests\Virtual Office\LoginTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
+using System;
+using System.Net;
+using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace AutomationTests.ConfigElements
 {
@@ -17,7 +16,6 @@ namespace AutomationTests.ConfigElements
         public static IWebDriver driver { get; set; }
 
         public static IWebDriver WebDriver {
-
 
             get {
                 // _webDriver = _webDriver == null ? GetWebDriver : _webDriver
@@ -47,7 +45,13 @@ namespace AutomationTests.ConfigElements
                 webRequest.ContentType = "application/x-www-form-urlencoded";
 
                 var regex = new Regex(@"CF_Authorization=.*?;");
-                var magicCookie = regex.Matches(webRequest.GetResponse().Headers.Get("set-cookie"))[0].Value.Replace("CF_Authorization=", "").Replace(";", "");
+                var magicCookie = "";
+
+                if (regex.Matches(webRequest.GetResponse().Headers.Get("set-cookie")).Count > 0)
+                {
+                    magicCookie = regex.Matches(webRequest.GetResponse().Headers.Get("set-cookie"))[0].Value.Replace("CF_Authorization=", "").Replace(";", "");
+                }
+
                 System.Console.WriteLine("magicCookie: " + magicCookie);
 
                 cfCookie = new OpenQA.Selenium.Cookie("CF_Authorization", magicCookie, "www.staging.juiceplus.com", "/", date1);
@@ -57,11 +61,15 @@ namespace AutomationTests.ConfigElements
                 System.Console.WriteLine("CF Cookie is NOT null. Utilizing existing CF JWT Cookie.");
             }
 
-            webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
-            webDriver.Manage().Cookies.AddCookie(cfCookie);
+            webDriver.Manage().Window.Maximize();
+
+            if (cfCookie.Value.Length>1)
+            {
+                webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
+                webDriver.Manage().Cookies.AddCookie(cfCookie);
+            }
 
             webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
-            webDriver.Manage().Window.Maximize();
 
             WaitForElementUpTo(webDriver, Config.Config.ElementsWaitingTimeout);
             return webDriver;
@@ -79,8 +87,12 @@ namespace AutomationTests.ConfigElements
 
         public static void InitializeDriver()
         {
-            Driver._webDriver = new ChromeDriver();
+
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--ignore-certificate-errors");
+            Driver._webDriver = new ChromeDriver(options);
             Driver._webDriver.Manage().Window.Maximize();
+            // Console.WriteLine("ENV: " + TestContext.Parameters.Get("ENV"));
         }
 
     }

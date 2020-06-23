@@ -37,7 +37,7 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CapsulesPage
         public void ClickBerryCapsuleShopNow()
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver.WebDriver;
-            js.ExecuteScript("window.scrollBy(0,1000)");
+            js.ExecuteScript("window.scrollBy(0,1500)");
             Thread.Sleep(500);
             ShopNowBerryCapsules.Click();
         }
