@@ -64,5 +64,17 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Proceed to checkout']")]
         public IWebElement ProceedToCheckoutButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "[for='secondOptionSINGLE']")]
+        public IWebElement PayInInstallments { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "[for='firstOptionSINGLE']")]
+        public IWebElement PayInFull { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "[for='firstOptionRECURRING_EVERY_4_MONTHS']")]
+        public IWebElement PayPerShipment{ get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "[for='secondOptionRECURRING_EVERY_4_MONTHS']")]
+        public IWebElement PayPerMonth { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace AutomationTests.Config
     class Config
     {
         public static int ElementsWaitingTimeout = 5;
-        public static string BaseURL = "https://www.staging.juiceplus.com/ie/en/";
+        public static string BaseURL = "https://www.staging.juiceplus.com/ie/en";
     }
 }

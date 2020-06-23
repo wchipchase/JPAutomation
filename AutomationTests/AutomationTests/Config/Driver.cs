@@ -27,17 +27,26 @@ namespace AutomationTests.ConfigElements
             }
         }
 
-        private static IWebDriver GetWebDriver() {
+        private static IWebDriver GetWebDriver()
+        {
 
-            var webDriver = new ChromeDriver();
+
+
+            var webDriver = new FirefoxDriver();
+
+
 
             // Obtain JWT and set corresponding cookie if cookie is null.
             if (cfCookie == null)
             {
                 System.Console.WriteLine("CF Cookie is null. Obtaining JWT.");
 
+
+
                 var dateString = "5/1/2030 8:30:52 AM";
                 DateTime date1 = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
+
+
 
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 WebRequest webRequest = WebRequest.Create("https://www.staging.juiceplus.com/ie/en");
@@ -46,9 +55,23 @@ namespace AutomationTests.ConfigElements
                 webRequest.Headers.Add("CF-Access-Client-Secret", "352e8f81cde3597cf67c1a02c3d5b65245245d964d71baa3e4dd815b2a5fd3a0");
                 webRequest.ContentType = "application/x-www-form-urlencoded";
 
+
+
                 var regex = new Regex(@"CF_Authorization=.*?;");
-                var magicCookie = regex.Matches(webRequest.GetResponse().Headers.Get("set-cookie"))[0].Value.Replace("CF_Authorization=", "").Replace(";", "");
+                var magicCookie = "";
+
+
+
+                if (regex.Matches(webRequest.GetResponse().Headers.Get("set-cookie")).Count > 0)
+                {
+                    magicCookie = regex.Matches(webRequest.GetResponse().Headers.Get("set-cookie"))[0].Value.Replace("CF_Authorization=", "").Replace(";", "");
+                }
+
+
+
                 System.Console.WriteLine("magicCookie: " + magicCookie);
+
+
 
                 cfCookie = new OpenQA.Selenium.Cookie("CF_Authorization", magicCookie, "www.staging.juiceplus.com", "/", date1);
             }
@@ -57,14 +80,28 @@ namespace AutomationTests.ConfigElements
                 System.Console.WriteLine("CF Cookie is NOT null. Utilizing existing CF JWT Cookie.");
             }
 
-            webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
-            webDriver.Manage().Cookies.AddCookie(cfCookie);
+
+
+            webDriver.Manage().Window.Maximize();
+
+
+
+            if (cfCookie.Value.Length > 1)
+            {
+                webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
+                webDriver.Manage().Cookies.AddCookie(cfCookie);
+            }
+
+
 
             webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
-            webDriver.Manage().Window.Maximize();
+
+
 
             WaitForElementUpTo(webDriver, Config.Config.ElementsWaitingTimeout);
             return webDriver;
+
+
 
         }
 
@@ -79,7 +116,7 @@ namespace AutomationTests.ConfigElements
 
         public static void InitializeDriver()
         {
-            Driver._webDriver = new ChromeDriver();
+            Driver._webDriver = new FirefoxDriver();
             Driver._webDriver.Manage().Window.Maximize();
         }
 

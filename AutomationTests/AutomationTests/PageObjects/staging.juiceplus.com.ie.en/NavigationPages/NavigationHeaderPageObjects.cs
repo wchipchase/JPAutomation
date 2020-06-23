@@ -103,7 +103,7 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Our Community')]")]
         public IWebElement OurCommunityNavLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-product-count-container__flyout-content m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//span[@class='a-button__inner']")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[@class='m-product-count-container__flyout-content m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//a[.='Check Out']")]
         public IWebElement CheckoutButton { get; set; }
 
     }

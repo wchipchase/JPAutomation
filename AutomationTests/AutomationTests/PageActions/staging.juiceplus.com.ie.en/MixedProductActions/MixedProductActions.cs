@@ -103,7 +103,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductAc
 
                 CartPageObjects carp = new CartPageObjects();
 
-                carp.PayInFullorInstallmentsSlider.Click();
+                carp.PayInInstallments.Click();
 
                 NavigationActions.NavigateOurProductsCapsulesClick();
                 CapsulesPageObjects caps = new CapsulesPageObjects();
