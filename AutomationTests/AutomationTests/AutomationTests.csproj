@@ -94,6 +94,10 @@
     <Compile Include="Config\ExcelOperations.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\OmegaActions\OmegaActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\UpliftActions\UpliftActions.cs" />
+    <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\BillingAndShipping.cs" />
+    <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\EditCart.cs" />
+    <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\LandingPage.cs" />
+    <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\OrchardandGardenBlendscs.cs" />
     <Compile Include="PageObjects\ContactUsPageObjects.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\CartPage\CartPageObjects.cs" />
