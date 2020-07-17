@@ -10,17 +10,19 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.juiceplus.com
 {
-    class Header
+    class CartPage
     {
-        public Header()
+        public CartPage()
         {
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "buy-page-nav-item")]
-        public IWebElement BuyLink { get; set; }
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a.cart-btn.checkout-btn")]
+        public IWebElement CheckOutButton { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "cart")]
-        public IWebElement CartLink { get; set; }
+        public void CheckOut()
+        {
+            CheckOutButton.Click();
+        }
     }
 }

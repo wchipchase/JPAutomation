@@ -20,6 +20,15 @@ namespace AutomationTests.PageObjects.juiceplus.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "a[id='buy-page-nav-item']")]
         public IWebElement BuyLink { get; set; }
 
-        
+        public void NavigateBuyPage()
+        {
+            Header Header = new Header();
+
+            Actions builder = new Actions(Driver.WebDriver);
+            IAction action = builder.MoveToElement(BuyLink, BuyLink.Size.Width / 2, (BuyLink.Size.Height * 75) / 100).Click().Build();
+            action.Perform();
+
+            // Header.BuyLink.Click();
+        }
     }
 }

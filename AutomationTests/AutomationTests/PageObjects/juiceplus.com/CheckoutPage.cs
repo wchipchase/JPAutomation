@@ -7,11 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.juiceplus.com
 {
-    class CheckoutPage
+    class CheckoutPage : BasePage
     {
         public CheckoutPage()
         {
@@ -86,5 +87,108 @@ namespace AutomationTests.PageObjects.juiceplus.com
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "next-button")]
         public IWebElement PurchaseButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//h5[]")]
+        public IWebElement OrderSummaryHeading { get; set; }
+
+        public void InputShippingAndBillingInfo(String firstName, String lastName, String phoneNumber, String emailAddress, String address, String zip, String city, String state, String country, Boolean sameBillingInformation, Boolean hasRefferingRep)
+        {
+            FirstName.SendKeys(firstName);
+            LastName.SendKeys(lastName);
+            PhoneNumber.SendKeys(phoneNumber);
+            EmailAddress.SendKeys(emailAddress);
+            AddressLine1.SendKeys(address);
+
+            if (country.Equals("US"))
+            {
+                ZipLookup(zip, city);
+            }
+            else
+            {
+                SelectElement StateSelectDropdown = new SelectElement(StateSelect);
+                City.SendKeys(city);
+                StateSelectDropdown.SelectByText(state);
+                Zip.SendKeys(zip);
+            }
+
+            if (sameBillingInformation)
+            {
+                BillingInformationYesRadio.Click();
+            }
+            else
+            {
+                BillingInformationNoRadio.Click();
+            }
+
+            if (hasRefferingRep)
+            {
+                RefferingRepInfoYesRadio.Click();
+            }
+            else
+            {
+                RefferingRepInfoNoRadio.Click();
+            }
+
+            Thread.Sleep(1000);
+
+            ShippingBillingContinueButton.Click();
+        }
+
+        public void InputPaymentMethod(String creditCardType, String creditCardNumber, String expMonth, String expYear, String cvv)
+        {
+            WaitUntilElementVisible(By.XPath("//p[contains(text(),'How would you like to pay?')]"), 15);
+
+            SelectElement CreditCardTypeDropdown = new SelectElement(CreditCardType);
+            SelectElement CreditCardExpMonthDropdown = new SelectElement(CreditCardExpMonth);
+            SelectElement CreditCardExpYearDropdown = new SelectElement(CreditCardExpYear);
+
+            CreditCardTypeDropdown.SelectByText(creditCardType);
+            CreditCardNumber.SendKeys(creditCardNumber);
+            CreditCardExpMonthDropdown.SelectByValue(expMonth);
+            CreditCardExpYearDropdown.SelectByValue(expYear);
+
+            double initialImplicitWaitTime = Driver.WebDriver.Manage().Timeouts().ImplicitWait.TotalSeconds;
+            try
+            {
+                Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+                CreditCardCVV.SendKeys(cvv);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(initialImplicitWaitTime);
+            }
+
+            /*try
+            {
+                CheckoutPage.CreditCardCVV.SendKeys(cvv);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }*/
+
+            PaymentMethodContinueButton.Click();
+        }
+
+        public void CompletePurchase()
+        {
+            PurchaseButton.Click();
+            // new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementToBeClickable(CheckoutPage.CityNameSelect));
+        }
+        public void ZipLookup(String zip, String city)
+        {
+            Zip.SendKeys(zip);
+            ZipLookupButton.Click();
+
+            Thread.Sleep(1000);
+
+            SelectElement CitySelectDropdown = new SelectElement(CitySelect);
+            CitySelectDropdown.SelectByValue(city);
+            CitySelectGoButton.Click();
+        }
     }
 }

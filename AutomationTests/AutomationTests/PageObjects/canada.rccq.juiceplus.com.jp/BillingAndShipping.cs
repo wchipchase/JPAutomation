@@ -13,7 +13,7 @@ namespace AutomationTests.PageObjects.canada.rccq.juiceplus.com.jp
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingPerson.firstName")]
         public IWebElement BuyNavItem { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingPerson.firstName")]
+        /*[OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingPerson.firstName")]
         public IWebElement BuyNavItem { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingPerson.firstName")]
@@ -32,6 +32,6 @@ namespace AutomationTests.PageObjects.canada.rccq.juiceplus.com.jp
         public IWebElement BuyNavItem { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingPerson.firstName")]
-        public IWebElement BuyNavItem { get; set; }
+        public IWebElement BuyNavItem { get; set; }*/
     }
 }

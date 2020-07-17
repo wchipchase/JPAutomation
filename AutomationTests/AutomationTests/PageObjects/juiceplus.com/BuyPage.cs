@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.juiceplus.com
@@ -18,7 +19,7 @@ namespace AutomationTests.PageObjects.juiceplus.com
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a[class='add-to-cart hidden-xs']")]
-        public IWebElement AddToCart { get; set; }
+        public IWebElement AddToCartButton { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@id='tabs-1']//a[@data-title='Fruit, Vegetable and Berry Blend Capsules']")]
         public IWebElement FruitVegetableBerryBlendCapsules { get; set; }
@@ -35,5 +36,41 @@ namespace AutomationTests.PageObjects.juiceplus.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='installmentPlan']//label[contains(.,'Full payment')]")]
         public IWebElement PlanTypeFullPayment { get; set; }
 
+        public void ViewProduct(String product)
+        {
+
+            if (product.Equals("FruitVegetableBerryBlendCapsules"))
+            {
+                FruitVegetableBerryBlendCapsules.Click();
+            }
+            else if (product.Equals("PremiumPackCapsules"))
+            {
+                PremiumPackCapsules.Click();
+            }
+            else
+            {
+                FruitVegetableBerryBlendCapsules.Click();
+            }
+
+        }
+        public void AddToCart(int quantity)
+        {
+            Quantity.Clear();
+            Quantity.SendKeys("" + quantity);
+            AddToCartButton.Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectPaymentType(String paymentType)
+        {
+            if (paymentType.Equals("Monthly4x"))
+            {
+                PlanType4X.Click();
+            }
+            else if (paymentType.Equals("FullPayment"))
+            {
+                PlanTypeFullPayment.Click();
+            }
+        }
     }
 }
