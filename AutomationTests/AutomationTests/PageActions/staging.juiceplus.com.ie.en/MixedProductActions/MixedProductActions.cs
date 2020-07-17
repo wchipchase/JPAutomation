@@ -31,7 +31,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductAc
                 try
                 {
                     Assert.IsFalse(Driver.WebDriver.PageSource.Contains("£"));
-                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("€"));
+//                    Assert.IsTrue(Driver.WebDriver.PageSource.Contains("€"));
                 }
                 catch (Exception e)
                 {
@@ -103,7 +103,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductAc
 
                 CartPageObjects carp = new CartPageObjects();
 
-                carp.PayInFullorInstallmentsSlider.Click();
+                carp.PayInInstallments.Click();
 
                 NavigationActions.NavigateOurProductsCapsulesClick();
                 CapsulesPageObjects caps = new CapsulesPageObjects();

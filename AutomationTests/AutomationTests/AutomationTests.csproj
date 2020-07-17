@@ -81,7 +81,12 @@
   <ItemGroup>
     <Compile Include="Config\AddressInfo.cs" />
     <Compile Include="Config\CreditCardInfo.cs" />
+    <Compile Include="Config\UserInfo.cs" />
     <Compile Include="PageActions\ContactUsActions.cs" />
+    <Compile Include="PageActions\PartnerPortal\CustomerActions.cs" />
+    <Compile Include="PageActions\PartnerPortal\DashboardActions.cs" />
+    <Compile Include="PageActions\PartnerPortal\LoginActions.cs" />
+    <Compile Include="PageActions\PartnerPortal\TeamActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\MixedProductActions\MixedProductActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\NavigationsActions\NavigationActions.cs" />
@@ -94,14 +99,19 @@
     <Compile Include="Config\ExcelOperations.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\OmegaActions\OmegaActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\UpliftActions\UpliftActions.cs" />
-    <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\BillingAndShipping.cs" />
     <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\EditCart.cs" />
     <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\LandingPage.cs" />
     <Compile Include="PageObjects\canada.rccq.juiceplus.com.jp\OrchardandGardenBlendscs.cs" />
     <Compile Include="PageObjects\ContactUsPageObjects.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="PageObjects\PartnerPortal\Customers.cs" />
+    <Compile Include="PageObjects\PartnerPortal\Dashboard.cs" />
+    <Compile Include="PageObjects\PartnerPortal\Login.cs" />
+    <Compile Include="PageObjects\PartnerPortal\Shop.cs" />
+    <Compile Include="PageObjects\PartnerPortal\Team.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\CartPage\CartPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\CheckoutPage\CheckoutPageObjects.cs" />
+    <Compile Include="PageObjects\staging.juiceplus.com.ie.en\LoginPage.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\CapsulesPage\CapsulesOrderPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\ChewablesPage\ChewablesOrderPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\CompletePage\CompleteOrderPageObjects.cs" />
@@ -117,6 +127,7 @@
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\UpliftPage\UpliftPageObjects.cs" />
     <Compile Include="PageObjects\staging.juiceplus.com.ie.en\OurProductsMenuItems\WhatIsJuicePlusPage\WhatIsJuicePlusPageObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\PartnerPortal.cs" />
     <Compile Include="Tests\ReadFromExcel.cs" />
     <Compile Include="Tests\Scratch.cs" />
     <Compile Include="Tests\ProductCheckout.cs" />

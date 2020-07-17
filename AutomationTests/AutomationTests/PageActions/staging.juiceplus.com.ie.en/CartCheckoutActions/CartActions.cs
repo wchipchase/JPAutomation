@@ -69,7 +69,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("New to Juice Plus+?"));
                 CheckoutPageObjects cop = new CheckoutPageObjects();
                 cop.CheckoutAsGuestButton.Click();
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Shipping Address"));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Billing Address"));
                 Thread.Sleep(500);
                 cop.FirstNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.FirstNameShipping.FirstName);
                 cop.LastNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.LastNameShipping.LastName);
@@ -98,7 +98,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 js.ExecuteScript("arguments[0].click();", cop.TOSAcceptCheckbox);
                 js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);   
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-checkout-confirmation__title")));
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you, your order has been confirmed!"));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you! Your order is confirmed."));
             }
             catch (ArgumentException e)
             {
@@ -132,7 +132,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 }
                 CheckoutPageObjects cop = new CheckoutPageObjects();
                 cop.CheckoutAsGuestButton.Click();
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Shipping Address"));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Billing Address"));
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("shipping.contact.firstName")));
                 Thread.Sleep(500);
                 cop.FirstNameShippingTextbox.SendKeys(AddressInfo.ShippingAddress.FirstNameShipping.FirstName);
@@ -163,7 +163,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);
 
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-checkout-confirmation__title")));
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you, your order has been confirmed!"));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you! Your order is confirmed."));
             }
             catch (ArgumentException e)
             {
@@ -213,7 +213,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 js.ExecuteScript("arguments[0].click();", cop.TOSAcceptCheckbox);
                 js.ExecuteScript("arguments[0].click();", cop.ConfirmOrderButton);
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".m-checkout-confirmation__title")));
-                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you, your order has been confirmed!"));
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you! Your order is confirmed."));
             }
             catch (ArgumentException e)
             {
