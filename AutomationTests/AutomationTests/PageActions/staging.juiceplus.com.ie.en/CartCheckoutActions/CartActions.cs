@@ -80,14 +80,15 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cop.OptionalStreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.OptionalStreetShipping.OptionalStreet);
                 cop.CityDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CityShipping.City);
                 cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
-                js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
+                js.ExecuteScript("arguments[0].click();", cop.ReferringRepNoRadioButton);
+                /*js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
                 cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
                 //Actions action = new Actions(Driver.WebDriver);
-                //action.MoveToElement(cop.ReferringRepNameTextbox).Perform();
+                //action.MoveToElement(cop.ReferringRepNameTextbox).Perform();*/
                 cpo.ScrollViewport();
-                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
+               /* waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
                 Thread.Sleep(3000);
-                cop.ReferringRepNameTextbox.Click();
+                cop.ReferringRepNameTextbox.Click();*/
                 cop.ProceedToCheckoutButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("payment.cardNumber")));
@@ -144,13 +145,14 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
                 cop.OptionalStreetAddressDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.OptionalStreetShipping.OptionalStreet);
                 cop.CityDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CityShipping.City);
                 cop.CountyDeliveryTextbox.SendKeys(AddressInfo.ShippingAddress.CountyShipping.County);
-                js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
-                cop.ReferringRepNameIdTextbox.SendKeys("IR002626");
+                js.ExecuteScript("arguments[0].click();", cop.ReferringRepNoRadioButton);
+                /*js.ExecuteScript("arguments[0].click();", cop.ReferringRepYesRadioButton);
+                cop.ReferringRepNameIdTextbox.SendKeys("IR002626");*/
                 cpo.ScrollViewport();
-                waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]")));
+                /*waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(.,'Martin Deegan')]"))); 
                 Actions action = new Actions(Driver.WebDriver);
                 action.MoveToElement(cop.ReferringRepNameTextbox).Perform();
-                cop.ReferringRepNameTextbox.Click();
+                cop.ReferringRepNameTextbox.Click();*/
                 cop.ProceedToCheckoutButton.Click();
                 Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Secure Payment"));
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Name("payment.cardNumber")));

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageActions.PartnerPortal
@@ -38,9 +39,10 @@ namespace AutomationTests.PageActions.PartnerPortal
                 Login lpo = new Login();
                 waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[.='Sign In']")));
                 lpo.LoginButton.Click();
-                js.ExecuteScript("arguments[0].click();", lpo.PartnerLoginSlider);
+                //js.ExecuteScript("arguments[0].click();", lpo.PartnerLoginSlider);
                 //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Id("username")));
-                //lpo.PartnerLoginSlider.Click();
+                Thread.Sleep(1000);
+                lpo.PartnerLoginSlider.Click();
                 lpo.UsernameTextBox.SendKeys(UserInfo.UserName.UserName1);
                 lpo.PasswordTextBox.SendKeys(UserInfo.UserPassword.UserPassword1);
                 lpo.SignInBtn.Click();

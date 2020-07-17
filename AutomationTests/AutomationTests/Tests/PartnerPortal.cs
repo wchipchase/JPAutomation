@@ -57,6 +57,24 @@ namespace AutomationTests
             TeamActions.ClickDownloadAndSelectCSV();
         }
 
+        [Test]
+        public void CustomerFilterValidation()
+        {
+            LoginActions.LoginAsPartner();
+            CustomerActions.NavigateToCustomers();
+            CustomerActions.ClickFilterButton();
+            CustomerActions.AddAndApplyFilters();
+        }
+
+        [Test]
+        public void AddAMemberPartnerPortal()
+        {
+            LoginActions.LoginAsPartner();
+            TeamActions.NavigateToTeams();
+            TeamActions.ClickOnAddMemberAndFillOutPersonalForm();
+            TeamActions.FillOutContactFormAndSubmitApplication();
+        }
+
         [TearDown]
         public void TearDown()
         {

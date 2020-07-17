@@ -42,7 +42,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
                     Console.WriteLine(e); ;
                 }
 
-                
+                Thread.Sleep(1000);
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 caps.ClickPremiumCapsuleShopNow();
@@ -147,7 +147,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
 
                     Console.WriteLine(e); ;
                 }
-
+                Thread.Sleep(1000);
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(1000).Wait(1500);
                 caps.ClickVegetablesAndFruitCapsuleShopNow();
@@ -249,7 +249,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMen
 
                     Console.WriteLine(e); ;
                 }
-
+                Thread.Sleep(1000);
                 lan.CookieAlertAcceptButton.Click();
                 caps.ClickBerryCapsuleShopNow();
 

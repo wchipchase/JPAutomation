@@ -10,7 +10,7 @@ namespace AutomationTests.PageActions.PartnerPortal
 {
     class CustomerActions
     {
-        public static void NavigateToTeams()
+        public static void NavigateToCustomers()
         {
             Login lpo = new Login();
             lpo.CustomersNavTab.Click();
@@ -26,8 +26,6 @@ namespace AutomationTests.PageActions.PartnerPortal
         {
             Customers cpo = new Customers();
             cpo.FilterSelectCountryUSA.Click();
-            Thread.Sleep(1000);
-            cpo.FilterSelectCountryCanada.Click();
             Thread.Sleep(1000);
             cpo.FilterSelectCountryUK.Click();
             Thread.Sleep(1000);

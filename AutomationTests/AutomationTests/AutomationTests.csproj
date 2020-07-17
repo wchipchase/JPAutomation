@@ -86,6 +86,7 @@
     <Compile Include="PageActions\PartnerPortal\CustomerActions.cs" />
     <Compile Include="PageActions\PartnerPortal\DashboardActions.cs" />
     <Compile Include="PageActions\PartnerPortal\LoginActions.cs" />
+    <Compile Include="PageActions\PartnerPortal\PPCartActions.cs" />
     <Compile Include="PageActions\PartnerPortal\TeamActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\MixedProductActions\MixedProductActions.cs" />

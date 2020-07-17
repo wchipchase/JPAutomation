@@ -30,22 +30,14 @@ namespace AutomationTests.Tests
 {
     class Scratch
     {
-        //[Test]
-        //public void ScratchTest()
-        //{
-        //    LoginActions.LoginAsPartner();
-        //    CustomerActions.ClickFilterButton();
-        //    CustomerActions.AddAndApplyFilters();
-        //}
-
         [Test]
-        public void ValidatingFirstAndLastNameFilters()
+        public void ScratchTest()
         {
             LoginActions.LoginAsPartner();
-            //TeamActions.NavigateToTeams();
-            //TeamActions.ValidateNameFilter();
+            TeamActions.NavigateToTeams();
+            TeamActions.ClickOnAddMemberAndFillOutPersonalForm();
+            TeamActions.FillOutContactFormAndSubmitApplication();
         }
-
         public void TearDown()
         {
             Driver.Teardown();
