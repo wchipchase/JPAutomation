@@ -34,9 +34,9 @@ namespace AutomationTests.Tests
         public void ScratchTest()
         {
             LoginActions.LoginAsPartner();
-            TeamActions.NavigateToTeams();
-            TeamActions.ClickOnAddMemberAndFillOutPersonalForm();
-            TeamActions.FillOutContactFormAndSubmitApplication();
+            PPCartActions.NavigateToJuicePlusWebsite();
+            PPCartActions.AddProductsToCart();
+            PPCartActions.CheckoutWithItems();
         }
         public void TearDown()
         {

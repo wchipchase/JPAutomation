@@ -105,6 +105,5 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[@class='m-product-count-container__flyout-content m-flyout__content js-m-flyout__content m-flyout__content--attached m-flyout__content--dropdown']//span[@class='a-button__inner']")]
         public IWebElement CheckoutButton { get; set; }
-
     }
 }
