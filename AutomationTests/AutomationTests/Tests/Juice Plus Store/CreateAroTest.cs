@@ -41,12 +41,12 @@ namespace AutomationTests.juiceplus.com
             BuyPage.AddToCart(1);
             Header.NavigateCartPage();
             CartPage.CheckOut();
-            CheckoutPage.InputShippingAndBillingInfo("Test", "Tester", "9018503000", "test@testing.com", "140 Crescent DR", "38017", "0.COLLIERVILLE", "TENNESSEE", "US", true, false);
+            CheckoutPage.InputShippingAndBillingInfo("Test", "Tester", "9018503000", "test@juiceplus.com", "140 Crescent DR", "38017", "0.COLLIERVILLE", "TENNESSEE", "US", true, false);
             CheckoutPage.InputPaymentMethod("Visa", "4242424242424242", "02", "2022", "189");
             
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been received. You will receive a confirmation email shortly. Orders may ship separately."));
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been received. You will receive a confirmation email shortly. Orders may ship separately.") || Driver.WebDriver.PageSource.Contains("Your order will be processed shortly. An email was sent to this address:"));
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on CA Juice Plus Store"), Repeat(1)]

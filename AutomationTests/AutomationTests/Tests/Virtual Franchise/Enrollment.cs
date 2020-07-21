@@ -32,10 +32,14 @@ namespace AutomationTests.juice.plus.virtualfranchise
             EnrollmentPageAU = new EnrollmentPageAU();
         }
 
-        [Test, Category("LegacyRegression"), Description("Test US Virtual Franchise Enrollment using Corporate Url")]
+        [Test, Category("LegacyRegression"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Repeat(1)]
         public void TestEnrollment_CorporateUrl_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_PRD);
+
+            String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
+            String ssn = "" + new Random().Next(100000000, 999999999);
+            Console.WriteLine("Email Address: " + emailAddress);
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
@@ -49,8 +53,8 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
             MainPage.NavigateToEnrollmentPage();
-            EnrollmentPageUS.InputPersonalInformation("304681399", "Test", "T", "Tester", "Male", "JAN", "6", "1974");
-            EnrollmentPageUS.InputContactInformation("140 Crescent Dr", "Collierville", "TN", "38017", "9018502982", "jason.moore@juiceplus.com");
+            EnrollmentPageUS.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
+            EnrollmentPageUS.InputContactInformation("140 Crescent Dr", "Collierville", "TN", "38017", "9018502982", emailAddress);
             EnrollmentPageUS.InputSponsorInformation(true, "Todd White", "9018502982");
             EnrollmentPageUS.InputPaymentInformation("Visa", "4242424242424242", "12", "2021");
             
@@ -62,7 +66,11 @@ namespace AutomationTests.juice.plus.virtualfranchise
         [Test, Category("LegacyRegression"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_US_PRD);
+
+            String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
+            String ssn = "" + new Random().Next(100000000, 999999999);
+            Console.WriteLine("Email Address: " + emailAddress);
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
@@ -76,8 +84,8 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
             MainPage.NavigateToEnrollmentPage();
-            EnrollmentPageUS.InputPersonalInformation("304681399", "Test", "T", "Tester", "Male", "JAN", "6", "1974");
-            EnrollmentPageUS.InputContactInformation("140 Crescent Dr", "Collierville", "TN", "38017", "9018502982", "jason.moore25332@juiceplus.com");
+            EnrollmentPageUS.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
+            EnrollmentPageUS.InputContactInformation("140 Crescent Dr", "Collierville", "TN", "38017", "9018502982", emailAddress);
             EnrollmentPageUS.InputSponsorInformation(true, "Todd White", "9018502982");
             EnrollmentPageUS.InputPaymentInformation("Visa", "4242424242424242", "12", "2021");
 
@@ -89,7 +97,11 @@ namespace AutomationTests.juice.plus.virtualfranchise
         [Test, Category("LegacyRegression"), Description("Test CAN Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_CAN_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_CAN_PRD);
+
+            String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
+            String ssn = "" + new Random().Next(100, 999) + "-" + new Random().Next(100, 999) + "-" + new Random().Next(100, 999);
+            Console.WriteLine("Email Address: " + emailAddress);
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
@@ -103,8 +115,8 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
             MainPage.NavigateToEnrollmentPage();
-            EnrollmentPageCA.InputPersonalInformation("304-618-399", "Test", "T", "Tester", "Male", "JAN", "6", "1974");
-            EnrollmentPageCA.InputContactInformation("2785 Skymark Ave", "Mississauga", "ON", "L4W4Y3", "9056246368", "jason.moore235142@juiceplus.com");
+            EnrollmentPageCA.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
+            EnrollmentPageCA.InputContactInformation("2785 Skymark Ave", "Mississauga", "ON", "L4W4Y3", "9056246368", emailAddress);
             EnrollmentPageCA.InputBusinessInformation();
             EnrollmentPageCA.InputSponsorInformation(true, "Todd White", "9018502982");
             EnrollmentPageCA.InputPaymentInformation("Visa", "4242424242424242", "12", "2021");
@@ -117,7 +129,11 @@ namespace AutomationTests.juice.plus.virtualfranchise
         [Test, Category("LegacyRegression"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_AU()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_AU_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_AU_PRD);
+
+            String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
+            String ssn = "" + new Random().Next(100000000, 999999999);
+            Console.WriteLine("Email Address: " + emailAddress);
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
@@ -131,8 +147,8 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
             MainPage.NavigateToEnrollmentPage();
-            EnrollmentPageAU.InputPersonalInformation("304618399", "Test", "T", "Tester", "Male", "JAN", "6", "1974");
-            EnrollmentPageAU.InputContactInformation("14 Merewether St", "Merewether", "QLD", "2291", "0294963000", "jason.moore235234@juiceplus.com");
+            EnrollmentPageAU.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
+            EnrollmentPageAU.InputContactInformation("14 Merewether St", "Merewether", "QLD", "2291", "0294963000", emailAddress);
             EnrollmentPageAU.InputBusinessInformation();
             EnrollmentPageAU.InputSponsorInformation(true, "Todd White", "9018502982");
             EnrollmentPageAU.InputPaymentInformation("Visa", "4242424242424242", "12", "2021");

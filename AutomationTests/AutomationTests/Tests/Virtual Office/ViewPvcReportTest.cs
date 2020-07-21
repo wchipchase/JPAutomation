@@ -3,6 +3,7 @@ using AutomationTests.PageObjects.nsaonline.com;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.rc.nsaonline
 {
-    class SharedCartVOTest
+    class ViewPvcReportTest
     {
         LoginPage LoginPage;
         MainPage MainPage;
@@ -38,25 +39,16 @@ namespace AutomationTests.rc.nsaonline
             EditCartPage = new EditCartPage();
         }
 
-        [Test, Category("LegacyRegression"), Description("Shared Cart."), Repeat(1)]
-        public void SharedCart_VO_US()
+        [Test, Category("LegacyRegression"), Description("View Pvc Report in Virtual Office."), Repeat(1)]
+        public void ViewPvcReport_VO_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualOfficeUrl_US_STG);
             LoginPage.Login("wddot", "wddot");
-            MainPage.InitiateOrderJuicePlus();
-            SubmitCustomerJPOrderPage.AddToCart("2000", 1);
-            SubmitCustomerJPOrderPage.AddToCart("3000", 1);
-            SubmitCustomerJPOrderPage.ShareCartWithCustomer();
-            CreateCustomerCartPageJP.InputShippingInformation("Test", "Tester", "9018502938", "test@testing.com");
-            CreateCustomerCartPageJP.ShareCart();
-            ShareModal.CopySharedCartLink();
+            MainPage.NavigateManageMyTeam();
+            MainPage.ViewPvcReport();
 
-            Driver.WebDriver.Navigate().GoToUrl(ShareModal.CopySharedCartLink());
-            ConfirmEMailPage.VerifyEmailAddress("test@testing.com");
-            Thread.Sleep(5000);
-            Assert.AreEqual(EditCartPage.GetQuanity("2000"), "1");
-            Assert.AreEqual(EditCartPage.GetQuanity("3000"), "1");
-            Thread.Sleep(5000);
+            Driver.WebDriver.SwitchTo().Frame(2);
+            Assert.IsTrue(MainPage.PvcReportEmbed.Displayed);
         }
 
         [TearDown]

@@ -160,6 +160,7 @@
     <Compile Include="Tests\Tower Garden Store\CreateARO.cs" />
     <Compile Include="Tests\Virtual Franchise\Enrollment.cs" />
     <Compile Include="Tests\Virtual Franchise\TestHeaderNavigationItems.cs" />
+    <Compile Include="Tests\Virtual Office\ViewPvcReportTest.cs" />
     <Compile Include="Tests\Virtual Office\SharedCart_VO.cs" />
     <Compile Include="Tests\Virtual Office\VirtualOfficeComposeEmailTest.cs" />
   </ItemGroup>

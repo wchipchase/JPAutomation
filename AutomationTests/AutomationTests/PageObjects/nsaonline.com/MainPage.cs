@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AutomationTests.PageObjects.rc.nsaonline.com
+namespace AutomationTests.PageObjects.nsaonline.com
 {
-    class MainPage
+    class MainPage : BasePage
     {
         public MainPage()
         {
@@ -20,37 +20,47 @@ namespace AutomationTests.PageObjects.rc.nsaonline.com
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[contains(text(),'Remind me later!')]")]
-        public IWebElement remindMeLaterLink { get; set; }
+        public IWebElement RemindMeLaterLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a[href = '/esuite/control/clickHere']")]
-        public IWebElement remindMeLaterConfirmationLink { get; set; }
+        public IWebElement RemindMeLaterConfirmationLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//b[contains(.,'Customer Resources')]")]
-        public IWebElement customerResourcesPanel { get; set; }
+        public IWebElement CustomerResourcesPanel { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a[href='/esuite/control/emailCompose?Mode=new']")]
-        public IWebElement composeEmailLink { get; set; }
+        public IWebElement ComposeEmailLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "submitJPOrder")]
         public IWebElement SubmitOrderJuicePlus { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".myTeamDataContainer")]
+        public IWebElement TeamDataPanel { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Manage My Team')]")]
+        public IWebElement ManageMyTeamLink { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(text(),'Previous Month End PVC report')]")]
+        public IWebElement PvcReportLink { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.TagName, Using = "embed")]
+        public IWebElement PvcReportEmbed { get; set; }
+
         public void NavigateComposeEmail()
         {
-            MainPage mainPage = new MainPage();
-
-            /*if (mainPage.remindMeLaterLink.Displayed)
+            /*if (RemindMeLaterLink.Displayed)
             {
-                mainPage.remindMeLaterLink.Click();
+                RemindMeLaterLink.Click();
             }
 
-            if (mainPage.remindMeLaterConfirmationLink.Displayed)
+            if (RemindMeLaterConfirmationLink.Displayed)
             {
-                mainPage.remindMeLaterConfirmationLink.Click();
+                RemindMeLaterConfirmationLink.Click();
             }*/
 
-            mainPage.customerResourcesPanel.Click();
+            CustomerResourcesPanel.Click();
             Thread.Sleep(1000);
-            mainPage.composeEmailLink.Click();
+            ComposeEmailLink.Click();
             Thread.Sleep(1000);
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Compose E-Mail"));
         }
@@ -58,6 +68,17 @@ namespace AutomationTests.PageObjects.rc.nsaonline.com
         public void InitiateOrderJuicePlus ()
         {
             SubmitOrderJuicePlus.Click();
+        }
+
+        public void NavigateManageMyTeam()
+        {
+            TeamDataPanel.Click();
+            Click(ManageMyTeamLink);
+        }
+
+        public void ViewPvcReport()
+        {
+            PvcReportLink.Click();
         }
     }
 }

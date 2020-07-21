@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run start-time="2020-07-06 21:50:34Z">
-  <command-line><![CDATA["C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe" C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe]]></command-line>
+<test-run id="0" runstate="Runnable" testcasecount="58" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.11.1.0" clr-version="4.0.30319.42000" start-time="2020-07-20 21:58:37Z" end-time="2020-07-20 21:58:41Z" duration="3.891575">
+  <command-line><![CDATA["C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe" C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe --testparam=testEnvironment=Hello --where cat=='LegacyRegression123']]></command-line>
+  <filter>
+    <cat>LegacyRegression123</cat>
+  </filter>
+  <test-suite type="Assembly" id="0-1074" name="AutomationTests.exe" fullname="C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe" runstate="Runnable" testcasecount="58" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.481726" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+    <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17763.0" platform="Win32NT" cwd="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools" machine-name="MEM-IT-LT07" user="jcrocker" user-domain="NSANET" culture="en-US" uiculture="en-US" os-architecture="x86" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools" />
+      <setting name="TestParametersDictionary" value="[testEnvironment, Hello]">
+        <item key="testEnvironment" value="Hello" />
+      </setting>
+      <setting name="TestParameters" value="testEnvironment=Hello" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
+      <setting name="ImageRequiresX86" value="True" />
+      <setting name="RunAsX86" value="True" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="RuntimeFramework" value="net-4.0" />
+      <setting name="NumberOfTestWorkers" value="12" />
+    </settings>
+    <properties>
+      <property name="_PID" value="83268" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <test-suite type="TestSuite" id="0-1075" name="AutomationTests" fullname="AutomationTests" runstate="Runnable" testcasecount="58" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.471240" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+      <properties />
+      <test-suite type="TestSuite" id="0-1079" name="juice" fullname="AutomationTests.juice" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.471021" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="0-1080" name="plus" fullname="AutomationTests.juice.plus" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.471012" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="0-1081" name="virtualfranchise" fullname="AutomationTests.juice.plus.virtualfranchise" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.470985" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="0-1045" name="TestHeaderNavigationItems" fullname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems" classname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.468900" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="0-1046" name="TestAllHeaderNavigation_VF_US" fullname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems.TestAllHeaderNavigation_VF_US" methodname="TestAllHeaderNavigation_VF_US" classname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems" runstate="Runnable" seed="1075626068" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.463392" asserts="0">
+                <properties>
+                  <property name="Category" value="LegacyRegression123" />
+                  <property name="Description" value="Test Virtual Franchise Connectivity" />
+                  <property name="Repeat" value="1" />
+                </properties>
+                <output><![CDATA[url : assUrl
+testEnvironment : Hello
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
 </test-run>

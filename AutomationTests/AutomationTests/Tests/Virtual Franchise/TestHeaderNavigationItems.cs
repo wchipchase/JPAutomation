@@ -28,10 +28,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             /*String url = TestContext.Parameters["url"] ?? "assUrl";
             String testEnvironment = TestContext.Parameters["testEnvironment"] ?? "assTestEnvironment";
 
-            Console.Write("url : " + url);
-            Console.Write("testEnvironment : " + testEnvironment);*/
+            Console.WriteLine("url : " + url);
+            Console.WriteLine("testEnvironment : " + testEnvironment);*/
 
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_PRD);
+            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_STG);
 
             Header.NavigateJuicePlusProductClick();
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ is whole food based nutrition in a capsule and chewable form"));

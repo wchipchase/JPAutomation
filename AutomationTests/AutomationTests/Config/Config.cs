@@ -26,7 +26,7 @@ namespace AutomationTests.Config
         public static string JuicePlusStoreUrl_AU_DEV = "https://au.nsadevcq.juiceplus.com";
         public static string JuicePlusStoreUrl_AU_STG = "https://au.stagecq.juiceplus.com";
         public static string JuicePlusStoreUrl_AU_RC = "https://au.rccq.juiceplus.com";
-        public static string JuicePlusStoreUrl_AU_PRD = "https://au.juiceplus.com";
+        public static string JuicePlusStoreUrl_AU_PRD = "https://www.juiceplus.com.au";
 
         // Tower Garden Store urls
         public static string TowerGardenStoreUrl_US_DEV = "https://us.nsadevcq.towergarden.com";

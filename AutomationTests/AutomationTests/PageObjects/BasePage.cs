@@ -96,8 +96,21 @@ namespace AutomationTests.PageObjects
                 Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(initialImplicitWaitTime);
             }
         }
+        public Boolean IsElementDisplayed(IWebElement webElement, int timeout)
+        {
+            while (timeout>0)
+            {
+                if (webElement.Displayed)
+                {
+                    return true;
+                }
+                timeout--;
+            }
+            return false;
+        }
 
-        public static IWebElement WaitUntilElementVisible(By elementLocator, int timeout)
+
+        public IWebElement WaitUntilElementVisible(By elementLocator, int timeout)
         {
             try
             {

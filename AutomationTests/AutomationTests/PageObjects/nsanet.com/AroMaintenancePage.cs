@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.nsanet.com
 {
-    class AroMaintenancePage
+    class AroMaintenancePage : BasePage
     {
         public AroMaintenancePage()
         {
@@ -140,17 +140,12 @@ namespace AutomationTests.PageObjects.nsanet.com
             UpdateButton.Click();
         }
 
-        public void EditCreditCardInfo(String paymentType, String accountNumber, String cvvNumber, String routingNumber, String commentCode, String commentText)
+        public void EditCreditCardInfo(String paymentType, String accountNumber, String routingNumber, String commentCode, String commentText)
         {
             CreditCardLink.Click();
             new SelectElement(PaymentTypeSelect).SelectByText(paymentType);
             AccountNumberField.Clear();
             AccountNumberField.SendKeys(accountNumber);
-            if (!cvvNumber.Equals("N/A"))
-            {
-                CvvNumberField.Clear();
-                CvvNumberField.SendKeys(cvvNumber);
-            }
             if (!routingNumber.Equals("N/A"))
             {
                 RoutingNumberField.Clear();
@@ -180,7 +175,10 @@ namespace AutomationTests.PageObjects.nsanet.com
         public void CancelAro(String cancelType, String statusReasonCode, String commentCode, String commentText)
         {
             CancelAroLink.Click();
-            new SelectElement(CancelTypeSelect).SelectByText(cancelType);
+            if (IsElementDisplayed(CancelTypeSelect))
+            {
+                new SelectElement(CancelTypeSelect).SelectByText(cancelType);
+            }
             new SelectElement(StatusReasonCodeSelect).SelectByText(statusReasonCode);
             InputComments(commentCode, commentText);
             UpdateButton.Click();

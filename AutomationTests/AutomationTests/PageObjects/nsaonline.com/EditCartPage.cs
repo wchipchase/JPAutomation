@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomationTests.PageObjects.rc.nsaonline.com
+namespace AutomationTests.PageObjects.nsaonline.com
 {
     class EditCartPage
     {

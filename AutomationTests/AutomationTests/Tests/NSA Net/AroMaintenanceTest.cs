@@ -59,7 +59,7 @@ namespace AutomationTests.nsanet.com
             AroMaintenancePage.EditNameAddress("TESTING", "145 CRESCENT DR.", "901-859-3015", "901-850-3021", "DDCI CXL ORD", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
 
-            AroMaintenancePage.EditCreditCardInfo("MasterCard", "5454545454545454", "123", "N/A", "forwarded to", "Test");
+            AroMaintenancePage.EditCreditCardInfo("MasterCard", "5454545454545454", "N/A", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
 
             AroMaintenancePage.EditPaymentPlan("2- Installments", "DDCI WISMO TRKD PK", "Test");
@@ -67,9 +67,6 @@ namespace AutomationTests.nsanet.com
 
             AroMaintenancePage.EditProductInformation("2", "DDCI WISMO TRKD PK", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
-
-            AroMaintenancePage.ProcessAro();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("ARO Processed"));
 
             AroMaintenancePage.CancelAro("Cancel - Return Product", "DB - Double Billed", "DDCI WISMO TRKD PK", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
@@ -103,7 +100,7 @@ namespace AutomationTests.nsanet.com
             AroMaintenancePage.EditNameAddress("TESTING", "145 CRESCENT DR.", "901-859-3015", "901-850-3021", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
 
-            AroMaintenancePage.EditCreditCardInfo("Check", "5454545454545454", "N/A", "123", "forwarded to", "Test");
+            AroMaintenancePage.EditCreditCardInfo("Check", "5454545454545454", "123", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
 
             AroMaintenancePage.EditPaymentPlan("2- Installments", "forwarded to", "Test");
@@ -111,10 +108,7 @@ namespace AutomationTests.nsanet.com
 
             AroMaintenancePage.EditProductInformation("2", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
-
-            AroMaintenancePage.ProcessAro();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("ARO Processed"));
-
+            
             AroMaintenancePage.CancelAro("Cancel - Return Product", "DB - Double Billed", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
         }
@@ -147,7 +141,7 @@ namespace AutomationTests.nsanet.com
             AroMaintenancePage.EditNameAddress("TESTING", "14 MEREWETHER ST.", "901-958-3015", "901-058-3021", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
 
-            AroMaintenancePage.EditCreditCardInfo("MasterCard", "5454545454545454", "123", "N/A", "forwarded to", "Test");
+            AroMaintenancePage.EditCreditCardInfo("MasterCard", "5454545454545454", "N/A", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
 
             AroMaintenancePage.EditPaymentPlan("2 - Installments", "forwarded to", "Test");
@@ -155,9 +149,6 @@ namespace AutomationTests.nsanet.com
 
             AroMaintenancePage.EditProductInformation("2", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
-
-            AroMaintenancePage.ProcessAro();
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("ARO Processed"));
 
             AroMaintenancePage.CancelAro("Cancel - Return Product", "DB - Double Billed", "forwarded to", "Test");
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));

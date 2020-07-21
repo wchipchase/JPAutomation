@@ -52,7 +52,7 @@ namespace AutomationTests.towergarden.com
 
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been placed. You should receive a confirmation email shortly."));
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been placed. You should receive a confirmation email shortly.") || Driver.WebDriver.PageSource.Contains("You will receive an additional e-mail when your order is shipped."));
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on CA Tower Garden Store")]

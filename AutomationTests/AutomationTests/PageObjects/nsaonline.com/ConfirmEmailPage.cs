@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AutomationTests.PageObjects.rc.nsaonline.com
+namespace AutomationTests.PageObjects.nsaonline.com
 {
     class ConfirmEmailPage : BasePage
     {

@@ -49,7 +49,7 @@ namespace AutomationTests.nsanet.com
             }
             Thread.Sleep(5000);
             Assert.IsTrue(SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully"));
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully") || Driver.WebDriver.PageSource.Contains("Order Added"));
             Thread.Sleep(5000);
         }
 
@@ -72,7 +72,7 @@ namespace AutomationTests.nsanet.com
             }
             Thread.Sleep(5000);
             Assert.IsTrue(SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully"));
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully") || Driver.WebDriver.PageSource.Contains("Order Added"));
             Thread.Sleep(5000);
         }
 
@@ -95,7 +95,7 @@ namespace AutomationTests.nsanet.com
             }
             Thread.Sleep(5000);
             Assert.IsTrue(SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0);
-            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully"));
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully") || Driver.WebDriver.PageSource.Contains("Order Added"));
             Thread.Sleep(5000);
         }
 

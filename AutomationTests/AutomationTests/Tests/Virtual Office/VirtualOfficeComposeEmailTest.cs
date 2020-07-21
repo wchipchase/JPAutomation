@@ -1,5 +1,5 @@
 ﻿using AutomationTests.ConfigElements;
-using AutomationTests.PageObjects.rc.nsaonline.com;
+using AutomationTests.PageObjects.nsaonline.com;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutomationTests.rc.nsaonline
+namespace AutomationTests.nsaonline
 {
     class ComposeEmailTest
     {
