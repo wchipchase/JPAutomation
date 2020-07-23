@@ -2,6 +2,8 @@
 using AutomationTests.PageObjects.nsanet.com;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ namespace AutomationTests.nsanet.com
         MainPage MainPage;
         AroEntryPage AroEntryPage;
 
+
         [SetUp]
         public void Setup()
         {
@@ -30,10 +33,10 @@ namespace AutomationTests.nsanet.com
             AroEntryPage = new AroEntryPage();
         }
 
-        [Test, Category("LegacyRegression"), Description("Create US ARO on NSANet Aro Entry"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("AROEntry"), Description("Create US ARO on NSANet Aro Entry"), Repeat(1)]
         public void AROEntry_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.NSANetUrl_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("USA");
@@ -51,10 +54,10 @@ namespace AutomationTests.nsanet.com
             Assert.IsTrue(SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create CAN ARO on NSANet Aro Entry"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("AROEntry"), Description("Create CAN ARO on NSANet Aro Entry"), Repeat(1)]
         public void AROEntry_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.NSANetUrl_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("CAN");
@@ -72,10 +75,10 @@ namespace AutomationTests.nsanet.com
             Assert.IsTrue(SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create AU ARO on NSANet Aro Entry"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("AROEntry"), Description("Create AU ARO on NSANet Aro Entry"), Repeat(1)]
         public void AROEntry_AU()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.NSANetUrl_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("AU");

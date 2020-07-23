@@ -28,6 +28,8 @@ namespace AutomationTests.ConfigElements
             }
         }
 
+        public static object Webdriver { get; internal set; }
+
         private static IWebDriver GetWebDriver()
         {
             var webDriver = new ChromeDriver();
@@ -87,10 +89,29 @@ namespace AutomationTests.ConfigElements
             _webDriver = null;
         }
 
+        [Obsolete]
         public static void InitializeDriver()
         {
             Driver._webDriver = new ChromeDriver();
             Driver._webDriver.Manage().Window.Maximize();
+
+            /*string USERNAME = "diannkelley1";
+            string AUTOMATE_KEY = "Cegxz8p89wZFzY7N5VYW";
+
+            DesiredCapabilities caps = new DesiredCapabilities();
+
+            caps.SetCapability("os", "Windows");
+            caps.SetCapability("os_version", "10");
+            caps.SetCapability("browser", "Chrome");
+            caps.SetCapability("browser_version", "80");
+            caps.SetCapability("browserstack.user", USERNAME);
+            caps.SetCapability("browserstack.key", AUTOMATE_KEY);
+            caps.SetCapability("name", "diannkelley1's First Test");
+
+            Driver._webDriver = new RemoteWebDriver(
+              new Uri("https://hub-cloud.browserstack.com/wd/hub/"), caps
+            );
+            Driver._webDriver.Manage().Window.Maximize();*/
         }
 
         public static void InitializeDriver(ChromeOptions options)
@@ -99,101 +120,23 @@ namespace AutomationTests.ConfigElements
             Driver._webDriver.Manage().Window.Maximize();
         }
 
-        public static String getUrl(String application, String country)
+        public static String GetUrl(String application, String country)
         {
+            String testEnvironment = TestContext.Parameters["testEnvironment"]??"STG";
+            String urlLocator = "applicationNameUrl_countryCode_env".Replace("applicationName", application).Replace("countryCode", country).Replace("env", testEnvironment);
+            // Console.WriteLine("urlLocator: " +  urlLocator);
+            String url = Config.Config.urlDictionary[urlLocator];
 
+            return url;
+        }
+
+        public static String GetUrl(String application)
+        {
             String testEnvironment = TestContext.Parameters["testEnvironment"] ?? "STG";
-            String url = "";
-
-
-
-            if (application.Equals("JuicePlusStore"))
-            {
-                if (country.Equals("US"))
-                {
-                    if (testEnvironment.Equals("DEV"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_US_DEV;
-                    }
-                    else if (testEnvironment.Equals("STG"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_US_STG;
-                    }
-                    else if (testEnvironment.Equals("RC"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_US_RC;
-                    }
-                    else if (testEnvironment.Equals("PRD"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_US_PRD;
-                    }
-                }
-                else if (country.Equals("CA"))
-                {
-                    if (testEnvironment.Equals("DEV"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_CA_DEV;
-                    }
-                    else if (testEnvironment.Equals("STG"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_CA_STG;
-                    }
-                    else if (testEnvironment.Equals("RC"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_CA_RC;
-                    }
-                    else if (testEnvironment.Equals("PRD"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_CA_PRD;
-                    }
-                }
-                else if (country.Equals("AU"))
-                {
-                    if (testEnvironment.Equals("DEV"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_AU_DEV;
-                    }
-                    else if (testEnvironment.Equals("STG"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_AU_STG;
-                    }
-                    else if (testEnvironment.Equals("RC"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_AU_RC;
-                    }
-                    else if (testEnvironment.Equals("PRD"))
-                    {
-                        url = Config.Config.JuicePlusStoreUrl_AU_PRD;
-                    }
-                }
-            }
-            else if (application.Equals("TowerGardenStore"))
-            {
-                if (testEnvironment.Equals("DEV"))
-                {
-                    url = Config.Config.TowerGardenStoreUrl_US_DEV;
-                }
-                else if (testEnvironment.Equals("STG"))
-                {
-                    url = Config.Config.JuicePlusStoreUrl_US_STG;
-                }
-                else if (testEnvironment.Equals("RC"))
-                {
-                    url = Config.Config.JuicePlusStoreUrl_US_RC;
-                }
-                else if (testEnvironment.Equals("PRD"))
-                {
-                    url = Config.Config.JuicePlusStoreUrl_US_PRD;
-                }
-            }
-            else if (application.Equals("VirtualFranchise"))
-            {
-
-            }
-            else if (application.Equals("VirtualOffice"))
-            {
-
-            }
+            String country = "US";
+            String urlLocator = "applicationNameUrl_countryCode_env".Replace("applicationName", application).Replace("countryCode", country).Replace("env", testEnvironment);
+            // Console.WriteLine("urlLocator: " +  urlLocator);
+            String url = Config.Config.urlDictionary[urlLocator];
 
             return url;
         }

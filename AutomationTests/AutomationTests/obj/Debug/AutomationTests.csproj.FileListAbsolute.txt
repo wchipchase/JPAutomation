@@ -138,6 +138,7 @@ C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\nunit.framework.xml
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.xml
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.Support.xml
+C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csprojAssemblyReference.cache
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csproj.CoreCompileInputs.cache
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csproj.CopyComplete
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.exe

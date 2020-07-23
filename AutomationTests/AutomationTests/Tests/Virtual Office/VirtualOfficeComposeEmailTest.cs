@@ -27,10 +27,10 @@ namespace AutomationTests.nsaonline
             ComposeEmailPage = new ComposeEmailPage();
         }
 
-        [Test, Category("LegacyRegression"), Description("Test Compose Email on Virtual Office.")]
+        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Test Compose Email on Virtual Office.")]
         public void ComposeEmail_VO_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualOfficeUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice", "US"));
             LoginPage.Login("wddot", "wddot");
             MainPage.NavigateComposeEmail();
             ComposeEmailPage.ComposeEmail("test@testtesttest.com", "test");

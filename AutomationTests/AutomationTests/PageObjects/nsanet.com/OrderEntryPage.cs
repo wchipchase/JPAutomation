@@ -136,7 +136,6 @@ namespace AutomationTests.PageObjects.nsanet.com
             CreditCardNumberFieldField.SendKeys(creditCardNumber);
             new SelectElement(ExpirationMonthSelect).SelectByText(expirationMonth);
             new SelectElement(ExpirationYearSelect).SelectByText(expirationYear);
-            Thread.Sleep(999999);
             PaymentUpdateButton.Click();
             PaymentNextButton.Click();
         }

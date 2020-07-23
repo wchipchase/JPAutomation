@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run id="0" runstate="Runnable" testcasecount="58" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.11.1.0" clr-version="4.0.30319.42000" start-time="2020-07-20 21:58:37Z" end-time="2020-07-20 21:58:41Z" duration="3.891575">
-  <command-line><![CDATA["C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe" C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe --testparam=testEnvironment=Hello --where cat=='LegacyRegression123']]></command-line>
+<test-run id="0" runstate="Runnable" testcasecount="66" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="4" engine-version="3.11.1.0" clr-version="4.0.30319.42000" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.880660">
+  <command-line><![CDATA[.\nunit3-console.exe  "C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe" --testparam=testEnvironment=RC --where "cat=='VFEnrollment'"]]></command-line>
   <filter>
-    <cat>LegacyRegression123</cat>
+    <cat>VFEnrollment</cat>
   </filter>
-  <test-suite type="Assembly" id="0-1074" name="AutomationTests.exe" fullname="C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe" runstate="Runnable" testcasecount="58" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.481726" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+  <test-suite type="Assembly" id="0-1084" name="AutomationTests.exe" fullname="C:\Users\jcrocker\Source\Repos\JPAutomation\AutomationTests\AutomationTests\bin\Debug\AutomationTests.exe" runstate="Runnable" testcasecount="66" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.488151" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
     <environment framework-version="3.12.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17763.0" platform="Win32NT" cwd="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools" machine-name="MEM-IT-LT07" user="jcrocker" user-domain="NSANET" culture="en-US" uiculture="en-US" os-architecture="x86" />
     <settings>
       <setting name="DisposeRunners" value="True" />
       <setting name="WorkDirectory" value="C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools" />
-      <setting name="TestParametersDictionary" value="[testEnvironment, Hello]">
-        <item key="testEnvironment" value="Hello" />
+      <setting name="TestParametersDictionary" value="[testEnvironment, RC]">
+        <item key="testEnvironment" value="RC" />
       </setting>
-      <setting name="TestParameters" value="testEnvironment=Hello" />
+      <setting name="TestParameters" value="testEnvironment=RC" />
       <setting name="ImageRuntimeVersion" value="4.0.30319" />
       <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
       <setting name="ImageRequiresX86" value="True" />
@@ -22,27 +22,57 @@
       <setting name="NumberOfTestWorkers" value="12" />
     </settings>
     <properties>
-      <property name="_PID" value="83268" />
+      <property name="_PID" value="82568" />
       <property name="_APPDOMAIN" value="domain-" />
     </properties>
-    <test-suite type="TestSuite" id="0-1075" name="AutomationTests" fullname="AutomationTests" runstate="Runnable" testcasecount="58" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.471240" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="TestSuite" id="0-1085" name="AutomationTests" fullname="AutomationTests" runstate="Runnable" testcasecount="66" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.477717" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
       <properties />
-      <test-suite type="TestSuite" id="0-1079" name="juice" fullname="AutomationTests.juice" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.471021" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestSuite" id="0-1089" name="juice" fullname="AutomationTests.juice" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.477502" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
         <properties />
-        <test-suite type="TestSuite" id="0-1080" name="plus" fullname="AutomationTests.juice.plus" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.471012" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="TestSuite" id="0-1090" name="plus" fullname="AutomationTests.juice.plus" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.477495" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
           <properties />
-          <test-suite type="TestSuite" id="0-1081" name="virtualfranchise" fullname="AutomationTests.juice.plus.virtualfranchise" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.470985" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+          <test-suite type="TestSuite" id="0-1091" name="virtualfranchise" fullname="AutomationTests.juice.plus.virtualfranchise" runstate="Runnable" testcasecount="6" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.477479" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
             <properties />
-            <test-suite type="TestFixture" id="0-1045" name="TestHeaderNavigationItems" fullname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems" classname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems" runstate="Runnable" testcasecount="1" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.468900" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="0-1044" name="Enrollment" fullname="AutomationTests.juice.plus.virtualfranchise.Enrollment" classname="AutomationTests.juice.plus.virtualfranchise.Enrollment" runstate="Runnable" testcasecount="5" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:59:00Z" duration="104.475415" total="4" passed="4" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
               <properties />
-              <test-case id="0-1046" name="TestAllHeaderNavigation_VF_US" fullname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems.TestAllHeaderNavigation_VF_US" methodname="TestAllHeaderNavigation_VF_US" classname="AutomationTests.juice.plus.virtualfranchise.TestHeaderNavigationItems" runstate="Runnable" seed="1075626068" result="Passed" start-time="2020-07-20 21:58:38Z" end-time="2020-07-20 21:58:41Z" duration="3.463392" asserts="0">
+              <test-case id="0-1045" name="TestEnrollment_CorporateUrl_VF_US" fullname="AutomationTests.juice.plus.virtualfranchise.Enrollment.TestEnrollment_CorporateUrl_VF_US" methodname="TestEnrollment_CorporateUrl_VF_US" classname="AutomationTests.juice.plus.virtualfranchise.Enrollment" runstate="Runnable" seed="391071877" result="Passed" start-time="2020-07-23 19:57:16Z" end-time="2020-07-23 19:57:36Z" duration="19.563789" asserts="1">
                 <properties>
-                  <property name="Category" value="LegacyRegression123" />
-                  <property name="Description" value="Test Virtual Franchise Connectivity" />
+                  <property name="Category" value="LegacyRegression" />
+                  <property name="Category" value="VFEnrollment" />
+                  <property name="Description" value="Test US Virtual Franchise Enrollment using Corporate Url" />
                   <property name="Repeat" value="1" />
                 </properties>
-                <output><![CDATA[url : assUrl
-testEnvironment : Hello
+                <output><![CDATA[Email Address: jason.moore161832@juiceplus.com
+]]></output>
+              </test-case>
+              <test-case id="0-1048" name="TestEnrollment_PartnerUrl_VF_AU" fullname="AutomationTests.juice.plus.virtualfranchise.Enrollment.TestEnrollment_PartnerUrl_VF_AU" methodname="TestEnrollment_PartnerUrl_VF_AU" classname="AutomationTests.juice.plus.virtualfranchise.Enrollment" runstate="Runnable" seed="754848321" result="Passed" start-time="2020-07-23 19:57:36Z" end-time="2020-07-23 19:58:10Z" duration="34.836697" asserts="1">
+                <properties>
+                  <property name="Category" value="LegacyRegression" />
+                  <property name="Category" value="VFEnrollment" />
+                  <property name="Description" value="Test AU Virtual Franchise Enrollment using Partner Url" />
+                  <property name="Repeat" value="1" />
+                </properties>
+                <output><![CDATA[Email Address: jason.moore953094@juiceplus.com
+]]></output>
+              </test-case>
+              <test-case id="0-1047" name="TestEnrollment_PartnerUrl_VF_CA" fullname="AutomationTests.juice.plus.virtualfranchise.Enrollment.TestEnrollment_PartnerUrl_VF_CA" methodname="TestEnrollment_PartnerUrl_VF_CA" classname="AutomationTests.juice.plus.virtualfranchise.Enrollment" runstate="Runnable" seed="287114766" result="Passed" start-time="2020-07-23 19:58:10Z" end-time="2020-07-23 19:58:35Z" duration="24.994446" asserts="1">
+                <properties>
+                  <property name="Category" value="LegacyRegression" />
+                  <property name="Category" value="VFEnrollment" />
+                  <property name="Description" value="Test CAN Virtual Franchise Enrollment using Partner Url" />
+                  <property name="Repeat" value="1" />
+                </properties>
+                <output><![CDATA[Email Address: jason.moore367626@juiceplus.com
+]]></output>
+              </test-case>
+              <test-case id="0-1046" name="TestEnrollment_PartnerUrl_VF_US" fullname="AutomationTests.juice.plus.virtualfranchise.Enrollment.TestEnrollment_PartnerUrl_VF_US" methodname="TestEnrollment_PartnerUrl_VF_US" classname="AutomationTests.juice.plus.virtualfranchise.Enrollment" runstate="Runnable" seed="1955371626" result="Passed" start-time="2020-07-23 19:58:35Z" end-time="2020-07-23 19:59:00Z" duration="25.073931" asserts="1">
+                <properties>
+                  <property name="Category" value="LegacyRegression" />
+                  <property name="Category" value="VFEnrollment" />
+                  <property name="Description" value="Test US Virtual Franchise Enrollment using Partner Url" />
+                  <property name="Repeat" value="1" />
+                </properties>
+                <output><![CDATA[Email Address: jason.moore921470@juiceplus.com
 ]]></output>
               </test-case>
             </test-suite>

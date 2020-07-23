@@ -32,10 +32,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             EnrollmentPageAU = new EnrollmentPageAU();
         }
 
-        [Test, Category("LegacyRegression"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Repeat(1)]
         public void TestEnrollment_CorporateUrl_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_PRD);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchise", "US"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100000000, 999999999);
@@ -63,10 +63,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_US_PRD);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "US"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100000000, 999999999);
@@ -94,10 +94,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Test CAN Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test CAN Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_CAN_PRD);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "CA"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100, 999) + "-" + new Random().Next(100, 999) + "-" + new Random().Next(100, 999);
@@ -126,10 +126,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_AU()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseWithPartnerUrl_AU_PRD);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "AU"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100000000, 999999999);

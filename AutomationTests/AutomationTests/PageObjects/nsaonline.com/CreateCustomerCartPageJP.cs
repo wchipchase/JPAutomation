@@ -29,6 +29,9 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingPhoneNum")]
         public IWebElement PhoneNumberField { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingPhone2Num")]
+        public IWebElement MobileNumberField { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingEmail")]
         public IWebElement EmailAddressField { get; set; }
 
@@ -39,6 +42,23 @@ namespace AutomationTests.PageObjects.nsaonline.com
         public IWebElement ShareCartAndSaveAddressButton { get; set; }
 
         public void InputShippingInformation(String firstName, String lastName, String phoneNumber, String emailAddress)
+        {
+            FirstNameField.SendKeys(firstName);
+            LastNameField.SendKeys(lastName);
+            PhoneNumberField.SendKeys(phoneNumber);
+            EmailAddressField.SendKeys(emailAddress);
+        }
+
+        public void InputShippingInformation(String firstName, String lastName, String phoneNumber, String mobileNumber, String emailAddress)
+        {
+            FirstNameField.SendKeys(firstName);
+            LastNameField.SendKeys(lastName);
+            PhoneNumberField.SendKeys(phoneNumber);
+            MobileNumberField.SendKeys(mobileNumber);
+            EmailAddressField.SendKeys(emailAddress);
+        }
+
+        public void InputPaymentInformation(String firstName, String lastName, String phoneNumber, String emailAddress)
         {
             FirstNameField.SendKeys(firstName);
             LastNameField.SendKeys(lastName);

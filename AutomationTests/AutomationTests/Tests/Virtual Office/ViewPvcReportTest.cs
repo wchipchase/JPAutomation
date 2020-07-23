@@ -39,15 +39,15 @@ namespace AutomationTests.rc.nsaonline
             EditCartPage = new EditCartPage();
         }
 
-        [Test, Category("LegacyRegression"), Description("View Pvc Report in Virtual Office."), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("View Pvc Report in Virtual Office."), Repeat(1)]
         public void ViewPvcReport_VO_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualOfficeUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice", "US"));
             LoginPage.Login("wddot", "wddot");
             MainPage.NavigateManageMyTeam();
             MainPage.ViewPvcReport();
 
-            Driver.WebDriver.SwitchTo().Frame(2);
+            Driver.WebDriver.SwitchTo().Frame(1);
             Assert.IsTrue(MainPage.PvcReportEmbed.Displayed);
         }
 

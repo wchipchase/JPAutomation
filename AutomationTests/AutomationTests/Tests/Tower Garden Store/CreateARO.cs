@@ -40,7 +40,7 @@ namespace AutomationTests.towergarden.com
         [Test, Category("LegacyRegression"), Description("Create ARO on US Tower Garden Store"), Repeat(1)]
         public void CreateARO_TG_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.TowerGardenStoreUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("TowerGardenStore", "US"));
             MainPage.NavigateBuyPage();
             BuyPage.AddToCart("GT360");
             Header.NavigateCartPage();
@@ -58,7 +58,7 @@ namespace AutomationTests.towergarden.com
         [Test, Category("LegacyRegression"), Description("Create ARO on CA Tower Garden Store")]
         public void CreateARO_TG_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.TowerGardenStoreUrl_CA_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("TowerGardenStore", "CA"));
             Thread.Sleep(2000);
             MainPage.NavigateBuyPage();
             BuyPage.AddToCart("TG350CA");

@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Config\AddressInfo.cs" />
     <Compile Include="Config\CreditCardInfo.cs" />
+    <Compile Include="Config\Driver.cs" />
     <Compile Include="PageActions\ContactUsActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\MixedProductActions\MixedProductActions.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\IndividualCapsuleActions\CapsuleActions.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Config\Data.cs" />
-    <Compile Include="Config\Driver.cs" />
     <Compile Include="Config\ExcelOperations.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\OmegaActions\OmegaActions.cs" />
     <Compile Include="PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\UpliftActions\UpliftActions.cs" />
@@ -110,9 +110,11 @@
     <Compile Include="PageObjects\nsanet.com\AroEntryPage.cs" />
     <Compile Include="PageObjects\nsanet.com\LoginPage.cs" />
     <Compile Include="PageObjects\nsaonline.com\ComposeEmailPage.cs" />
+    <Compile Include="PageObjects\nsaonline.com\CheckoutPage.cs" />
     <Compile Include="PageObjects\nsaonline.com\EditCartPage.cs" />
+    <Compile Include="PageObjects\nsaonline.com\CustomerOrderConfirmationPage.cs" />
     <Compile Include="PageObjects\nsaonline.com\LoginPage.cs" />
-    <Compile Include="PageObjects\nsaonline.com\CreateCustomerCart.cs" />
+    <Compile Include="PageObjects\nsaonline.com\CreateCustomerCartPageJP.cs" />
     <Compile Include="PageObjects\nsaonline.com\ConfirmEmailPage.cs" />
     <Compile Include="PageObjects\nsaonline.com\ShareModal.cs" />
     <Compile Include="PageObjects\nsaonline.com\SubmitCustomerJPOrderPage.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Tests\NSA Net\OrderEntryTest.cs" />
     <Compile Include="Tests\NSA Net\AroMaintenanceTest.cs" />
     <Compile Include="Tests\NSA Net\AroEntryTest.cs" />
+    <Compile Include="Tests\Misc.cs" />
     <Compile Include="Tests\ReadFromExcel.cs" />
     <Compile Include="Tests\Scratch.cs" />
     <Compile Include="Tests\ProductCheckout.cs" />
@@ -160,11 +163,13 @@
     <Compile Include="Tests\Tower Garden Store\CreateARO.cs" />
     <Compile Include="Tests\Virtual Franchise\Enrollment.cs" />
     <Compile Include="Tests\Virtual Franchise\TestHeaderNavigationItems.cs" />
+    <Compile Include="Tests\Virtual Office\AROEntry_VO.cs" />
     <Compile Include="Tests\Virtual Office\ViewPvcReportTest.cs" />
     <Compile Include="Tests\Virtual Office\SharedCart_VO.cs" />
     <Compile Include="Tests\Virtual Office\VirtualOfficeComposeEmailTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".runsettings" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>

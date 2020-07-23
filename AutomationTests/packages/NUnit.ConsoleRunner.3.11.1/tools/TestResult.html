@@ -362,7 +362,7 @@
                                     }
                                 }
                             </style>
-                            <style>.feature-toggle { display: none; }</style>
+                            <!--%OPTIONALCSS%-->
                         </head>
                         <body>    
                             <div class='header'>
@@ -437,7 +437,7 @@
                                             <div class='input-field col l3 m4 s12 feature-toggle'>
                                                 <select>
                                                     <option value='0' selected>Choose your option</option>
-                                                    <!--%CATEGORYLIST%-->
+                                                    <option value='1'>LegacyRegression</option><option value='2'>AROEntry</option><!--%CATEGORYLIST%-->
                                                     <option value='x'>Clear Filters</option>
                                                 </select>
                                                 <label>Filter Features</label>
@@ -457,228 +457,13 @@
                                             <div class='col s4'>
                             <div class='card-panel'>
                                 <div class='fixture-head'>
-                                    <span class='fixture-name'>ProductCheckout</span>
-                                    <span class='fixture-result failed'>failed</span>
-                                </div>
-                                <div class='fixture-content'>
-                                    <div class='card fixture-status-message'>
-                                        <div class='card-content'>
-                                            One or more child tests had errors
-                                        </div>
-                                    </div>
-                                    <table class='bordered'>
-                                        <tr>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        <tr>
-                            <td class='test-name'>CheckoutBerryCapsulesMC</td>
-                            <td class='passed'>passed</td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutBerryCapsulesVisa</td>
-                            <td class='passed'>passed</td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutBerryChewablesMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutBerryChewablesMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 156--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutBerryChewablesVisa</td>
-                            <td class='passed'>passed</td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteBoosterMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutCompleteBoosterMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 205--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteBoosterVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutCompleteBoosterVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 112--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteCombiBoxMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutCompleteCombiBoxMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 198--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteCombiBoxVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutCompleteCombiBoxVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 105--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteJuiceBarsMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutCompleteJuiceBarsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 184--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteJuiceBarsVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutCompleteJuiceBarsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 91--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteShakesMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutCompleteShakesMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 177--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteShakesVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutCompleteShakesVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 84--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteVegetableSoupMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutCompleteVegetableSoupMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 191--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutCompleteVegetableSoupVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutCompleteVegetableSoupVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 98--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutFruitsAndVegetableChewablesMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutFruitsAndVegetableChewablesMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 149--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutFruitsAndVegetableChewablesVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.NoSuchElementException : Could not find element by: By.Id: input-number  1)   Expected: True
-  But was:  False ->    at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   at OpenQA.Selenium.IWebElement.GetAttribute(String attributeName)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.OurProductsMenuItemsActions.ChewablesActions.ChewableActions.AddFruitsAndVegetablesChewablesToCart() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\OurProductsMenuItemsActions\ChewablesActions\ChewableActions.cs:line 166   at AutomationTests.ProductCheckout.CheckoutFruitsAndVegetableChewablesVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 55</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutFruitsAndVegetablesCapsulesMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutFruitsAndVegetablesCapsulesMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 128--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutFruitsAndVegetablesCapsulesVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutFruitsAndVegetablesCapsulesVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 35--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutMixedProductUplifSinglePayRecurringOrderCapsulesSingleOrderInstallmentsMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutMixedProductUplifSinglePayRecurringOrderCapsulesSingleOrderInstallmentsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 220--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutMixedProductUplifSinglePayRecurringOrderCapsulesSingleOrderInstallmentsVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutMixedProductUplifSinglePayRecurringOrderCapsulesSingleOrderInstallmentsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 212--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutOmegaBlendMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutOmegaBlendMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 163--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutOmegaBlendVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutOmegaBlendVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 70--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutPremiumCapsulesMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutPremiumCapsulesMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 119--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutPremiumCapsulesVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutPremiumCapsulesVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 26--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutPremiumChewablesMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutPremiumChewablesMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 142--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutPremiumChewablesVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutPremiumChewablesVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 49--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutUpliftMC</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 165   at AutomationTests.ProductCheckout.CheckoutUpliftMC() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 170--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>CheckoutUpliftVisa</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverTimeoutException : Timed out after 30 seconds
-  ----> OpenQA.Selenium.NoSuchElementException : no such element: Unable to locate element: {"method":"css selector","selector":".m-checkout-confirmation__title"}
-  (Session info: chrome=81.0.4044.138) ->    at OpenQA.Selenium.Support.UI.DefaultWait`1.ThrowTimeoutException(String exceptionMessage, Exception lastException)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutActions.CartActions.CheckoutWithCartItemsVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\CartCheckoutActions\CartActions.cs:line 100   at AutomationTests.ProductCheckout.CheckoutUpliftVisa() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\ProductCheckout.cs:line 77--NoSuchElementException   at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)   at OpenQA.Selenium.By.<>c__DisplayClass23_0.<CssSelector>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.UI.ExpectedConditions.<>c__DisplayClass7_0.<ElementIsVisible>b__0(IWebDriver driver)   at OpenQA.Selenium.Support.UI.DefaultWait`1.Until[TResult](Func`2 condition)</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        
-                                    </table>
-                                </div>
-                                <div  class='fixture-footer'>
-                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:08:02</span>
-                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:37:56</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='col s4'>
-                            <div class='card-panel'>
-                                <div class='fixture-head'>
-                                    <span class='fixture-name'>TestFooterNavigationItems</span>
+                                    <span class='fixture-name'>Enrollment</span>
                                     <span class='fixture-result passed'>passed</span>
                                 </div>
                                 <div class='fixture-content'>
                                     <div class='card fixture-status-message'>
                                         <div class='card-content'>
-                                            One or more child tests had errors
+                                            <!--%FIXTURESTATUSMSG%-->
                                         </div>
                                     </div>
                                     <table class='bordered'>
@@ -687,16 +472,31 @@
                                             <th>Status</th>
                                         </tr>
                                         <tr>
-                            <td class='test-name'>TestAllFooterNavigation</td>
-                            <td class='passed'>passed</td>
-                            <td class='test-features '></td>
+                            <td class='test-name'>TestEnrollment_CorporateUrl_VF_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Test US Virtual Franchise Enrollment using Corporate Url</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>TestEnrollment_PartnerUrl_VF_AU</td>
+                            <td class='passed'>passed<p class='description'>Description: Test AU Virtual Franchise Enrollment using Partner Url</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>TestEnrollment_PartnerUrl_VF_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Test CAN Virtual Franchise Enrollment using Partner Url</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>TestEnrollment_PartnerUrl_VF_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Test US Virtual Franchise Enrollment using Partner Url</p></td>
+                            <td class='test-features LegacyRegression '></td>
                         </tr>
                         
                                     </table>
                                 </div>
                                 <div  class='fixture-footer'>
-                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:37:56</span>
-                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:38:19</span>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:17:07</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:18:57</span>
                                 </div>
                             </div>
                         </div>
@@ -709,7 +509,7 @@
                                 <div class='fixture-content'>
                                     <div class='card fixture-status-message'>
                                         <div class='card-content'>
-                                            One or more child tests had errors
+                                            <!--%FIXTURESTATUSMSG%-->
                                         </div>
                                     </div>
                                     <table class='bordered'>
@@ -718,74 +518,29 @@
                                             <th>Status</th>
                                         </tr>
                                         <tr>
-                            <td class='test-name'>TestAllHeaderNavigation</td>
-                            <td class='passed'>passed</td>
-                            <td class='test-features '></td>
+                            <td class='test-name'>TestAllHeaderNavigation_VF_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Test Virtual Franchise Connectivity</p></td>
+                            <td class='test-features LegacyRegression '></td>
                         </tr>
                         
                                     </table>
                                 </div>
                                 <div  class='fixture-footer'>
-                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:38:19</span>
-                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:38:45</span>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:18:57</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:19:19</span>
                                 </div>
                             </div>
                         </div>
                         <div class='col s4'>
                             <div class='card-panel'>
                                 <div class='fixture-head'>
-                                    <span class='fixture-name'>EntryPoint</span>
-                                    <span class='fixture-result failed'>failed</span>
-                                </div>
-                                <div class='fixture-content'>
-                                    <div class='card fixture-status-message'>
-                                        <div class='card-content'>
-                                            One or more child tests had errors
-                                        </div>
-                                    </div>
-                                    <table class='bordered'>
-                                        <tr>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        <tr>
-                            <td class='test-name'>AddNewMessage</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.NoSuchElementException : Could not find element by: By.Name: firstName ->    at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   at OpenQA.Selenium.IWebElement.SendKeys(String text)   at AutomationTests.PageActions.ContactUsActions.AddNewValidMessage(String firstName, String lastName, String email, String phone, String address1, String address2, String city, String state, String zipcode, String message) in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\ContactUsActions.cs:line 20   at AutomationTests.Tests.EntryPoint.AddNewMessage() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\EntryPoint.cs:line 39</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        <tr>
-                            <td class='test-name'>TestMessageErrorResponse</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverException : Unexpected error. System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:50936
-   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
-   at System.Net.HttpWebRequest.GetRequestStream()
-   at OpenQA.Selenium.Remote.HttpCommandExecutor.MakeHttpRequest(HttpRequestInfo requestInfo)
-   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
-   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
-   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters) ->    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByName(String name)   at OpenQA.Selenium.By.<>c__DisplayClass18_0.<Name>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   at OpenQA.Selenium.IWebElement.SendKeys(String text)   at AutomationTests.PageActions.ContactUsActions.AddNewInvalidMessage(String firstName) in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\ContactUsActions.cs:line 39   at AutomationTests.Tests.EntryPoint.TestMessageErrorResponse() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\EntryPoint.cs:line 45</pre></td>
-                            <td class='test-features '></td>
-                        </tr>
-                        
-                                    </table>
-                                </div>
-                                <div  class='fixture-footer'>
-                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:38:45</span>
-                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:39:12</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='col s4'>
-                            <div class='card-panel'>
-                                <div class='fixture-head'>
-                                    <span class='fixture-name'>ReadFromExcel</span>
+                                    <span class='fixture-name'>CreateAroTest</span>
                                     <span class='fixture-result passed'>passed</span>
                                 </div>
                                 <div class='fixture-content'>
                                     <div class='card fixture-status-message'>
                                         <div class='card-content'>
-                                            One or more child tests had errors
+                                            <!--%FIXTURESTATUSMSG%-->
                                         </div>
                                     </div>
                                     <table class='bordered'>
@@ -794,29 +549,39 @@
                                             <th>Status</th>
                                         </tr>
                                         <tr>
-                            <td class='test-name'>ReadingDataFromExcelTestMethod</td>
-                            <td class='passed'>passed</td>
-                            <td class='test-features '></td>
+                            <td class='test-name'>CreateARO_JP_AU</td>
+                            <td class='passed'>passed<p class='description'>Description: Create ARO on AU Juice Plus Store</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>CreateARO_JP_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Create ARO on CA Juice Plus Store</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>CreateARO_JP_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Create ARO on US Juice Plus Store</p></td>
+                            <td class='test-features LegacyRegression '></td>
                         </tr>
                         
                                     </table>
                                 </div>
                                 <div  class='fixture-footer'>
-                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:39:12</span>
-                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:39:12</span>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:19:19</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:20:49</span>
                                 </div>
                             </div>
                         </div>
                         <div class='col s4'>
                             <div class='card-panel'>
                                 <div class='fixture-head'>
-                                    <span class='fixture-name'>Scratch</span>
-                                    <span class='fixture-result failed'>failed</span>
+                                    <span class='fixture-name'>AroEntryTest</span>
+                                    <span class='fixture-result passed'>passed</span>
                                 </div>
                                 <div class='fixture-content'>
                                     <div class='card fixture-status-message'>
                                         <div class='card-content'>
-                                            One or more child tests had errors
+                                            <!--%FIXTURESTATUSMSG%-->
                                         </div>
                                     </div>
                                     <table class='bordered'>
@@ -825,25 +590,283 @@
                                             <th>Status</th>
                                         </tr>
                                         <tr>
-                            <td class='test-name'>CheckoutPremiumChewablesLoggedInRep</td>
-                            <td class='failed'>failed<pre>OpenQA.Selenium.WebDriverException : Unexpected error. System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:50936
-   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
-   --- End of inner exception stack trace ---
-   at System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
-   at System.Net.HttpWebRequest.GetRequestStream()
-   at OpenQA.Selenium.Remote.HttpCommandExecutor.MakeHttpRequest(HttpRequestInfo requestInfo)
-   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
-   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
-   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters) ->    at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)   at OpenQA.Selenium.By.<>c__DisplayClass19_0.<XPath>b__0(ISearchContext context)   at OpenQA.Selenium.By.FindElement(ISearchContext context)   at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)   at OpenQA.Selenium.Support.PageObjects.DefaultElementLocator.LocateElement(IEnumerable`1 bys)   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.get_Element()   at OpenQA.Selenium.Support.PageObjects.WebElementProxy.Invoke(IMessage msg)   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   at OpenQA.Selenium.IWebElement.Click()   at AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductActions.MixedProductActions.AddUpliftInstallmentPayCapsulePayInFullRecurringToCart() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\PageActions\staging.juiceplus.com.ie.en\MixedProductActions\MixedProductActions.cs:line 43   at AutomationTests.Tests.Scratch.CheckoutPremiumChewablesLoggedInRep() in C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\AutomationTests\Tests\Scratch.cs:line 35</pre></td>
-                            <td class='test-features '></td>
+                            <td class='test-name'>AROEntry_AU</td>
+                            <td class='passed'>passed<p class='description'>Description: Create AU ARO on NSANet Aro Entry</p></td>
+                            <td class='test-features LegacyRegression AROEntry '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>AROEntry_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Create CAN ARO on NSANet Aro Entry</p></td>
+                            <td class='test-features LegacyRegression AROEntry '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>AROEntry_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Create US ARO on NSANet Aro Entry</p></td>
+                            <td class='test-features LegacyRegression AROEntry '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:20:49</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:21:49</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>AroMaintenanceTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>AROMaintenance_AU</td>
+                            <td class='passed'>passed<p class='description'>Description: Create and Edit AU ARO on NSA Net Aro Maintenance</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>AROMaintenance_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Create and Edit CA ARO on NSA Net Aro Maintenance</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>AROMaintenance_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Create and Edit US ARO on NSA Net Aro Maintenance</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:21:49</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:23:33</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>OrderEntryTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>OrderEntry_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Create CA Order on NSA Net Order Entry</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>OrderEntry_UK</td>
+                            <td class='passed'>passed<p class='description'>Description: Create UK Order on NSA Net Order Entry</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>OrderEntry_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Create US Order on NSA Net Order Entry</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:23:33</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:25:03</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>ComposeEmailTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>ComposeEmail_VO_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Test Compose Email on Virtual Office.</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:25:03</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:25:28</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>AROEntryVOTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>AROEntry_VO_AU</td>
+                            <td class='passed'>passed<p class='description'>Description: Create AU ARO on VO.</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>AROEntry_VO_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Create CA ARO on VO.</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>AROEntry_VO_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Create US ARO on VO.</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:25:28</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:26:49</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>SharedCartVOTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>SharedCart_VO_UK</td>
+                            <td class='passed'>passed<p class='description'>Description: Shared Cart UK</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>SharedCart_VO_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Shared Cart US.</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:26:49</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:28:17</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>ViewPvcReportTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>ViewPvcReport_VO_US</td>
+                            <td class='passed'>passed<p class='description'>Description: View Pvc Report in Virtual Office.</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        
+                                    </table>
+                                </div>
+                                <div  class='fixture-footer'>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:28:17</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:28:31</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col s4'>
+                            <div class='card-panel'>
+                                <div class='fixture-head'>
+                                    <span class='fixture-name'>CreateAROTest</span>
+                                    <span class='fixture-result passed'>passed</span>
+                                </div>
+                                <div class='fixture-content'>
+                                    <div class='card fixture-status-message'>
+                                        <div class='card-content'>
+                                            <!--%FIXTURESTATUSMSG%-->
+                                        </div>
+                                    </div>
+                                    <table class='bordered'>
+                                        <tr>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        <tr>
+                            <td class='test-name'>CreateARO_TG_CA</td>
+                            <td class='passed'>passed<p class='description'>Description: Create ARO on CA Tower Garden Store</p></td>
+                            <td class='test-features LegacyRegression '></td>
+                        </tr>
+                        <tr>
+                            <td class='test-name'>CreateARO_TG_US</td>
+                            <td class='passed'>passed<p class='description'>Description: Create ARO on US Tower Garden Store</p></td>
+                            <td class='test-features LegacyRegression '></td>
                         </tr>
                         <!--%INSERTTEST%-->
                                     </table>
                                 </div>
                                 <div  class='fixture-footer'>
-                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:39:12</span>
-                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-06-01 14:39:24</span>
+                                    <span  alt='Fixture started at time' title='Fixture started at time' class='startedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:28:31</span>
+                                    <span  alt='Fixture ended at time' title='Fixture ended at time' class='endedAt'><i class='mdi-device-access-time'></i>2020-07-22 19:29:15</span>
                                 </div>
                             </div>
                         </div>
@@ -858,21 +881,21 @@
                                     <table class='bordered'>
                                         <tr><th>Param</th><th>Value</th></tr>
                                         <tr>
-                            <td>TestResult File</td><td>C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\TestResult.xml</td>
+                            <td>TestResult File</td><td>C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\TestResult.xml</td>
                         </tr><tr>
-                            <td>Last Run</td><td>1 Jun 2020 09:39</td>
+                            <td>Last Run</td><td>22 Jul 2020 14:29</td>
                         </tr><tr>
-                            <td>Duration</td><td>1881.995716 ms</td>
+                            <td>Duration</td><td>727.509314 ms</td>
                         </tr><tr>
-                            <td>User</td><td>wchipchase</td>
+                            <td>User</td><td>jcrocker</td>
                         </tr><tr>
                             <td>User Domain</td><td>NSANET</td>
                         </tr><tr>
-                            <td>Machine Name</td><td>LT-IS-WCHIPCHAS</td>
+                            <td>Machine Name</td><td>MEM-IT-LT07</td>
                         </tr><tr>
                             <td>Platform</td><td>Win32NT</td>
                         </tr><tr>
-                            <td>Os Version</td><td>Microsoft Windows NT 10.0.18363.0</td>
+                            <td>Os Version</td><td>Microsoft Windows NT 10.0.17763.0</td>
                         </tr><tr>
                             <td>Clr Version</td><td>4.0.30319.42000</td>
                         </tr><tr>
@@ -883,9 +906,9 @@
                                 <div class='modal-footer'>
                                     <a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat'>Close</a>
                                 </div>
-                                <div class='hidden total-tests'>34</div>
-                                <div class='hidden total-passed'>6</div>
-                                <div class='hidden total-failed'>28</div>
+                                <div class='hidden total-tests'>26</div>
+                                <div class='hidden total-passed'>26</div>
+                                <div class='hidden total-failed'>0</div>
                                 <div class='hidden total-inconclusive'>0</div>
                                 <div class='hidden total-errors'>0</div>
                                 <div class='hidden total-skipped'>0</div>
@@ -893,7 +916,7 @@
                             <div id='modal2' class='modal'>
                                 <div class='modal-content'>
                                     <h4>Console Log</h4>
-                                    [2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\Index.html. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\Mono.Cecil.dll. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent-x86.exe. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent-x86.exe.config. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent.exe. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent.exe.config. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.console.nuget.addins. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.api.dll. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.api.xml. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.core.dll. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.dll. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe.config. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] Skipping C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\TestResult.html. It is not of a known test runner type.<br />[2020.06.01 09:39:42][Info] The file C:\Users\wchipchase\Source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\TestResult.xml contains NUnit test results<br />[2020.06.01 09:39:42][Info] Number of tests: 34<br />[2020.06.01 09:39:42][Info] Processing root and test-suite elements...<br />[2020.06.01 09:39:42][Info] Building fixture blocks...<br />
+                                    [2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\Index.html. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\Mono.Cecil.dll. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent-x86.exe. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent-x86.exe.config. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent.exe. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit-agent.exe.config. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.console.nuget.addins. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.api.dll. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.api.xml. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.core.dll. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit.engine.dll. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe.config. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] Skipping C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\TestResult.html. It is not of a known test runner type.<br />[2020.07.22 14:32:57][Info] The file C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\packages\NUnit.ConsoleRunner.3.11.1\tools\TestResult.xml contains NUnit test results<br />[2020.07.22 14:32:57][Info] Number of tests: 26<br />[2020.07.22 14:32:57][Info] Processing root and test-suite elements...<br />[2020.07.22 14:32:57][Info] Building fixture blocks...<br />
                                 </div>
                                 <div class='modal-footer'>
                                     <a href='#!' class='modal-action modal-close waves-effect waves-green btn-flat'>Close</a>

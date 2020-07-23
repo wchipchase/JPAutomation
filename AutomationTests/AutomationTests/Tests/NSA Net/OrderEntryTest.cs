@@ -33,7 +33,7 @@ namespace AutomationTests.nsanet.com
         [Test, Category("LegacyRegression"), Description("Create US Order on NSA Net Order Entry"), Repeat(1)]
         public void OrderEntry_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.NSANetUrl_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToOrderEntry();
             OrderEntryPage.InitiateNewOrder("USA", "USM0025620");
@@ -56,7 +56,7 @@ namespace AutomationTests.nsanet.com
         [Test, Category("LegacyRegression"), Description("Create CA Order on NSA Net Order Entry"), Repeat(1)]
         public void OrderEntry_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.NSANetUrl_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToOrderEntry();
             OrderEntryPage.InitiateNewOrder("CAN", "USM0025620");
@@ -79,7 +79,7 @@ namespace AutomationTests.nsanet.com
         [Test, Category("LegacyRegression"), Description("Create UK Order on NSA Net Order Entry"), Repeat(1)]
         public void OrderEntry_UK()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.NSANetUrl_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToOrderEntry();
             OrderEntryPage.InitiateNewOrder("UK", "USM0025620");

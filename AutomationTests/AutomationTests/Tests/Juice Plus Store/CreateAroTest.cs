@@ -34,7 +34,7 @@ namespace AutomationTests.juiceplus.com
         [Test, Category("LegacyRegression"), Description("Create ARO on US Juice Plus Store"), Repeat(1)]
         public void CreateARO_JP_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.JuicePlusStoreUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("JuicePlusStore", "US"));
             Header.NavigateBuyPage();
             BuyPage.ViewProduct("FruitVegetableBerryBlendCapsules");
             BuyPage.SelectPaymentType("FullPayment");
@@ -52,7 +52,7 @@ namespace AutomationTests.juiceplus.com
         [Test, Category("LegacyRegression"), Description("Create ARO on CA Juice Plus Store"), Repeat(1)]
         public void CreateARO_JP_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.JuicePlusStoreUrl_CA_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("JuicePlusStore", "CA"));
             Header.NavigateBuyPage();
             BuyPage.ViewProduct("FruitVegetableBerryBlendCapsules");
             BuyPage.SelectPaymentType("FullPayment");
@@ -70,7 +70,7 @@ namespace AutomationTests.juiceplus.com
         [Test, Category("LegacyRegression"), Description("Create ARO on AU Juice Plus Store"), Repeat(1)]
         public void CreateARO_JP_AU()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.JuicePlusStoreUrl_AU_STG);
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("JuicePlusStore", "AU"));
             Header.NavigateBuyPage();
             BuyPage.ViewProduct("PremiumPackCapsules");
             BuyPage.SelectPaymentType("FullPayment");

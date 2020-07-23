@@ -72,5 +72,67 @@ namespace AutomationTests.Config
         public static string NSANetUrl_STG = "https://stage.nsanet.com";
         public static string NSANetUrl_RC = "https://rc.nsanet.com";
         public static string NSANetUrl_PRD = "https://nsanet.com";
+
+        public static Dictionary<string, string> urlDictionary = new Dictionary<string, string>() {
+
+            // Juice Plus Store urls
+            {"JuicePlusStoreUrl_US_DEV", "https://nsadevcq.juiceplus.com/us/en"},
+            {"JuicePlusStoreUrl_US_STG", "https://us.stagecq.juiceplus.com/us/en"},
+            {"JuicePlusStoreUrl_US_RC", "https://rccq.juiceplus.com/us/en"},
+            {"JuicePlusStoreUrl_US_PRD", "https://www.juiceplus.com/us/en"},
+
+            {"JuicePlusStoreUrl_CA_DEV", "https://canada.nsadevcq.juiceplus.com"},
+            {"JuicePlusStoreUrl_CA_STG", "https://canada.stagecq.juiceplus.com"},
+            {"JuicePlusStoreUrl_CA_RC", "https://canada.rccq.juiceplus.com"},
+            {"JuicePlusStoreUrl_CA_PRD", "https://canada.juiceplus.com"},
+
+            {"JuicePlusStoreUrl_AU_DEV", "https://au.nsadevcq.juiceplus.com"},
+            {"JuicePlusStoreUrl_AU_STG", "https://au.stagecq.juiceplus.com"},
+            {"JuicePlusStoreUrl_AU_RC", "https://au.rccq.juiceplus.com"},
+            {"JuicePlusStoreUrl_AU_PRD", "https://www.juiceplus.com.au"},
+
+            // Tower Garden Store urls
+            {"TowerGardenStoreUrl_US_DEV", "https://us.nsadevcq.towergarden.com"},
+            {"TowerGardenStoreUrl_US_STG", "https://us.stagecq.towergarden.com"},
+            {"TowerGardenStoreUrl_US_RC", "https://us.rccq.towergarden.com"},
+            {"TowerGardenStoreUrl_US_PRD", "https://www.towergarden.com"},
+
+            {"TowerGardenStoreUrl_CA_DEV", "https://can.nsadevcq.towergarden.ca"},
+            {"TowerGardenStoreUrl_CA_STG", "https://can.stagecq.towergarden.ca"},
+            {"TowerGardenStoreUrl_CA_RC", "https://can.rccq.towergarden.ca"},
+            {"TowerGardenStoreUrl_CA_PRD", "https://www.towergarden.ca"},
+
+            // Virtual Office urls
+            {"VirtualOfficeUrl_US_DEV", "https://nsaonline.dev.nsanet.com/esuite/control/main"},
+            {"VirtualOfficeUrl_US_STG", "https://us.stage.nsaonline.com/esuite/control/main"},
+            {"VirtualOfficeUrl_US_RC", "https://rc.nsaonline.com/esuite/control/main"},
+            {"VirtualOfficeUrl_US_PRD", "https://www.juiceplusvirtualoffice.com/esuite/control/mainView"},
+
+            // Virtual Franchise urls
+            {"VirtualFranchiseUrl_US_DEV", "http://us.devcq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchiseUrl_US_STG", "https://us.stagecq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchiseUrl_US_RC", "http://us.rccq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchiseUrl_US_PRD", "http://www.juiceplusvirtualfranchise.com"},
+
+            {"VirtualFranchisePartnerUrl_US_DEV", "http://toddwhite.us.devcq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_US_STG", "https://toddwhite.us.stagecq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_US_RC", "https://toddwhite.us.rccq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_US_PRD", "https://toddwhite.juiceplusvirtualfranchise.com"},
+
+            {"VirtualFranchisePartnerUrl_CA_DEV", "http://toddwhite.can.devcq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_CA_STG", "https://toddwhite.can.stagecq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_CA_RC", "https://toddwhite.can.rccq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_CA_PRD", "https://toddwhite.juiceplusvirtualfranchise.ca"},
+
+            {"VirtualFranchisePartnerUrl_AU_DEV", "http://toddwhite.au.devcq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_AU_STG", "https://toddwhite.au.stagecq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_AU_RC", "https://toddwhite.au.rccq.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_AU_PRD", "https://toddwhite.juiceplusvirtualfranchise.com.au"},
+
+            // NSANet urls
+            {"NSANetUrl_US_DEV", "https://dev.nsanet.com"},
+            {"NSANetUrl_US_STG", "https://stage.nsanet.com"},
+            {"NSANetUrl_US_RC", "https://rc.nsanet.com"},
+            {"NSANetUrl_US_PRD", "https://nsanet.com"}};
     }
 }

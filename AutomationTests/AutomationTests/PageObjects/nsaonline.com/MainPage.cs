@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace AutomationTests.PageObjects.nsaonline.com
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(text(),'Country Language')]")]
+        public IWebElement CountryLanguageIcon { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "selChangeCountry")]
+        public IWebElement ChangeCountrySelect { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[contains(text(),'Remind me later!')]")]
         public IWebElement RemindMeLaterLink { get; set; }
 
@@ -31,7 +38,7 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a[href='/esuite/control/emailCompose?Mode=new']")]
         public IWebElement ComposeEmailLink { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "submitJPOrder")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a[href='/esuite/control/paymentTypeAndProducts']")]
         public IWebElement SubmitOrderJuicePlus { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".myTeamDataContainer")]
@@ -45,6 +52,13 @@ namespace AutomationTests.PageObjects.nsaonline.com
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.TagName, Using = "embed")]
         public IWebElement PvcReportEmbed { get; set; }
+
+        public void ChangeCountry(String countryName)
+        {
+            CountryLanguageIcon.Click();
+            new SelectElement(ChangeCountrySelect).SelectByText(countryName);
+            Thread.Sleep(1000);
+        }
 
         public void NavigateComposeEmail()
         {

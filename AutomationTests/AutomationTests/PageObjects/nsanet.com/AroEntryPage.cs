@@ -1,4 +1,5 @@
 ﻿using AutomationTests.ConfigElements;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
@@ -17,6 +18,9 @@ namespace AutomationTests.PageObjects.nsanet.com
         {
             PageFactory.InitElements(Driver.WebDriver, this);
         }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(text(), 'Up to Web Portal')]")]
+        public IWebElement UpToWebPortalLink { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "select[name='country']")]
         public IWebElement CountrySelect { get; set; }
@@ -95,6 +99,11 @@ namespace AutomationTests.PageObjects.nsanet.com
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "input[value = 'Finished']")]
         public IWebElement FinishedButton { get; set; }
+
+        public void NavigateToWebPortal()
+        {
+            UpToWebPortalLink.Click();
+        }
 
         public void InitiateNewAro(String countryPrefix)
         {

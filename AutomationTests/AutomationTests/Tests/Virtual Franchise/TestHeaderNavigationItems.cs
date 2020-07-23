@@ -25,12 +25,6 @@ namespace AutomationTests.juice.plus.virtualfranchise
         [Test, Category("LegacyRegression"), Description("Test Virtual Franchise Connectivity"), Repeat(1)]
         public void TestAllHeaderNavigation_VF_US()
         {
-            /*String url = TestContext.Parameters["url"] ?? "assUrl";
-            String testEnvironment = TestContext.Parameters["testEnvironment"] ?? "assTestEnvironment";
-
-            Console.WriteLine("url : " + url);
-            Console.WriteLine("testEnvironment : " + testEnvironment);*/
-
             Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_STG);
 
             Header.NavigateJuicePlusProductClick();
