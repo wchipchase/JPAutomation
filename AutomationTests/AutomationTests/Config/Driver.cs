@@ -92,7 +92,7 @@ namespace AutomationTests.ConfigElements
         [Obsolete]
         public static void InitializeDriver()
         {
-            Driver._webDriver = new ChromeDriver();
+            Driver._webDriver = new FirefoxDriver();
             Driver._webDriver.Manage().Window.Maximize();
 
             /*string USERNAME = "diannkelley1";
