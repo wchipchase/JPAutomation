@@ -3,6 +3,7 @@ using AutomationTests.PageObjects.juiceplusvirtualfranchise.com;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -20,6 +21,7 @@ namespace AutomationTests.juice.plus.virtualfranchise
         [SetUp]
         public void Setup()
         {
+            
             ChromeOptions options = new ChromeOptions();
             options.SetLoggingPreference(LogType.Browser, LogLevel.Warning);
             options.AddArguments("--ignore-certificate-errors");
@@ -63,7 +65,7 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Category("TestEnrollment_PartnerUrl_VF_US"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "US"));
@@ -126,7 +128,7 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Category("TestEnrollment_PartnerUrl_VF_AU"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "AU"));
