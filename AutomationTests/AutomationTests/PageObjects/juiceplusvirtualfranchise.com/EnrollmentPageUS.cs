@@ -172,7 +172,9 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
 
         public Boolean IsElementDisplayed(IWebElement webElement)
         {
-            double initialImplicitWaitTime = Driver.WebDriver.Manage().Timeouts().ImplicitWait.TotalSeconds;
+            // Temp Fix.
+            double initialImplicitWaitTime = 5;
+            // double initialImplicitWaitTime = Driver.WebDriver.Manage().Timeouts().ImplicitWait.TotalSeconds;
             try
             {
                 Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
