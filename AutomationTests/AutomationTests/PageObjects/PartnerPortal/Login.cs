@@ -52,5 +52,8 @@ namespace AutomationTests.PageObjects.PartnerPortal
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Shop']")]
         public IWebElement ShopNavTab { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "[alt='/content/ie/juiceplus/en/portal/dashboard']")]
+        public IWebElement JuicePlusSiteLink { get; set; }
     }
 }

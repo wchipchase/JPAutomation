@@ -403,6 +403,23 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.NavigationsAct
 
         }
 
+        public static void NavigateCountryClick()
+        {
+            try
+            {
+                NavigationFooterPageObjects nav = new NavigationFooterPageObjects();
+                IJavaScriptExecutor js = ((IJavaScriptExecutor)Driver.WebDriver);
+                js.ExecuteScript("arguments[0].click();", nav.IrelandFooter);
+                js.ExecuteScript("arguments[0].click();", nav.CountrySelectionUnitedKingdom);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
+
         public static void NavigateInstagramClick()
         {
             try

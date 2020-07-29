@@ -163,8 +163,8 @@ C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTes
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\bin\Debug\nunit.framework.xml
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.xml
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\bin\Debug\WebDriver.Support.xml
+C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csprojAssemblyReference.cache
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csproj.CoreCompileInputs.cache
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csproj.CopyComplete
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.exe
 C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.pdb
-C:\Users\wchipchase\Source\repos\JPA2\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csprojAssemblyReference.cache

@@ -76,5 +76,8 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CartPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "[for='secondOptionRECURRING_EVERY_4_MONTHS']")]
         public IWebElement PayPerMonth{ get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='app']/div/header/div[3]/div/div/div[2]/div[3]/div[2]/div/span/a/div/span")]
+        public IWebElement ShoppingCartIcon { get; set; }
     }
 }

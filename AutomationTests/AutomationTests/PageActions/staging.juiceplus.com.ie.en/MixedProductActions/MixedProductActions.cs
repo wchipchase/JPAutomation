@@ -40,6 +40,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductAc
                 }
 
                 LandingPageObjects lan = new LandingPageObjects();
+                Thread.Sleep(1000);
                 lan.CookieAlertAcceptButton.Click();
                 Task.Delay(500).Wait(1500);
                 upo.ScrollViewport();

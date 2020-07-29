@@ -63,5 +63,13 @@ namespace AutomationTests.PageObjects.PartnerPortal
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Details')]")]
         public IWebElement DetailsTab { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//tbody[1]/tr[1]//span[@class='h-icon h-icon--chevron-right']")]
+        public IWebElement FirstCustomer { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Orders')]")]
+        public IWebElement OrdersTab { get; set; }
+
+        
     }
 }

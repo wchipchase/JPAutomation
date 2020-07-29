@@ -34,7 +34,7 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.Navigation
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[.='Giving Back']")]
         public IWebElement GivingBackFooter { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='app']/div/footer/div/div[2]/div/div/div[2]/nav/div/div/ul/li[1]/a")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[.='Contact Us']")]
         public IWebElement ContactUsFooter { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[.='How Capsules are Made']")]
@@ -78,6 +78,12 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.Navigation
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "[src='https://juiceplus.scene7.com/is/image/juiceplus/jjuice-olus-fresenius-mit-fundstellenverweis-e?wid=100&fmt=png-alpha&_ck=1584374052421']")]
         public IWebElement FerseniusFooter { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[contains(.,'Ireland')]")]
+        public IWebElement IrelandFooter { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[@href='/gb/en']")]
+        public IWebElement CountrySelectionUnitedKingdom { get; set; }
 
     }
 }

@@ -10,9 +10,6 @@ namespace AutomationTests.Config
     class Config
     {
         public static int ElementsWaitingTimeout = 5;
-<<<<<<< HEAD
-        public static string BaseURL = "https://www.staging.juiceplus.com/ie/en";
-=======
         public static string BaseURL = "https://www.staging.juiceplus.com/ie/en/";
         
         // Juice Plus Store urls
@@ -26,6 +23,6 @@ namespace AutomationTests.Config
 
         // Virtual Office urls
         public static string VirtualOfficeUrl_US_RC = "https://rc.nsaonline.com/esuite/control/main/";
->>>>>>> 15b5bed49baf7bc9ad738e3f0750e665ed0e2784
+
     }
 }
