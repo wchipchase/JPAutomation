@@ -20,7 +20,7 @@ namespace AutomationTests.Config
 
         public static class UserPassword
         {
-            public static string UserPassword1 = "ire38017";
+            public static string UserPassword1 = "Abcd1234";
             public static string UserPassword2 = "placeholder";
         }
 

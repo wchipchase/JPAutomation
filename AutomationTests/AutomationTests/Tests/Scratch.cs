@@ -31,12 +31,13 @@ namespace AutomationTests.Tests
     class Scratch
     {
         [Test]
-        public void ScratchTest()
+        public void SwitchCountryInCart()
         {
             LoginActions.LoginAsPartner();
-            PPCartActions.NavigateToJuicePlusWebsite();
-            PPCartActions.AddProductsToCart();
-            PPCartActions.CheckoutWithItems();
+            CustomerActions.NavigateToCustomers();
+            CustomerActions.SelectFirstCustomer();
+            CustomerActions.SelectFirstCustomerDetails();
+            CustomerActions.SelectFirstCustomerOrders();
         }
         public void TearDown()
         {

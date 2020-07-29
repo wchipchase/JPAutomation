@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
@@ -15,6 +16,13 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
         public CheckoutPageObjects()
         {
             PageFactory.InitElements(Driver.WebDriver, this);
+        }
+
+        public void ScrollViewport()
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver.WebDriver;
+            js.ExecuteScript("window.scrollBy(0,1000)");
+            Thread.Sleep(500);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//h2[contains(.,'New to Juice Plus+?')]")]
@@ -28,6 +36,9 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[contains(.,'Sign in')]")]
         public IWebElement PaymentPath { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "button[data-test-id='login-submit']")]
+        public IWebElement LoginButton { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Name, Using = "username")]
         public IWebElement UsernameInput { get; set; }
@@ -52,6 +63,9 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Create an account']")]
         public IWebElement CreateAnAccountButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//div[@class='m-error-container js-m-error-container m-credit-card-selection__card-field js-input-container m-error-container--active']//p[contains(.,'This field has the wrong pattern')]")]
+        public IWebElement CCErrorMessage { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[.='Checkout as guest']")]
         public IWebElement CheckoutAsGuestButton { get; set; }
@@ -142,5 +156,17 @@ namespace AutomationTests.PageObjects.staging.juiceplus.com.ie.en.CheckoutPage
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".m-checkout-confirmation__title")]
         public IWebElement OrderConfirmationVerbiage { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Name, Using = "shipping.address.street1")]
+        public IWebElement DeliveryAddress1 { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Name, Using = "shipping.address.street2")]
+        public IWebElement DeliveryAddress2 { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Name, Using = "shipping.address.city")]
+        public IWebElement DeliveryCity { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Name, Using = "shipping.address.county")]
+        public IWebElement DeliveryCounty { get; set; }
     }
 }

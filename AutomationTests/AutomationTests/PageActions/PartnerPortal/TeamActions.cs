@@ -80,7 +80,7 @@ namespace AutomationTests.PageActions.PartnerPortal
         public static void FillOutContactFormAndSubmitApplication()
         {
             Team tpo = new Team();
-            tpo.ContactEmail.SendKeys(Config.AddressInfo.ShippingAddress.EmailShipping.Email);
+            tpo.ContactEmail.SendKeys("tester" + new Random().Next(100000, 999999) + "@juiceplus.com");
             tpo.ContactPhoneNumber.SendKeys(Config.AddressInfo.ShippingAddress.PrimaryPhoneShipping.PrimaryPhone);
             tpo.ContactStreeAddr1.SendKeys(Config.AddressInfo.ShippingAddress.StreetAddShipping.StreetAdd);
             tpo.ScrollViewport();
@@ -88,6 +88,21 @@ namespace AutomationTests.PageActions.PartnerPortal
             tpo.ContactCounty.SendKeys(Config.AddressInfo.ShippingAddress.CountyShipping.County);
             tpo.ContactNextButton.Click();
             tpo.IAmTheirSponsorButton.Click();
+            tpo.SubmitApplicationButton.Click();
+            tpo.ToTeamListButton.Click();
+        }
+
+        public static void FillOutContactFormAndSubmitApplicationOtherSponsor()
+        {
+            Team tpo = new Team();
+            tpo.ContactEmail.SendKeys("tester" + new Random().Next(100000, 999999) + "@juiceplus.com");
+            tpo.ContactPhoneNumber.SendKeys(Config.AddressInfo.ShippingAddress.PrimaryPhoneShipping.PrimaryPhone);
+            tpo.ContactStreeAddr1.SendKeys(Config.AddressInfo.ShippingAddress.StreetAddShipping.StreetAdd);
+            tpo.ScrollViewport();
+            tpo.ContactCity.SendKeys(Config.AddressInfo.ShippingAddress.CityShipping.City);
+            tpo.ContactCounty.SendKeys(Config.AddressInfo.ShippingAddress.CountyShipping.County);
+            tpo.ContactNextButton.Click();
+            tpo.IAmNotTheirSponsorRadioButton.Click();
             tpo.SubmitApplicationButton.Click();
             tpo.ToTeamListButton.Click();
         }

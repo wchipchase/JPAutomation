@@ -2,6 +2,7 @@
 using AutomationTests.ConfigElements;
 using AutomationTests.PageObjects.PartnerPortal;
 using AutomationTests.PageObjects.staging.juiceplus.com.ie.en;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -43,6 +44,7 @@ namespace AutomationTests.PageActions.PartnerPortal
                 //waitForElement.Until(ExpectedConditions.ElementIsVisible(By.Id("username")));
                 Thread.Sleep(1000);
                 lpo.PartnerLoginSlider.Click();
+                Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Partner Login"));
                 lpo.UsernameTextBox.SendKeys(UserInfo.UserName.UserName1);
                 lpo.PasswordTextBox.SendKeys(UserInfo.UserPassword.UserPassword1);
                 lpo.SignInBtn.Click();

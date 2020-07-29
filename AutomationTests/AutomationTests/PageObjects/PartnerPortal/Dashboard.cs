@@ -28,7 +28,7 @@ namespace AutomationTests.PageObjects.PartnerPortal
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[@href='#purchaseVolume']/h2[@class='m-dashboard-performance-tabs__title']")]
         public IWebElement ComissionsCard { get; set; }
 
-        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//h2[contains(.,'Performance Bonus (PB)')]")]
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[@href='#performanceBonus']")]
         public IWebElement PerformanceBonusCard { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//a[@href='#promoteOutBonus']")]
