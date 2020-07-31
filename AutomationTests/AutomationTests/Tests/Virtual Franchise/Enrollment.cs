@@ -7,12 +7,16 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace AutomationTests.juice.plus.virtualfranchise
 {
+    [TestFixture]
     class Enrollment
     {
+        Driver Driver;
+
         MainPage MainPage;
         EnrollmentPageUS EnrollmentPageUS;
         EnrollmentPageCA EnrollmentPageCA;
@@ -21,17 +25,14 @@ namespace AutomationTests.juice.plus.virtualfranchise
         [SetUp]
         public void Setup()
         {
-            
-            ChromeOptions options = new ChromeOptions();
-            options.SetLoggingPreference(LogType.Browser, LogLevel.Warning);
-            options.AddArguments("--ignore-certificate-errors");
-            Driver.InitializeDriver(options);
-            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Driver = new Driver(Driver.BrowserType.Chrome);
+            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.WebDriver.Manage().Window.Maximize();
 
-            MainPage = new MainPage();
-            EnrollmentPageUS = new EnrollmentPageUS();
-            EnrollmentPageCA = new EnrollmentPageCA();
-            EnrollmentPageAU = new EnrollmentPageAU();
+            MainPage = new MainPage(Driver);
+            EnrollmentPageUS = new EnrollmentPageUS(Driver);
+            EnrollmentPageCA = new EnrollmentPageCA(Driver);
+            EnrollmentPageAU = new EnrollmentPageAU(Driver);
         }
 
         [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Repeat(1)]
@@ -65,7 +66,7 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Category("TestEnrollment_PartnerUrl_VF_US"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "US"));
@@ -93,6 +94,12 @@ namespace AutomationTests.juice.plus.virtualfranchise
 
             EnrollmentPageUS.SubmitEnrollment();
             Assert.IsTrue(new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementToBeClickable(EnrollmentPageUS.EnrollmentSuccessMessage)).Displayed);
+            var SuccessMessageRegex = new Regex(@"USM\d{5,8}");
+            if (SuccessMessageRegex.Matches(EnrollmentPageUS.GetFinNumber()).Count > 0)
+            {
+                Console.Write("New Parter FIN: " + SuccessMessageRegex.Matches(EnrollmentPageUS.GetFinNumber())[0].Value);
+            }
+            Assert.IsTrue(SuccessMessageRegex.Matches(EnrollmentPageUS.GetFinNumber()).Count > 0);
             Thread.Sleep(5000);
         }
 
@@ -125,10 +132,16 @@ namespace AutomationTests.juice.plus.virtualfranchise
 
             EnrollmentPageCA.SubmitEnrollment();
             Assert.IsTrue(new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementToBeClickable(EnrollmentPageCA.EnrollmentSuccessMessage)).Displayed);
+            var SuccessMessageRegex = new Regex(@"CAN\d{5,8}");
+            if (SuccessMessageRegex.Matches(EnrollmentPageCA.GetFinNumber()).Count > 0)
+            {
+                Console.Write("New Parter FIN: " + SuccessMessageRegex.Matches(EnrollmentPageCA.GetFinNumber())[0].Value);
+            }
+            Assert.IsTrue(SuccessMessageRegex.Matches(EnrollmentPageCA.GetFinNumber()).Count > 0);
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Category("TestEnrollment_PartnerUrl_VF_AU"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
         public void TestEnrollment_PartnerUrl_VF_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "AU"));
@@ -159,21 +172,13 @@ namespace AutomationTests.juice.plus.virtualfranchise
             
             EnrollmentPageAU.SubmitEnrollment();
             Assert.IsTrue(new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementToBeClickable(EnrollmentPageAU.EnrollmentSuccessMessage)).Displayed);
+            var SuccessMessageRegex = new Regex(@"AU\d{5,8}");
+            if (SuccessMessageRegex.Matches(EnrollmentPageAU.GetFinNumber()).Count > 0)
+            {
+                Console.Write("New Parter FIN: " + SuccessMessageRegex.Matches(EnrollmentPageAU.GetFinNumber())[0].Value);
+            }
+            Assert.IsTrue(SuccessMessageRegex.Matches(EnrollmentPageAU.GetFinNumber()).Count > 0);
             Thread.Sleep(5000);
-        }
-
-        [Test, Category("Misc"), Description("Wait Test")]
-        public void WaitTest()
-        {
-            DateTime startTime = DateTime.Now;
-            try { Console.WriteLine(EnrollmentPageUS.EnrollmentSuccessMessage.Displayed); } catch (Exception) { }
-            DateTime stopTime = DateTime.Now;
-            Console.WriteLine(stopTime - startTime);
-
-            startTime = DateTime.Now;
-            try { Assert.IsTrue(EnrollmentPageUS.EnrollmentSuccessMessage.Displayed); } catch (Exception) { }
-            stopTime = DateTime.Now;
-            Console.WriteLine(stopTime - startTime);
         }
 
         [TearDown]

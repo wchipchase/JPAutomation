@@ -2,6 +2,7 @@
 using AutomationTests.PageObjects.juiceplus.com;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,11 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.juiceplus.com
 {
+    [TestFixture]
     class CreateAroTest
     {
+        Driver Driver;
+
         BuyPage BuyPage;
         CartPage CartPage;
         CheckoutPage CheckoutPage;
@@ -22,13 +26,14 @@ namespace AutomationTests.juiceplus.com
         [SetUp]
         public void Setup()
         {
-            Driver.InitializeDriver();
+            Driver = new Driver(Driver.BrowserType.Chrome);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Driver.WebDriver.Manage().Window.Maximize();
 
-            BuyPage = new BuyPage();
-            CartPage = new CartPage();
-            CheckoutPage = new CheckoutPage();
-            Header = new Header();
+            BuyPage = new BuyPage(Driver);
+            CartPage = new CartPage(Driver);
+            CheckoutPage = new CheckoutPage(Driver);
+            Header = new Header(Driver);
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on US Juice Plus Store"), Repeat(1)]
@@ -47,6 +52,7 @@ namespace AutomationTests.juiceplus.com
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been received. You will receive a confirmation email shortly. Orders may ship separately.") || Driver.WebDriver.PageSource.Contains("Your order will be processed shortly. An email was sent to this address:"));
+            Thread.Sleep(5000);
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on CA Juice Plus Store"), Repeat(1)]
@@ -65,6 +71,7 @@ namespace AutomationTests.juiceplus.com
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been received. You will receive a confirmation email shortly. Orders may ship separately."));
+            Thread.Sleep(5000);
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on AU Juice Plus Store"), Repeat(1)]
@@ -83,6 +90,7 @@ namespace AutomationTests.juiceplus.com
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been received. You will receive a confirmation email shortly. Orders may ship separately."));
+            Thread.Sleep(5000);
         }
 
         [TearDown]

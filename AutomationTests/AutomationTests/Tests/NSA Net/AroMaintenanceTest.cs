@@ -13,8 +13,11 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsanet.com
 {
+    [TestFixture]
     class AroMaintenanceTest
     {
+        Driver Driver;
+
         LoginPage LoginPage;
         MainPage MainPage;
         AroEntryPage AroEntryPage;
@@ -23,13 +26,14 @@ namespace AutomationTests.nsanet.com
         [SetUp]
         public void Setup()
         {
-            Driver.InitializeDriver();
+            Driver = new Driver(Driver.BrowserType.Chrome);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Driver.WebDriver.Manage().Window.Maximize();
 
-            LoginPage = new LoginPage();
-            MainPage = new MainPage();
-            AroEntryPage = new AroEntryPage();
-            AroMaintenancePage = new AroMaintenancePage();
+            LoginPage = new LoginPage(Driver);
+            MainPage = new MainPage(Driver);
+            AroEntryPage = new AroEntryPage(Driver);
+            AroMaintenancePage = new AroMaintenancePage(Driver);
         }
 
         [Test, Category("LegacyRegression"), Description("Create and Edit US ARO on NSA Net Aro Maintenance"), Repeat(1)]
@@ -121,7 +125,7 @@ namespace AutomationTests.nsanet.com
             MainPage.NavigateToAroEntry();
             AroEntryPage.CreateAUAro();
 
-            var SuccessMessageRegex = new Regex(@"ARO Entered Successfully - \d{5,8}\*AU");
+            var SuccessMessageRegex = new Regex(@"ARO Entered Successfully - \d{5,8}");
             String AroNumber = "";
             if (SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0)
             {

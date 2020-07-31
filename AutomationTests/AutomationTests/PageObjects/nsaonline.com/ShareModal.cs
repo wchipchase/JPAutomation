@@ -14,8 +14,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class ShareModal : BasePage
     {
-        public ShareModal()
+        Driver Driver;
+
+        public ShareModal(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

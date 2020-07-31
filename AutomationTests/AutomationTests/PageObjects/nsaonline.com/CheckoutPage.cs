@@ -13,9 +13,12 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class CheckoutPage : BasePage
     {
-        public CheckoutPage()
+        Driver Driver;
+
+        public CheckoutPage(Driver driver) : base(driver)
         {
-            PageFactory.InitElements(Driver.WebDriver, this);
+            Driver = driver;
+            PageFactory.InitElements(driver.WebDriver, this);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingFirstName")]
@@ -78,6 +81,9 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "btnProcess")]
         public IWebElement ProcessOrderButton { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "orderNumber")]
+        public IWebElement OrderNumberText { get; set; }
+
         public void InputShippingInformation(String firstName, String lastName, String address, String zip, String phoneNumber, String emailAddress)
         {
             FirstNameField.SendKeys(firstName);
@@ -133,6 +139,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
             ShippingZipField.SendKeys(zip);
             ShippingZipLookupButton.Click();
             ZipLookupModalSelectButton.Click();
+        }
+
+        public String GetOrderNumber()
+        {
+            return OrderNumberText.Text;
         }
     }
 }

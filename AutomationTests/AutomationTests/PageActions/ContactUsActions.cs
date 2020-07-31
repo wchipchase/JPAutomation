@@ -13,7 +13,14 @@ namespace AutomationTests.PageActions
 {
     class ContactUsActions
     {
-        public static void AddNewValidMessage(string firstName, string lastName, string email, string phone,
+        Driver Driver;
+
+        public ContactUsActions(Driver driver)
+        {
+            Driver = driver;
+        }
+
+        public void AddNewValidMessage(string firstName, string lastName, string email, string phone,
             string address1, string address2, string city, string state, string zipcode, string message)
         {
             ContactUsPageObjects contact = new ContactUsPageObjects();
@@ -33,7 +40,7 @@ namespace AutomationTests.PageActions
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank you! We have received your message."));
         }
 
-        public static void AddNewInvalidMessage(string firstName)
+        public void AddNewInvalidMessage(string firstName)
         {
             ContactUsPageObjects contact = new ContactUsPageObjects();
             contact.FirstName.SendKeys(firstName);

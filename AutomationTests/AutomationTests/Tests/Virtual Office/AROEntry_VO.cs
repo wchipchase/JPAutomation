@@ -7,35 +7,49 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.rc.nsaonline
 {
+    [TestFixture]
     class AROEntryVOTest
     {
-        LoginPage LoginPage;
-        MainPage MainPage;
-        SubmitCustomerJPOrderPage SubmitCustomerJPOrderPage;
-        CheckoutPage CheckoutPage;
-        ShareModal ShareModal;
-        ConfirmEmailPage ConfirmEMailPage;
-        EditCartPage EditCartPage;
+        [ThreadStatic]
+        static Driver Driver;
+
+        [ThreadStatic]
+        static LoginPage LoginPage;
+        [ThreadStatic]
+        static MainPage MainPage;
+        [ThreadStatic]
+        static SubmitCustomerJPOrderPage SubmitCustomerJPOrderPage;
+        [ThreadStatic]
+        static CheckoutPage CheckoutPage;
+        [ThreadStatic]
+        static ShareModal ShareModal;
+        [ThreadStatic]
+        static ConfirmEmailPage ConfirmEMailPage;
+        [ThreadStatic]
+        static EditCartPage EditCartPage;
 
         [SetUp]
         public void Setup()
         {
-            Driver.InitializeDriver();
+            Driver = new Driver(Driver.BrowserType.Headless);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.WebDriver.Manage().Window.Maximize();
 
-            LoginPage = new LoginPage();
-            MainPage = new MainPage();
-            SubmitCustomerJPOrderPage = new SubmitCustomerJPOrderPage();
-            CheckoutPage = new CheckoutPage();
-            ShareModal = new ShareModal();
-            ConfirmEMailPage = new ConfirmEmailPage();
-            EditCartPage = new EditCartPage();
+            LoginPage = new LoginPage(Driver);
+            MainPage = new MainPage(Driver);
+            SubmitCustomerJPOrderPage = new SubmitCustomerJPOrderPage(Driver);
+            CheckoutPage = new CheckoutPage(Driver);
+            ShareModal = new ShareModal(Driver);
+            ConfirmEMailPage = new ConfirmEmailPage(Driver);
+            EditCartPage = new EditCartPage(Driver);
         }
 
         [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Create US ARO on VO."), Repeat(1)]
@@ -53,7 +67,13 @@ namespace AutomationTests.rc.nsaonline
             CheckoutPage.ContinueOrder();
             CheckoutPage.ProcessOrder();
 
-            Thread.Sleep(5000);
+            var SuccessMessageRegex = new Regex(@"USWA\d{5,8}");
+            if (SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0)
+            {
+                Console.Write("USW Confirmation Number: " + SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber())[0].Value);
+            }
+            Assert.IsTrue(SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0);
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank You for submitting your customer's order!"));
         }
 
         [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Create CA ARO on VO."), Repeat(1)]
@@ -72,7 +92,13 @@ namespace AutomationTests.rc.nsaonline
             CheckoutPage.ContinueOrder();
             CheckoutPage.ProcessOrder();
 
-            Thread.Sleep(5000);
+            var SuccessMessageRegex = new Regex(@"CNWA\d{5,8}");
+            if (SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0)
+            {
+                Console.Write("CNW Confirmation Number: " + SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber())[0].Value);
+            }
+            Assert.IsTrue(SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0);
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank You for submitting your customer's order!"));
         }
 
         [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Create AU ARO on VO."), Repeat(1)]
@@ -91,7 +117,13 @@ namespace AutomationTests.rc.nsaonline
             CheckoutPage.ContinueOrder();
             CheckoutPage.ProcessOrder();
 
-            Thread.Sleep(5000);
+            var SuccessMessageRegex = new Regex(@"AUWA\d{5,8}");
+            if (SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0)
+            {
+                Console.Write("AUW Confirmation Number: " + SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber())[0].Value);
+            }
+            Assert.IsTrue(SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0);
+            Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank You for submitting your customer's order!"));
         }
 
         [TearDown]

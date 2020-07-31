@@ -13,8 +13,11 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.towergarden.com
 {
+    [TestFixture]
     class CreateAROTest
     {
+        Driver Driver;
+
         MainPage MainPage;
         BuyPage BuyPage;
         CartPage CartPage;
@@ -30,11 +33,11 @@ namespace AutomationTests.towergarden.com
             Driver.InitializeDriver(options);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-            MainPage = new MainPage();
-            BuyPage = new BuyPage();
-            CartPage = new CartPage();
-            CheckoutPage = new CheckoutPage();
-            Header = new Header();
+            MainPage = new MainPage(Driver);
+            BuyPage = new BuyPage(Driver);
+            CartPage = new CartPage(Driver);
+            CheckoutPage = new CheckoutPage(Driver);
+            Header = new Header(Driver);
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on US Tower Garden Store"), Repeat(1)]
@@ -53,6 +56,7 @@ namespace AutomationTests.towergarden.com
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been placed. You should receive a confirmation email shortly.") || Driver.WebDriver.PageSource.Contains("You will receive an additional e-mail when your order is shipped."));
+            Thread.Sleep(5000);
         }
 
         [Test, Category("LegacyRegression"), Description("Create ARO on CA Tower Garden Store")]
@@ -71,6 +75,7 @@ namespace AutomationTests.towergarden.com
             CheckoutPage.CompletePurchase();
             new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Your order has been placed. You should receive a confirmation email shortly."));
+            Thread.Sleep(5000);
         }
 
         [TearDown]

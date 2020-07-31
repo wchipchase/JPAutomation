@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.juice.plus.virtualfranchise
 {
+    [TestFixture]
     class TestHeaderNavigationItems
     {
+        Driver Driver;
+
         Header Header;
 
         [SetUp]
@@ -19,7 +22,7 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Driver.InitializeDriver();
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
 
-            Header = new Header();
+            Header = new Header(Driver);
         }
 
         [Test, Category("LegacyRegression"), Description("Test Virtual Franchise Connectivity"), Repeat(1)]

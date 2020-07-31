@@ -14,16 +14,19 @@ namespace AutomationTests.PageObjects
 {
     class BasePage
     {
-        public BasePage()
+        Driver Driver;
+
+        public BasePage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
-        public static void Click(IWebElement webElement)
+        public void Click(IWebElement webElement)
         {
-            WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(5));
-            wait.Until(ExpectedConditions.ElementToBeClickable(webElement));
-            for (int i = 0; i < 3; i++)
+            // WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(5));
+            // wait.Until(ExpectedConditions.ElementToBeClickable(webElement));
+            for (int i = 0; i < 5; i++)
             {
                 try
                 {
@@ -38,9 +41,9 @@ namespace AutomationTests.PageObjects
             }
         }
 
-        public static void SendKeys(IWebElement webElement, String text)
+        public void SendKeys(IWebElement webElement, String text)
         {
-            WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(5));
+            WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementToBeClickable(webElement));
             for (int i = 0; i < 3; i++)
             {
@@ -66,7 +69,7 @@ namespace AutomationTests.PageObjects
             }
         }
 
-        public static void ClickWhenClickable(IWebElement webElement, TimeSpan timeout)
+        public void ClickWhenClickable(IWebElement webElement, TimeSpan timeout)
         {
             WebDriverWait wait = new WebDriverWait(Driver.WebDriver, timeout);
             wait.Until(ExpectedConditions.ElementToBeClickable(webElement)).Click();
@@ -122,6 +125,18 @@ namespace AutomationTests.PageObjects
                 Console.WriteLine("Element with locator: '" + elementLocator + "' was not found.");
                 throw;
             }
+        }
+
+        public IWebElement WaitUntilElementVisible(IWebElement webElement, int timeout)
+        {
+            for (int i=0; i<timeout; i++)
+            {
+                if (webElement.Displayed)
+                {
+                    return webElement;
+                }
+            }
+            return null;
         }
     }
 }

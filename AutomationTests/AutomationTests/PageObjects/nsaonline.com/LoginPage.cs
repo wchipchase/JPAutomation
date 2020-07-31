@@ -12,27 +12,27 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class LoginPage
     {
-        public LoginPage()
+        Driver Driver;
+        public LoginPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "txtUsername")]
-        public IWebElement username { get; set; }
+        public IWebElement UsernameField { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "txtPassword")]
-        public IWebElement password { get; set; }
+        public IWebElement PasswordField { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "button[type = 'submit']")]
-        public IWebElement signInButton { get; set; }
+        public IWebElement SignInButton { get; set; }
 
-        public static void Login(String username, String password)
+        public void Login(String username, String password)
         {
-            LoginPage loginPage = new LoginPage();
-
-            loginPage.username.SendKeys(username);
-            loginPage.password.SendKeys(password);
-            loginPage.signInButton.Click();
+            UsernameField.SendKeys(username);
+            PasswordField.SendKeys(password);
+            SignInButton.Click();
         }
     }
 }

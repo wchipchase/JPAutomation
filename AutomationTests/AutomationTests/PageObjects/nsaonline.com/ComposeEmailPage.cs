@@ -13,8 +13,12 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class ComposeEmailPage
     {
-        public ComposeEmailPage()
+
+        Driver Driver;
+
+        public ComposeEmailPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
@@ -29,11 +33,10 @@ namespace AutomationTests.PageObjects.nsaonline.com
 
         public void ComposeEmail(String receiver, String subject)
         {
-            ComposeEmailPage ComposeEmailPage = new ComposeEmailPage();
 
-            ComposeEmailPage.Receiver.SendKeys(receiver);
-            ComposeEmailPage.Subject.SendKeys(subject);
-            ComposeEmailPage.SendEmail.Click();
+            Receiver.SendKeys(receiver);
+            Subject.SendKeys(subject);
+            SendEmail.Click();
         }
 
     }

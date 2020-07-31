@@ -13,9 +13,12 @@ namespace AutomationTests.PageObjects.juiceplus.com
 {
     class BuyPage
     {
-        public BuyPage()
+        Driver Driver;
+
+        public BuyPage(Driver driver)
         {
-            PageFactory.InitElements(Driver.WebDriver, this);
+            Driver = driver;
+            PageFactory.InitElements(driver.WebDriver, this);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a[class='add-to-cart hidden-xs']")]

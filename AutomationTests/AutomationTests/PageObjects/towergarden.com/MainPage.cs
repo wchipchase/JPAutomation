@@ -13,8 +13,11 @@ namespace AutomationTests.PageObjects.towergarden.com
 {
     class MainPage
     {
-        public MainPage()
+        Driver Driver;
+
+        public MainPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

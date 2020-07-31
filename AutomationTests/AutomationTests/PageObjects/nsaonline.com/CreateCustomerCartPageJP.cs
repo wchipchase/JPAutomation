@@ -12,8 +12,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class CreateCustomerCartPageJP : BasePage
     {
-        public CreateCustomerCartPageJP()
+        Driver Driver;
+
+        public CreateCustomerCartPageJP(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
@@ -25,6 +28,24 @@ namespace AutomationTests.PageObjects.nsaonline.com
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingAddr1")]
         public IWebElement ShippingAddressField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingZip")]
+        public IWebElement ShippingZipField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "btnShippingZipLookup")]
+        public IWebElement ZipLookupButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "btnSelectCity")]
+        public IWebElement ZipLookupModalSelectButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingCity")]
+        public IWebElement ShippingCityField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingCounty")]
+        public IWebElement ShippingCountyField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingState")]
+        public IWebElement ShippingStateField { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shippingPhoneNum")]
         public IWebElement PhoneNumberField { get; set; }
@@ -41,18 +62,25 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "shareCarAndSaveAddresstBtn")]
         public IWebElement ShareCartAndSaveAddressButton { get; set; }
 
-        public void InputShippingInformation(String firstName, String lastName, String phoneNumber, String emailAddress)
+        public void InputShippingInformation(String firstName, String lastName, String address, String zip, String phoneNumber, String emailAddress)
         {
             FirstNameField.SendKeys(firstName);
             LastNameField.SendKeys(lastName);
+            ShippingAddressField.SendKeys(address);
+            ZipLookup(zip);
             PhoneNumberField.SendKeys(phoneNumber);
             EmailAddressField.SendKeys(emailAddress);
         }
 
-        public void InputShippingInformation(String firstName, String lastName, String phoneNumber, String mobileNumber, String emailAddress)
+        public void InputShippingInformation(String firstName, String lastName, String address, String zip, String city, String county, String state, String phoneNumber, String mobileNumber, String emailAddress)
         {
             FirstNameField.SendKeys(firstName);
             LastNameField.SendKeys(lastName);
+            ShippingAddressField.SendKeys(address);
+            ShippingZipField.SendKeys(zip);
+            ShippingCityField.SendKeys(city);
+            ShippingCountyField.SendKeys(county);
+            ShippingStateField.SendKeys(state);
             PhoneNumberField.SendKeys(phoneNumber);
             MobileNumberField.SendKeys(mobileNumber);
             EmailAddressField.SendKeys(emailAddress);
@@ -64,6 +92,13 @@ namespace AutomationTests.PageObjects.nsaonline.com
             LastNameField.SendKeys(lastName);
             PhoneNumberField.SendKeys(phoneNumber);
             EmailAddressField.SendKeys(emailAddress);
+        }
+
+        public void ZipLookup(String zip)
+        {
+            ShippingZipField.SendKeys(zip);
+            ZipLookupButton.Click();
+            ZipLookupModalSelectButton.Click();
         }
 
         public void ShareCart()

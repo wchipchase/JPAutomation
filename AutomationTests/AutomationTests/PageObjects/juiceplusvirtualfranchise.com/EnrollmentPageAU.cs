@@ -14,9 +14,12 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
 {
     class EnrollmentPageAU
     {
-        public EnrollmentPageAU()
+        Driver Driver;
+
+        public EnrollmentPageAU(Driver driver)
         {
-            PageFactory.InitElements(Driver.WebDriver, this);
+            Driver = driver;
+            PageFactory.InitElements(driver.WebDriver, this);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "memberSSN")]
@@ -121,6 +124,9 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//p[contains(text(),'New Partner application has been submitted')]")]
         public IWebElement EnrollmentSuccessMessage { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "newDistFin")]
+        public IWebElement NewFinNumber { get; set; }
+
         public void InputPersonalInformation (String ssn, String firstName, String middleName, String lastName, String gender, String birthMonth, String birthDay, String birthYear)
         {
             SsnField.SendKeys(ssn);
@@ -203,7 +209,7 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
             SubmitButton.Click();
         }
 
-        public static void ClickWhenClickable(IWebElement webElement, TimeSpan timeout)
+        public void ClickWhenClickable(IWebElement webElement, TimeSpan timeout)
         {
             WebDriverWait wait = new WebDriverWait(Driver.WebDriver, timeout);
             wait.Until(ExpectedConditions.ElementToBeClickable(webElement)).Click();
@@ -261,5 +267,9 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
             }
         }
 
+        public String GetFinNumber()
+        {
+            return NewFinNumber.Text;
+        }
     }
 }

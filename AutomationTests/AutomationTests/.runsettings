@@ -2,6 +2,6 @@
 <RunSettings>
 <!-- Parameters used by tests at runtime -->
   <TestRunParameters>
-    <Parameter name ="testEnvironment" value="RC" />
+    <Parameter name ="testEnvironment" value="STG" />
   </TestRunParameters>
 </RunSettings>

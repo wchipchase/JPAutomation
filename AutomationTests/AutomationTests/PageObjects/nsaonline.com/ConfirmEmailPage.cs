@@ -14,8 +14,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class ConfirmEmailPage : BasePage
     {
-        public ConfirmEmailPage()
+        Driver Driver;
+
+        public ConfirmEmailPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

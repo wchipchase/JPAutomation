@@ -3,6 +3,7 @@ using AutomationTests.PageObjects.nsanet.com;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -15,28 +16,47 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsanet.com
 {
+    [TestFixture]
     class AroEntryTest
     {
-        LoginPage LoginPage;
-        MainPage MainPage;
-        AroEntryPage AroEntryPage;
+        [ThreadStatic]
+        static Driver Driver;
 
+        [ThreadStatic]
+        static LoginPage LoginPage;
+        [ThreadStatic]
+        static MainPage MainPage;
+        [ThreadStatic]
+        static AroEntryPage AroEntryPage;
 
         [SetUp]
         public void Setup()
         {
-            Driver.InitializeDriver();
+            Driver = new Driver(Driver.BrowserType.Chrome);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Driver.WebDriver.Manage().Window.Maximize();
 
-            LoginPage = new LoginPage();
-            MainPage = new MainPage();
-            AroEntryPage = new AroEntryPage();
+            LoginPage = new LoginPage(Driver);
+            MainPage = new MainPage(Driver);
+            AroEntryPage = new AroEntryPage(Driver);
         }
 
         [Test, Category("LegacyRegression"), Category("AROEntry"), Description("Create US ARO on NSANet Aro Entry"), Repeat(1)]
         public void AROEntry_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
+
+            /*String dateString = "5/1/2030 8:30:52 AM";
+            DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
+            Cookie cfCookie1 = new OpenQA.Selenium.Cookie("CASTGC", "TGT-155-LZqinXISr9yZ4KEZQbsfeCNcXtu4Q1aK0pIO0JgWWTsb7FtYdK", "/cas/", date);
+            Cookie cfCookie2 = new OpenQA.Selenium.Cookie("CASPRIVACY", "\"\"", "/cas/", date);
+            Cookie cfCookie3 = new OpenQA.Selenium.Cookie("PHPSESSID", "a8b207047d763bcb8cf85472809704fd");
+            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie1);
+            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie2);
+            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie3);
+
+            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));*/
+
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("USA");
@@ -58,6 +78,7 @@ namespace AutomationTests.nsanet.com
         public void AROEntry_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
+
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("CAN");
@@ -79,6 +100,7 @@ namespace AutomationTests.nsanet.com
         public void AROEntry_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
+
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("AU");

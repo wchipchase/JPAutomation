@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutomationTests.ConfigElements;
-using AutomationTests.PageActions;
+// using AutomationTests.PageActions;
 using AutomationTests.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium.Internal;
@@ -16,11 +16,15 @@ namespace AutomationTests.Tests
 {
     class EntryPoint
     {
+
+        // Driver Driver;
+        // ContactUsActions ContactUsActions;
+
         static void Main()
         {
         }
 
-        private static object[] Messages01Cases =
+        /*private static object[] Messages01Cases =
         {
             new object[] {typeof(Data.Messages), "Ted", "Thompson", "ted@test.com", "555-555-0000", "206 Main St", "Suite 100", "Miami", "F", "30111", "This is a test message"},
             new object[] {typeof(Data.Messages), "Steve", "Stevens", "steve@test.com", "555-555-0001", "205 Main St", "", "Birmingham", "A", "30112", "This is a test message"},
@@ -32,6 +36,13 @@ namespace AutomationTests.Tests
             new object[] {typeof(Data.Messages), "Edna", "Thompson", "edna@test.com", "555-555-0007", "207 Main St", "P.O. Box 76", "Lincoln", "N", "30118", "This is a test message"},
             new object[] {typeof(Data.Messages), "Tess", "Anderson", "tess@test.com", "555-555-0008", "206 Main St", "", "Newport", "R", "30119", "This is a test message"},
         };
+
+        [SetUp]
+        public void SetUp()
+        {
+            Driver = new Driver();
+            ContactUsActions = new ContactUsActions(Driver);
+        }
 
         [Test, Order(1)]
         public void AddNewMessage()
@@ -49,6 +60,6 @@ namespace AutomationTests.Tests
         public void CleanUp()
         {
             Driver.WebDriver.Quit();
-        }
+        }*/
     }
 }

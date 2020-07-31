@@ -12,19 +12,24 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsaonline
 {
+    [TestFixture]
     class ComposeEmailTest
     {
+        Driver Driver;
+
         MainPage MainPage;
         ComposeEmailPage ComposeEmailPage;
+        LoginPage LoginPage;
 
         [SetUp]
         public void Setup()
         {
-            Driver.InitializeDriver();
+            Driver = new Driver(Driver.BrowserType.Firefox);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
 
-            MainPage = new MainPage();
-            ComposeEmailPage = new ComposeEmailPage();
+            MainPage = new MainPage(Driver);
+            ComposeEmailPage = new ComposeEmailPage(Driver);
+            LoginPage = new LoginPage(Driver);
         }
 
         [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Test Compose Email on Virtual Office.")]

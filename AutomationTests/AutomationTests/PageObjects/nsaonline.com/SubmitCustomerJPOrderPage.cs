@@ -12,8 +12,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class SubmitCustomerJPOrderPage : BasePage
     {
-        public SubmitCustomerJPOrderPage()
+        Driver Driver;
+
+        public SubmitCustomerJPOrderPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

@@ -2,35 +2,96 @@
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
 namespace AutomationTests.ConfigElements
 {
-    public static class Driver {
+    public class Driver {
         // Privatize the _webDriver member; use the WebDriver as the only external exposure to the driver
-        private static IWebDriver _webDriver;
-        private static OpenQA.Selenium.Cookie cfCookie;
+        private IWebDriver _webDriver;
+        private OpenQA.Selenium.Cookie cfCookie;
 
-        public static IWebDriver driver { get; set; }
+        public enum BrowserType
+        {
+            Chrome,
+            Firefox,
+            IE,
+            Edge,
+            Headless
+        }
 
-        public static IWebDriver WebDriver {
+        public Driver(BrowserType browserType)
+        {
+            // Check for brower parameter and override browserType if given.
+            String browserParameter = TestContext.Parameters.Get("browser", "");
+            if (browserParameter.Equals("Chrome"))
+            {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.AddArgument("--ignore-certificate-errors");
+                browserType = BrowserType.Chrome;
+            }
+            else if (browserParameter.Equals("Firefox"))
+            {
+                browserType = BrowserType.Firefox;
+            }
+            else if (browserParameter.Equals("Edge"))
+            {
+                browserType = BrowserType.Edge;
+            }
+            else if (browserParameter.Equals("IE"))
+            {
+                browserType = BrowserType.IE;
+            }
+            else if (browserParameter.Equals("Headless"))
+            {
+                browserType = BrowserType.Headless;
+            }
 
-            get {
-                // _webDriver = _webDriver == null ? GetWebDriver : _webDriver
-                _webDriver = _webDriver ?? GetWebDriver();
-                return _webDriver;
-                
+            // Intialize corresponding driver based on desired browser type.
+            if (browserType == BrowserType.Chrome)
+            {
+                _webDriver = new ChromeDriver();
+            }
+            else if (browserType == BrowserType.Firefox)
+            {
+                _webDriver = new FirefoxDriver();
+            }
+            else if (browserType == BrowserType.IE)
+            {
+                InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
+                internetExplorerOptions.IgnoreZoomLevel = true;
+                internetExplorerOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+                _webDriver = new InternetExplorerDriver(internetExplorerOptions);
+            }
+            else if (browserType == BrowserType.Edge)
+            {
+                _webDriver = new EdgeDriver();
+            }
+            else if (browserType == BrowserType.Headless)
+            {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.AddArguments(new string[] {"--headless", "--disable-gpu", "--enable-javascript", "--no-sandbox", "'window-size=1920x1080" });
+                _webDriver = new ChromeDriver(chromeOptions);
             }
         }
 
-        public static object Webdriver { get; internal set; }
+        public IWebDriver WebDriver {
+            get
+            {
+                _webDriver = _webDriver ?? GetWebDriver();
+                return _webDriver;
+            }
+        }
 
-        private static IWebDriver GetWebDriver()
+        private IWebDriver GetWebDriver()
         {
             var webDriver = new ChromeDriver();
 
@@ -74,26 +135,25 @@ namespace AutomationTests.ConfigElements
                 webDriver.Manage().Cookies.AddCookie(cfCookie);
             }
 
-            webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
+            // webDriver.Navigate().GoToUrl(Config.Config.BaseURL);
 
             WaitForElementUpTo(webDriver, Config.Config.ElementsWaitingTimeout);
             return webDriver;
         }
 
-        private static void WaitForElementUpTo(IWebDriver webDriver, int seconds = 10) {
+        private void WaitForElementUpTo(IWebDriver webDriver, int seconds = 10) {
             webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(seconds);
         }
 
-        public static void Teardown() {
+        public void Teardown() {
             _webDriver.Quit();
             _webDriver = null;
         }
 
-        [Obsolete]
-        public static void InitializeDriver()
+        public void InitializeDriver()
         {
-            Driver._webDriver = new FirefoxDriver();
-            Driver._webDriver.Manage().Window.Maximize();
+            _webDriver = new ChromeDriver();
+            _webDriver.Manage().Window.Maximize();
 
             /*string USERNAME = "diannkelley1";
             string AUTOMATE_KEY = "Cegxz8p89wZFzY7N5VYW";
@@ -108,21 +168,45 @@ namespace AutomationTests.ConfigElements
             caps.SetCapability("browserstack.key", AUTOMATE_KEY);
             caps.SetCapability("name", "diannkelley1's First Test");
 
-            Driver._webDriver = new RemoteWebDriver(
+            _webDriver = new RemoteWebDriver(
               new Uri("https://hub-cloud.browserstack.com/wd/hub/"), caps
             );
-            Driver._webDriver.Manage().Window.Maximize();*/
+            _webDriver.Manage().Window.Maximize();*/
         }
 
-        public static void InitializeDriver(ChromeOptions options)
+        public void InitializeDriver(ChromeOptions options)
         {
-            Driver._webDriver = new ChromeDriver(options);
-            Driver._webDriver.Manage().Window.Maximize();
+            _webDriver = new ChromeDriver(options);
+            _webDriver.Manage().Window.Maximize();
         }
 
-        public static String GetUrl(String application, String country)
+        public void InitializeDriver(BrowserType browserType)
         {
-            String testEnvironment = TestContext.Parameters["testEnvironment"]??"STG";
+            if (browserType == BrowserType.Chrome)
+            {
+                _webDriver = new ChromeDriver();
+            }
+            else if (browserType == BrowserType.Firefox)
+            {
+                _webDriver = new FirefoxDriver();
+            }
+            else if (browserType == BrowserType.IE)
+            {
+                InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
+                internetExplorerOptions.IgnoreZoomLevel = true;
+                internetExplorerOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+                _webDriver = new InternetExplorerDriver(internetExplorerOptions);
+            }
+            else if (browserType == BrowserType.Edge)
+            {
+                _webDriver = new EdgeDriver();
+            }
+            _webDriver.Manage().Window.Maximize();
+        }
+
+        public String GetUrl(String application, String country)
+        {
+            String testEnvironment = TestContext.Parameters.Get("testEnvironment", "STG");
             String urlLocator = "applicationNameUrl_countryCode_env".Replace("applicationName", application).Replace("countryCode", country).Replace("env", testEnvironment);
             // Console.WriteLine("urlLocator: " +  urlLocator);
             String url = Config.Config.urlDictionary[urlLocator];
@@ -130,7 +214,7 @@ namespace AutomationTests.ConfigElements
             return url;
         }
 
-        public static String GetUrl(String application)
+        public String GetUrl(String application)
         {
             String testEnvironment = TestContext.Parameters["testEnvironment"] ?? "STG";
             String country = "US";
@@ -139,6 +223,11 @@ namespace AutomationTests.ConfigElements
             String url = Config.Config.urlDictionary[urlLocator];
 
             return url;
+        }
+
+        public void Pause()
+        {
+            Thread.Sleep(9999999);
         }
     }
 }

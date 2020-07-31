@@ -14,8 +14,11 @@ namespace AutomationTests.PageObjects.juiceplus.com
 {
     class CheckoutPage : BasePage
     {
-        public CheckoutPage()
+        Driver Driver;
+
+        public CheckoutPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
@@ -87,6 +90,9 @@ namespace AutomationTests.PageObjects.juiceplus.com
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "next-button")]
         public IWebElement PurchaseButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//label[@id='termsnconds-check-label']/span")]
+        public IWebElement IAgreeButton { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//h5[]")]
         public IWebElement OrderSummaryHeading { get; set; }
@@ -174,8 +180,19 @@ namespace AutomationTests.PageObjects.juiceplus.com
             PaymentMethodContinueButton.Click();
         }
 
+        public void SelectSameAddressForBilling()
+        {
+            Click(BillingInformationYesRadio);
+            Thread.Sleep(1000);
+            ShippingBillingContinueButton.Click();
+        }
+
         public void CompletePurchase()
         {
+            if (IsElementDisplayed(IAgreeButton))
+            {
+                IAgreeButton.Click();
+            }
             PurchaseButton.Click();
             // new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementToBeClickable(CheckoutPage.CityNameSelect));
         }

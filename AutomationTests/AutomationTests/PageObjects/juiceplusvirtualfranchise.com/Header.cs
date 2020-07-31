@@ -14,8 +14,11 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
 {
     class Header
     {
-        public Header()
+        Driver Driver;
+
+        public Header(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

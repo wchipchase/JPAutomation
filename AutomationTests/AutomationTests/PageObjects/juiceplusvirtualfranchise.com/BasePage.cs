@@ -14,12 +14,15 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
 {
     class BasePage
     {
-        public BasePage()
+        Driver Driver;
+
+        public BasePage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
-        public static void Click (IWebElement webElement)
+        public void Click (IWebElement webElement)
         {
             WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.ElementToBeClickable(webElement)).Click();
@@ -37,7 +40,7 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
             }
         }
 
-        public static void ClickWhenClickable(IWebElement webElement, TimeSpan timeout)
+        public void ClickWhenClickable(IWebElement webElement, TimeSpan timeout)
         {
             WebDriverWait wait = new WebDriverWait(Driver.WebDriver, timeout);
             wait.Until(ExpectedConditions.ElementToBeClickable(webElement)).Click();

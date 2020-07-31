@@ -2,18 +2,23 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.nsaonline.com
 {
-    class EditCartPage
+    class EditCartPage : BasePage
     {
-        public EditCartPage()
+        Driver Driver;
+
+        public EditCartPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
@@ -29,8 +34,13 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "qty490105050")]
         public IWebElement Sku490105050QuanityField { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a.cart-btn.checkout-btn")]
+        public IWebElement CheckoutButton { get; set; }
+
         public String GetQuanity(String sku)
         {
+            Thread.Sleep(5000);
+
             String quantity;
             if (sku.Equals("2000"))
             {
@@ -54,6 +64,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
             }
 
             return quantity;
+        }
+
+        public void CheckOut()
+        {
+            CheckoutButton.Click();
         }
     }
 }

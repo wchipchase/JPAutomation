@@ -13,8 +13,11 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsanet.com
 {
+    [TestFixture]
     class OrderEntryTest
     {
+        Driver Driver;
+
         LoginPage LoginPage;
         MainPage MainPage;
         OrderEntryPage OrderEntryPage;
@@ -25,9 +28,9 @@ namespace AutomationTests.nsanet.com
             Driver.InitializeDriver();
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-            LoginPage = new LoginPage();
-            MainPage = new MainPage();
-            OrderEntryPage = new OrderEntryPage();
+            LoginPage = new LoginPage(Driver);
+            MainPage = new MainPage(Driver);
+            OrderEntryPage = new OrderEntryPage(Driver);
         }
 
         [Test, Category("LegacyRegression"), Description("Create US Order on NSA Net Order Entry"), Repeat(1)]

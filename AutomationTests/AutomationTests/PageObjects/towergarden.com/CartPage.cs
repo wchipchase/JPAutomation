@@ -13,8 +13,11 @@ namespace AutomationTests.PageObjects.towergarden.com
 {
     class CartPage
     {
-        public CartPage()
+        Driver Driver;
+
+        public CartPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

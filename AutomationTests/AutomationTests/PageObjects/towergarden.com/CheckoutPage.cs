@@ -14,8 +14,11 @@ namespace AutomationTests.PageObjects.towergarden.com
 {
     class CheckoutPage
     {
-        public CheckoutPage()
+        Driver Driver;
+
+        public CheckoutPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

@@ -15,8 +15,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class MainPage : BasePage
     {
-        public MainPage()
+        Driver Driver;
+
+        public MainPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

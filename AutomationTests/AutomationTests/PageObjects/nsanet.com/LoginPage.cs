@@ -11,9 +11,13 @@ namespace AutomationTests.PageObjects.nsanet.com
 {
     class LoginPage
     {
-        public LoginPage()
+
+        Driver Driver;
+
+        public LoginPage(Driver driver)
         {
-            PageFactory.InitElements(Driver.WebDriver, this);
+            Driver = driver;
+            PageFactory.InitElements(driver.WebDriver, this);
         }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "username")]

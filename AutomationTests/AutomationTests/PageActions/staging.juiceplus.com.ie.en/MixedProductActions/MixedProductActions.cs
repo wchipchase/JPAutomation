@@ -21,7 +21,14 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.MixedProductAc
     class MixedProductActions
     {
 
-        public static void AddUpliftInstallmentPayCapsulePayInFullRecurringToCart()
+        Driver Driver;
+
+        public MixedProductActions(Driver driver)
+        {
+            Driver = driver;
+        }
+
+        public void AddUpliftInstallmentPayCapsulePayInFullRecurringToCart()
         {
             try
             {

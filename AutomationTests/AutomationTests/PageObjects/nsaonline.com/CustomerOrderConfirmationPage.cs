@@ -12,8 +12,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
 {
     class CustomerOrderConfirmationPage
     {
-        public CustomerOrderConfirmationPage()
+        Driver Driver;
+
+        public CustomerOrderConfirmationPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

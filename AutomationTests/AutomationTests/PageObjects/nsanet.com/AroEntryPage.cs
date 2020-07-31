@@ -14,8 +14,11 @@ namespace AutomationTests.PageObjects.nsanet.com
 {
     class AroEntryPage : BasePage
     {
-        public AroEntryPage()
+        Driver Driver;
+
+        public AroEntryPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
@@ -122,8 +125,8 @@ namespace AutomationTests.PageObjects.nsanet.com
         {
             ZipShippingAddressField.SendKeys(zip);
             ZipLookupButton.Click();
-
             Driver.WebDriver.SwitchTo().Window(Driver.WebDriver.WindowHandles[1]);
+            Thread.Sleep(1000);
             Driver.WebDriver.FindElement(By.XPath("//input[@type='checkbox' and contains(@onclick," + city + ")]")).Click();
             Driver.WebDriver.FindElement(By.XPath("//td[contains(text()," + city + ")]/..//input[@type='checkbox']")).Click();
             Driver.WebDriver.SwitchTo().Window(Driver.WebDriver.WindowHandles[0]);

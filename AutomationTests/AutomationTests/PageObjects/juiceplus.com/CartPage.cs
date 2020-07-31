@@ -12,8 +12,11 @@ namespace AutomationTests.PageObjects.juiceplus.com
 {
     class CartPage
     {
-        public CartPage()
+        Driver Driver;
+
+        public CartPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

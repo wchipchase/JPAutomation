@@ -13,8 +13,11 @@ namespace AutomationTests.PageObjects.nsanet.com
 {
     class AroMaintenancePage : BasePage
     {
-        public AroMaintenancePage()
+        Driver Driver;
+
+        public AroMaintenancePage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 

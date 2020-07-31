@@ -12,8 +12,11 @@ namespace AutomationTests.PageObjects.juiceplus.com
 {
     class MainPage
     {
-        public MainPage()
+        Driver Driver;
+
+        public MainPage(Driver driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
@@ -22,7 +25,7 @@ namespace AutomationTests.PageObjects.juiceplus.com
 
         public void NavigateBuyPage()
         {
-            Header Header = new Header();
+            Header Header = new Header(Driver);
 
             Actions builder = new Actions(Driver.WebDriver);
             IAction action = builder.MoveToElement(BuyLink, BuyLink.Size.Width / 2, (BuyLink.Size.Height * 75) / 100).Click().Build();

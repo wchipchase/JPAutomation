@@ -22,7 +22,14 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
 {
     class CartActions
     {
-        public static IWebElement WaitUntilElementVisible(By elementLocator, int timeout = 10)
+        Driver Driver;
+
+        public CartActions(Driver driver)
+        {
+            Driver = driver;
+        }
+
+        public IWebElement WaitUntilElementVisible(By elementLocator, int timeout = 10)
         {
             try
             {
@@ -36,7 +43,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
             }
         }
 
-        public static void NavigateToProceedToCheckoutAndClick()
+        public void NavigateToProceedToCheckoutAndClick()
         {
             try
             {
@@ -51,7 +58,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
 
         }
 
-        public static void CheckoutWithCartItemsVisa()
+        public void CheckoutWithCartItemsVisa()
         {
             try
             {
@@ -107,7 +114,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
 
         }
 
-        public static void CheckoutWithCartItemsMC()
+        public void CheckoutWithCartItemsMC()
         {
             try
             {
@@ -172,7 +179,7 @@ namespace AutomationTests.PageActions.staging.juiceplus.com.ie.en.CartCheckoutAc
 
         }
 
-        public static void CheckoutWithCartItemsVisaLoggedInRep()
+        public void CheckoutWithCartItemsVisaLoggedInRep()
         {
             try
             {

@@ -10,11 +10,15 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.nsanet.com
-{
+{   
     class OrderEntryPage : BasePage
     {
-        public OrderEntryPage()
+
+        Driver Driver;
+
+        public OrderEntryPage(Driver driver) : base(driver)
         {
+            Driver = driver;
             PageFactory.InitElements(Driver.WebDriver, this);
         }
 
