@@ -74,7 +74,7 @@ namespace AutomationTests.ConfigElements
                 InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
                 internetExplorerOptions.IgnoreZoomLevel = true;
                 internetExplorerOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
-                // internetExplorerOptions.AcceptInsecureCertificates = true;
+                internetExplorerOptions.AcceptInsecureCertificates = true;
                 _webDriver = new InternetExplorerDriver(internetExplorerOptions);
             }
             else if (browserType == BrowserType.Edge)
