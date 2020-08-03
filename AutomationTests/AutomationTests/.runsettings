@@ -3,5 +3,6 @@
 <!-- Parameters used by tests at runtime -->
   <TestRunParameters>
     <Parameter name ="testEnvironment" value="RC" />
+	<Parameter name ="browser" value="IE" />
   </TestRunParameters>
 </RunSettings>

@@ -65,6 +65,8 @@ namespace AutomationTests.ConfigElements
             }
             else if (browserType == BrowserType.Firefox)
             {
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.AcceptInsecureCertificates = true;
                 _webDriver = new FirefoxDriver();
             }
             else if (browserType == BrowserType.IE)
@@ -72,7 +74,7 @@ namespace AutomationTests.ConfigElements
                 InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
                 internetExplorerOptions.IgnoreZoomLevel = true;
                 internetExplorerOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
-                internetExplorerOptions.AcceptInsecureCertificates = true;
+                // internetExplorerOptions.AcceptInsecureCertificates = true;
                 _webDriver = new InternetExplorerDriver(internetExplorerOptions);
             }
             else if (browserType == BrowserType.Edge)
