@@ -58,7 +58,10 @@ namespace AutomationTests.ConfigElements
             // Intialize corresponding driver based on desired browser type.
             if (browserType == BrowserType.Chrome)
             {
-                _webDriver = new ChromeDriver();
+                // _webDriver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.AddArguments("--start-maximized");
+                _webDriver = new RemoteWebDriver(new Uri("http://memitrdp:4444/wd/hub"), options);
             }
             else if (browserType == BrowserType.Firefox)
             {
@@ -69,6 +72,7 @@ namespace AutomationTests.ConfigElements
                 InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
                 internetExplorerOptions.IgnoreZoomLevel = true;
                 internetExplorerOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
+                internetExplorerOptions.AcceptInsecureCertificates = true;
                 _webDriver = new InternetExplorerDriver(internetExplorerOptions);
             }
             else if (browserType == BrowserType.Edge)

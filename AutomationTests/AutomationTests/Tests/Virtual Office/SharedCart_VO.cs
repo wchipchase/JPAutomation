@@ -41,9 +41,9 @@ namespace AutomationTests.rc.nsaonline
         [SetUp]
         public void Setup()
         {
-            Driver = new Driver(Driver.BrowserType.Firefox);
-            // Driver.InitializeDriver();
+            Driver = new Driver(Driver.BrowserType.Chrome);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.WebDriver.Manage().Window.Maximize();
 
             LoginPage = new LoginPage(Driver);
             MainPage = new MainPage(Driver);

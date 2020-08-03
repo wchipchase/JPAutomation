@@ -27,11 +27,9 @@ namespace AutomationTests.towergarden.com
         [SetUp]
         public void Setup()
         {
-            ChromeOptions options = new ChromeOptions();
-            options.SetLoggingPreference(LogType.Browser, LogLevel.Warning);
-            options.AddArguments("--ignore-certificate-errors");
-            Driver.InitializeDriver(options);
-            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Driver = new Driver(Driver.BrowserType.Chrome);
+            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.WebDriver.Manage().Window.Maximize();
 
             MainPage = new MainPage(Driver);
             BuyPage = new BuyPage(Driver);

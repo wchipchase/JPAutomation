@@ -77,7 +77,8 @@ namespace AutomationTests.PageObjects
 
         public Boolean IsElementDisplayed(IWebElement webElement)
         {
-            double initialImplicitWaitTime = Driver.WebDriver.Manage().Timeouts().ImplicitWait.TotalSeconds;
+            // double initialImplicitWaitTime = Driver.WebDriver.Manage().Timeouts().ImplicitWait.TotalSeconds;
+            double initialImplicitWaitTime = 5;
             try
             {
                 Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);

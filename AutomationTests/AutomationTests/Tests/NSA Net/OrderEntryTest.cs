@@ -25,8 +25,9 @@ namespace AutomationTests.nsanet.com
         [SetUp]
         public void Setup()
         {
-            Driver.InitializeDriver();
-            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            Driver = new Driver(Driver.BrowserType.Chrome);
+            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.WebDriver.Manage().Window.Maximize();
 
             LoginPage = new LoginPage(Driver);
             MainPage = new MainPage(Driver);

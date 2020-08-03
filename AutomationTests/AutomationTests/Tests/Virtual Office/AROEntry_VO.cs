@@ -39,7 +39,7 @@ namespace AutomationTests.rc.nsaonline
         [SetUp]
         public void Setup()
         {
-            Driver = new Driver(Driver.BrowserType.Headless);
+            Driver = new Driver(Driver.BrowserType.Chrome);
             Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
             Driver.WebDriver.Manage().Window.Maximize();
 
