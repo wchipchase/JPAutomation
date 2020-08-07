@@ -164,3 +164,4 @@ C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csproj.CopyComplete
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.exe
 C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.pdb
+C:\Users\jcrocker\source\repos\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csprojAssemblyReference.cache
