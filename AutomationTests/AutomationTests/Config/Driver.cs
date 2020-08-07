@@ -31,7 +31,8 @@ namespace AutomationTests.ConfigElements
             Firefox,
             IE,
             Edge,
-            Headless
+            Headless,
+            Remote
         }
 
         public Driver(BrowserType browserType)
@@ -95,6 +96,15 @@ namespace AutomationTests.ConfigElements
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.AddArguments(new string[] {"--headless", "--disable-gpu", "--enable-javascript", "--no-sandbox", "'window-size=1920x1080" });
                 _webDriver = new ChromeDriver(chromeOptions);
+            }
+            else if (browserType == BrowserType.Remote)
+            {
+                // _webDriver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.AddArguments("--start-maximized");
+                options.AcceptInsecureCertificates = true;
+                // _webDriver = new ChromeDriver(options);
+                _webDriver = new RemoteWebDriver(new Uri("http://memitrdp:4444/wd/hub"), options);
             }
         }
 
