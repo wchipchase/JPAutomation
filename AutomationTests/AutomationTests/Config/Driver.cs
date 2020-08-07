@@ -3,6 +3,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Threading;
+using AventStack.ExtentReports;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,9 +16,14 @@ using OpenQA.Selenium.Support.UI;
 namespace AutomationTests.ConfigElements
 {
     public class Driver {
+        
         // Privatize the _webDriver member; use the WebDriver as the only external exposure to the driver
         private IWebDriver _webDriver;
+        private BrowserType _browserType;
         private OpenQA.Selenium.Cookie cfCookie;
+
+        static protected ExtentReports _extent;
+        static protected ExtentTest _test;
 
         public enum BrowserType
         {
@@ -56,12 +62,15 @@ namespace AutomationTests.ConfigElements
             }
 
             // Intialize corresponding driver based on desired browser type.
+            _browserType = browserType;
             if (browserType == BrowserType.Chrome)
             {
                 // _webDriver = new ChromeDriver();
                 ChromeOptions options = new ChromeOptions();
                 options.AddArguments("--start-maximized");
-                _webDriver = new RemoteWebDriver(new Uri("http://memitrdp:4444/wd/hub"), options);
+                options.AcceptInsecureCertificates = true;
+                _webDriver = new ChromeDriver(options);
+                // _webDriver = new RemoteWebDriver(new Uri("http://memitrdp:4444/wd/hub"), options);
             }
             else if (browserType == BrowserType.Firefox)
             {
@@ -74,7 +83,7 @@ namespace AutomationTests.ConfigElements
                 InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
                 internetExplorerOptions.IgnoreZoomLevel = true;
                 internetExplorerOptions.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
-                internetExplorerOptions.AcceptInsecureCertificates = true;
+                internetExplorerOptions.UnhandledPromptBehavior = UnhandledPromptBehavior.Dismiss;
                 _webDriver = new InternetExplorerDriver(internetExplorerOptions);
             }
             else if (browserType == BrowserType.Edge)
@@ -230,6 +239,28 @@ namespace AutomationTests.ConfigElements
 
             return url;
         }
+
+        public void Navigate(String url)
+        {
+            this.WebDriver.Navigate().GoToUrl(url);
+            
+            if ((_browserType == Driver.BrowserType.IE) && this._webDriver.PageSource.Contains("This site is not secure"))
+            {
+                this._webDriver.FindElement(By.Id("moreInfoContainer")).Click();
+                this._webDriver.FindElement(By.Id("overridelink")).Click();
+            }
+
+            if ((_browserType == Driver.BrowserType.Edge) && this._webDriver.PageSource.Contains("Your connection isn't private"))
+            {
+                this._webDriver.FindElement(By.Id("details-button")).Click();
+                this._webDriver.FindElement(By.Id("proceed-link")).Click();
+            }            
+        }
+
+        /*public ExtentReports getExtentReports()
+        {
+
+        }*/
 
         public void Pause()
         {

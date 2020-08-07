@@ -185,7 +185,6 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
             BillingAddressSameButton.Click();
             Thread.Sleep(1000);
             NextButton.Click();
-            Thread.Sleep(1000);
         }
 
         public void InputAccountInformation(String bankAccountNumber, String bankStateBranchCode, String bankNameField, String accountNameField)

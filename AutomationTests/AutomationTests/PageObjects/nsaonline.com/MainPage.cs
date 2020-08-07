@@ -60,7 +60,7 @@ namespace AutomationTests.PageObjects.nsaonline.com
         {
             CountryLanguageIcon.Click();
             new SelectElement(ChangeCountrySelect).SelectByText(countryName);
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
         }
 
         public void NavigateComposeEmail()
@@ -84,7 +84,7 @@ namespace AutomationTests.PageObjects.nsaonline.com
 
         public void InitiateOrderJuicePlus ()
         {
-            SubmitOrderJuicePlus.Click();
+            Click(SubmitOrderJuicePlus);
         }
 
         public void NavigateManageMyTeam()

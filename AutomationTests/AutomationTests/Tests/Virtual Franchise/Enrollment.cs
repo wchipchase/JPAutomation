@@ -12,15 +12,20 @@ using System.Threading;
 
 namespace AutomationTests.juice.plus.virtualfranchise
 {
-    [TestFixture]
+    [TestFixture, Parallelizable(ParallelScope.Children)]
     class Enrollment
     {
-        Driver Driver;
+        [ThreadStatic]
+        static Driver Driver;
 
-        MainPage MainPage;
-        EnrollmentPageUS EnrollmentPageUS;
-        EnrollmentPageCA EnrollmentPageCA;
-        EnrollmentPageAU EnrollmentPageAU;
+        [ThreadStatic]
+        static MainPage MainPage;
+        [ThreadStatic]
+        static EnrollmentPageUS EnrollmentPageUS;
+        [ThreadStatic]
+        static EnrollmentPageCA EnrollmentPageCA;
+        [ThreadStatic]
+        static EnrollmentPageAU EnrollmentPageAU;
 
         [SetUp]
         public void Setup()
@@ -35,10 +40,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             EnrollmentPageAU = new EnrollmentPageAU(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Retry(1)]
         public void TestEnrollment_CorporateUrl_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchise", "US"));
+            Driver.Navigate(Driver.GetUrl("VirtualFranchise", "US"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100000000, 999999999);
@@ -46,16 +51,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
-            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "us.devcq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "us.stagecq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "us.rccq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "juiceplusvirtualfranchise.com", "/", date);
+            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447");
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
-            MainPage.NavigateToEnrollmentPage();
+            // MainPage.NavigateToEnrollmentPage();
             EnrollmentPageUS.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
             EnrollmentPageUS.InputContactInformation("140 Crescent Dr", "Collierville", "TN", "38017", "9018502982", emailAddress);
             EnrollmentPageUS.InputSponsorInformation(true, "Todd White", "9018502982");
@@ -66,10 +65,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Retry(1)]
         public void TestEnrollment_PartnerUrl_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "US"));
+            Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "US"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100000000, 999999999);
@@ -77,16 +76,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
-            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "us.devcq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "us.stagecq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "us.rccq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "juiceplusvirtualfranchise.com", "/", date);
+            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447");
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
-            MainPage.NavigateToEnrollmentPage();
+            // MainPage.NavigateToEnrollmentPage();
             EnrollmentPageUS.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
             EnrollmentPageUS.InputContactInformation("140 Crescent Dr", "Collierville", "TN", "38017", "9018502982", emailAddress);
             EnrollmentPageUS.InputSponsorInformation(true, "Todd White", "9018502982");
@@ -103,10 +96,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test CAN Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test CAN Virtual Franchise Enrollment using Partner Url"), Retry(1)]
         public void TestEnrollment_PartnerUrl_VF_CA()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "CA"));
+            Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "CA"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100, 999) + "-" + new Random().Next(100, 999) + "-" + new Random().Next(100, 999);
@@ -114,16 +107,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
-            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "can.devcq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "can.stagecq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "can.rccq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "juiceplusvirtualfranchise.ca", "/", date);
+            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447");
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
-            MainPage.NavigateToEnrollmentPage();
+            // MainPage.NavigateToEnrollmentPage();
             EnrollmentPageCA.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
             EnrollmentPageCA.InputContactInformation("2785 Skymark Ave", "Mississauga", "ON", "L4W4Y3", "9056246368", emailAddress);
             EnrollmentPageCA.InputBusinessInformation();
@@ -141,10 +128,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Repeat(1)]
+        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Retry(1)]
         public void TestEnrollment_PartnerUrl_VF_AU()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualFranchisePartner", "AU"));
+            Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "AU"));
 
             String emailAddress = "jason.moore" + new Random().Next(100000, 999999) + "@juiceplus.com";
             String ssn = "" + new Random().Next(100000000, 999999999);
@@ -152,16 +139,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
-            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "au.devcq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "au.stagecq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "au.rccq.juiceplusvirtualfranchise.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447", "juiceplusvirtualfranchise.com.au", "/", date);
+            Cookie cfCookie = new OpenQA.Selenium.Cookie("_hjDonePolls", "520447");
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
 
-            MainPage.NavigateToEnrollmentPage();
+            // MainPage.NavigateToEnrollmentPage();
             EnrollmentPageAU.InputPersonalInformation(ssn, "Test", "T", "Tester", "Male", "JAN", "6", "1974");
             EnrollmentPageAU.InputContactInformation("14 Merewether St", "Merewether", "QLD", "2291", "0294963000", emailAddress);
             EnrollmentPageAU.InputBusinessInformation();

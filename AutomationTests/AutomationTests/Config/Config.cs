@@ -109,25 +109,25 @@ namespace AutomationTests.Config
             {"VirtualOfficeUrl_US_PRD", "https://www.juiceplusvirtualoffice.com/esuite/control/mainView"},
 
             // Virtual Franchise urls
-            {"VirtualFranchiseUrl_US_DEV", "http://us.devcq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchiseUrl_US_STG", "https://us.stagecq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchiseUrl_US_RC", "http://us.rccq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchiseUrl_US_PRD", "http://www.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchiseUrl_US_DEV", "http://us.devcq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchiseUrl_US_STG", "https://us.stagecq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchiseUrl_US_RC", "http://us.rccq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchiseUrl_US_PRD", "http://www.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
 
-            {"VirtualFranchisePartnerUrl_US_DEV", "http://toddwhite.us.devcq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_US_STG", "https://toddwhite.us.stagecq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_US_RC", "https://toddwhite.us.rccq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_US_PRD", "https://toddwhite.juiceplusvirtualfranchise.com"},
+            {"VirtualFranchisePartnerUrl_US_DEV", "http://toddwhite.us.devcq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_US_STG", "https://toddwhite.us.stagecq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_US_RC", "https://toddwhite.us.rccq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_US_PRD", "https://toddwhite.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
 
-            {"VirtualFranchisePartnerUrl_CA_DEV", "http://toddwhite.can.devcq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_CA_STG", "https://toddwhite.can.stagecq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_CA_RC", "https://toddwhite.can.rccq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_CA_PRD", "https://toddwhite.juiceplusvirtualfranchise.ca"},
+            {"VirtualFranchisePartnerUrl_CA_DEV", "http://toddwhite.can.devcq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_CA_STG", "https://toddwhite.can.stagecq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_CA_RC", "https://toddwhite.can.rccq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_CA_PRD", "https://toddwhite.juiceplusvirtualfranchise.ca/the-juice-plus-business-model/enrollment"},
 
-            {"VirtualFranchisePartnerUrl_AU_DEV", "http://toddwhite.au.devcq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_AU_STG", "https://toddwhite.au.stagecq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_AU_RC", "https://toddwhite.au.rccq.juiceplusvirtualfranchise.com"},
-            {"VirtualFranchisePartnerUrl_AU_PRD", "https://toddwhite.juiceplusvirtualfranchise.com.au"},
+            {"VirtualFranchisePartnerUrl_AU_DEV", "http://toddwhite.au.devcq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_AU_STG", "https://toddwhite.au.stagecq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_AU_RC", "https://toddwhite.au.rccq.juiceplusvirtualfranchise.com/the-juice-plus-business-model/enrollment"},
+            {"VirtualFranchisePartnerUrl_AU_PRD", "https://toddwhite.juiceplusvirtualfranchise.com.au/the-juice-plus-business-model/enrollment"},
 
             // NSANet urls
             {"NSANetUrl_US_DEV", "https://dev.nsanet.com"},

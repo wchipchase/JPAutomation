@@ -42,7 +42,7 @@ namespace AutomationTests.rc.nsaonline
         public void Setup()
         {
             Driver = new Driver(Driver.BrowserType.Chrome);
-            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+            Driver.WebDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             Driver.WebDriver.Manage().Window.Maximize();
 
             LoginPage = new LoginPage(Driver);
@@ -90,15 +90,11 @@ namespace AutomationTests.rc.nsaonline
 
             String dateString = "5/1/2030 8:30:52 AM";
             DateTime date = DateTime.Parse(dateString, System.Globalization.CultureInfo.InvariantCulture);
-            Cookie cfCookie = new OpenQA.Selenium.Cookie("cookiesAccepted", "true", "uk.devcq.juiceplus.com", "/", date);
+            Cookie cfCookie = new OpenQA.Selenium.Cookie("cookiesAccepted", "true", "toddwhite.us.stagecq.juiceplus.com", "/", date);
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("cookiesAccepted", "true", "uk.stagecq.juiceplus.com", "/", date);
+            cfCookie = new OpenQA.Selenium.Cookie("cookiesAccepted", "true", "toddwhite.us.rccq.juiceplus.com", "/", date);
             Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("cookiesAccepted", "true", "uk.rccq.juiceplus.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-            cfCookie = new OpenQA.Selenium.Cookie("cookiesAccepted", "true", "juiceplus.com", "/", date);
-            Driver.WebDriver.Manage().Cookies.AddCookie(cfCookie);
-
+           
             LoginPage.Login("wddot", "wddot");
             MainPage.ChangeCountry("United kingdom");
             MainPage.InitiateOrderJuicePlus();
@@ -114,6 +110,7 @@ namespace AutomationTests.rc.nsaonline
             Thread.Sleep(1000);
             Assert.AreEqual(EditCartPage.GetQuanity("480105050"), "1");
             Assert.AreEqual(EditCartPage.GetQuanity("490105050"), "1");
+            Driver.WebDriver.FindElement(By.Id("cookieAccept")).Click();
             EditCartPage.CheckOut();
             CheckoutPage.SelectSameAddressForBilling();
             CheckoutPage.InputPaymentMethod("Visa", "4242424242424242", "02", "2022", "189");

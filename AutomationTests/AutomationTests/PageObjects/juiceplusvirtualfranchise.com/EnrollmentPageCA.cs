@@ -166,7 +166,6 @@ namespace AutomationTests.PageObjects.juiceplusvirtualfranchise.com
             new SelectElement(CreditCardExpirationYear).SelectByText(expirationYear);
             Thread.Sleep(1000);
             BillingAddressSameButton.Click();
-            Thread.Sleep(1000);
         }
 
         public void SubmitEnrollment ()

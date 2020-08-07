@@ -2,7 +2,7 @@
 <RunSettings>
 <!-- Parameters used by tests at runtime -->
   <TestRunParameters>
-    <Parameter name ="testEnvironment" value="RC" />
-	<Parameter name ="browser" value="IE" />
+    <Parameter name ="testEnvironment" value="STG" />
+	<Parameter name ="browser" value="Chrome" />
   </TestRunParameters>
 </RunSettings>
