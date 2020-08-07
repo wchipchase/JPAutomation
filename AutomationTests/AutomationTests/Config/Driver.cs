@@ -61,6 +61,10 @@ namespace AutomationTests.ConfigElements
             {
                 browserType = BrowserType.Headless;
             }
+            else if (browserParameter.Equals("Remote"))
+            {
+                browserType = BrowserType.Remote;
+            }
 
             // Intialize corresponding driver based on desired browser type.
             _browserType = browserType;
