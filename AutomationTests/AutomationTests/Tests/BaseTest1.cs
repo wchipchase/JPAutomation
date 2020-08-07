@@ -75,7 +75,7 @@ namespace AutomationTests.nsanet.com
             _extent.Flush();
         }
 
-        [Test, Category("ReportTest"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Retry(1)]
+        [Test, Category("ReportTest"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Retry(1)]
         public void BaseTestTest1()
         {
             Driver.Navigate(Driver.GetUrl("VirtualFranchise", "US"));
@@ -100,7 +100,7 @@ namespace AutomationTests.nsanet.com
             Thread.Sleep(5000);
         }
 
-        [Test, Category("ReportTest"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Retry(1)]
+        [Test, Category("ReportTest"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Retry(1)]
         public void BaseTestTest2()
         {
             Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "US"));
