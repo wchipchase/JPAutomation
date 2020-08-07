@@ -69,8 +69,8 @@ namespace AutomationTests.ConfigElements
                 ChromeOptions options = new ChromeOptions();
                 options.AddArguments("--start-maximized");
                 options.AcceptInsecureCertificates = true;
-                //_webDriver = new ChromeDriver(options);
-                _webDriver = new RemoteWebDriver(new Uri("http://memitrdp:4444/wd/hub"), options);
+                _webDriver = new ChromeDriver(options);
+                // _webDriver = new RemoteWebDriver(new Uri("http://memitrdp:4444/wd/hub"), options);
             }
             else if (browserType == BrowserType.Firefox)
             {
