@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutomationTests.ConfigElements;
-using AutomationTests.PageActions;
+// using AutomationTests.PageActions;
 using AutomationTests.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium.Internal;
@@ -20,7 +20,7 @@ namespace AutomationTests.Tests
         {
         }
 
-        private static object[] Messages01Cases =
+        /*private static object[] Messages01Cases =
         {
             new object[] {typeof(Data.Messages), "Ted", "Thompson", "ted@test.com", "555-555-0000", "206 Main St", "Suite 100", "Miami", "F", "30111", "This is a test message"},
             new object[] {typeof(Data.Messages), "Steve", "Stevens", "steve@test.com", "555-555-0001", "205 Main St", "", "Birmingham", "A", "30112", "This is a test message"},
@@ -49,6 +49,6 @@ namespace AutomationTests.Tests
         public void CleanUp()
         {
             Driver.WebDriver.Quit();
-        }
+        }*/
     }
 }
