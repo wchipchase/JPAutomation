@@ -55,7 +55,9 @@ namespace AutomationTests.rc.nsaonline
             CheckoutPage = new PageObjects.juiceplus.com.CheckoutPage(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Shared Cart US."), Repeat(1)]
+        [Test, Description("Shared Cart US.")]
+        [Category("LegacyRegression"), Category("Virtual Office")]
+        [Repeat(1)]
         public void SharedCart_VO_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice"));
@@ -83,7 +85,9 @@ namespace AutomationTests.rc.nsaonline
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Shared Cart UK"), Repeat(1)]
+        [Test, Description("Shared Cart UK")]
+        [Category("LegacyRegression"), Category("Virtual Office")]
+        [Repeat(1)]
         public void SharedCart_VO_UK()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice"));

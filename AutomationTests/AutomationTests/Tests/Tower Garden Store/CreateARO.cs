@@ -16,12 +16,18 @@ namespace AutomationTests.towergarden.com
     [TestFixture]
     class CreateAROTest
     {
+        [ThreadStatic]
         Driver Driver;
 
+        [ThreadStatic]
         MainPage MainPage;
+        [ThreadStatic]
         BuyPage BuyPage;
+        [ThreadStatic]
         CartPage CartPage;
+        [ThreadStatic]
         CheckoutPage CheckoutPage;
+        [ThreadStatic]
         Header Header;
 
         [SetUp]
@@ -38,7 +44,9 @@ namespace AutomationTests.towergarden.com
             Header = new Header(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create ARO on US Tower Garden Store"), Repeat(1)]
+        [Test, Description("Create ARO on US Tower Garden Store")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
         public void CreateARO_TG_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("TowerGardenStore", "US"));
@@ -57,7 +65,8 @@ namespace AutomationTests.towergarden.com
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create ARO on CA Tower Garden Store")]
+        [Test, Description("Create ARO on CA Tower Garden Store")]
+        [Category("LegacyRegression")]
         public void CreateARO_TG_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("TowerGardenStore", "CA"));

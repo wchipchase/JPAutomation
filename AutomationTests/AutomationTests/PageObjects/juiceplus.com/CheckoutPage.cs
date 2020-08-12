@@ -126,6 +126,8 @@ namespace AutomationTests.PageObjects.juiceplus.com
                 BillingInformationNoRadio.Click();
             }
 
+            Thread.Sleep(1000);
+
             if (hasRefferingRep)
             {
                 RefferingRepInfoYesRadio.Click();

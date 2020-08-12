@@ -33,7 +33,8 @@ namespace AutomationTests.nsaonline
             LoginPage = new LoginPage(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Test Compose Email on Virtual Office.")]
+        [Test, Description("Test Compose Email on Virtual Office.")]
+        [Category("LegacyRegression"), Category("Virtual Office")]
         public void ComposeEmail_VO_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice", "US"));

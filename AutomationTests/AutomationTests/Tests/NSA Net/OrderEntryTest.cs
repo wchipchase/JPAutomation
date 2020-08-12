@@ -16,11 +16,15 @@ namespace AutomationTests.nsanet.com
     [TestFixture]
     class OrderEntryTest
     {
-        Driver Driver;
+        [ThreadStatic]
+        static Driver Driver;
 
-        LoginPage LoginPage;
-        MainPage MainPage;
-        OrderEntryPage OrderEntryPage;
+        [ThreadStatic]
+        static LoginPage LoginPage;
+        [ThreadStatic]
+        static MainPage MainPage;
+        [ThreadStatic]
+        static OrderEntryPage OrderEntryPage;
 
         [SetUp]
         public void Setup()
@@ -34,8 +38,10 @@ namespace AutomationTests.nsanet.com
             OrderEntryPage = new OrderEntryPage(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create US Order on NSA Net Order Entry"), Repeat(1)]
-        public void OrderEntry_US()
+        [Test, Description("Create US Order on NSA Net Order Entry")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
+        public void OrderEntry_NSANet_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
@@ -57,8 +63,10 @@ namespace AutomationTests.nsanet.com
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create CA Order on NSA Net Order Entry"), Repeat(1)]
-        public void OrderEntry_CA()
+        [Test, Description("Create CA Order on NSA Net Order Entry")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
+        public void OrderEntry_NSANet_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
@@ -80,8 +88,10 @@ namespace AutomationTests.nsanet.com
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create UK Order on NSA Net Order Entry"), Repeat(1)]
-        public void OrderEntry_UK()
+        [Test, Description("Create UK Order on NSA Net Order Entry")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
+        public void OrderEntry_NSANet_UK()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");

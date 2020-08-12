@@ -16,11 +16,16 @@ namespace AutomationTests.juiceplus.com
     [TestFixture]
     class CreateAroTest
     {
+        [ThreadStatic]
         Driver Driver;
 
+        [ThreadStatic]
         BuyPage BuyPage;
+        [ThreadStatic]
         CartPage CartPage;
+        [ThreadStatic]
         CheckoutPage CheckoutPage;
+        [ThreadStatic]
         Header Header;
 
         [SetUp]
@@ -36,7 +41,9 @@ namespace AutomationTests.juiceplus.com
             Header = new Header(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create ARO on US Juice Plus Store"), Repeat(1)]
+        [Test, Description("Create ARO on US Juice Plus Store")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
         public void CreateARO_JP_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("JuicePlusStore", "US"));
@@ -55,7 +62,9 @@ namespace AutomationTests.juiceplus.com
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create ARO on CA Juice Plus Store"), Repeat(1)]
+        [Test, Description("Create ARO on CA Juice Plus Store")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
         public void CreateARO_JP_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("JuicePlusStore", "CA"));
@@ -74,7 +83,9 @@ namespace AutomationTests.juiceplus.com
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create ARO on AU Juice Plus Store"), Repeat(1)]
+        [Test, Description("Create ARO on AU Juice Plus Store")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
         public void CreateARO_JP_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("JuicePlusStore", "AU"));

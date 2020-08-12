@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace AutomationTests.juice.plus.virtualfranchise
 {
-    [TestFixture, Parallelizable(ParallelScope.Children)]
+    [TestFixture]
     class Enrollment
     {
         [ThreadStatic]
@@ -40,8 +40,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             EnrollmentPageAU = new EnrollmentPageAU(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Corporate Url"), Retry(1)]
-        public void TestEnrollment_CorporateUrl_VF_US()
+        [Test, Description("Test US Virtual Franchise Enrollment using Corporate Url")]
+        [Category("LegacyRegression"), Category("VFEnrollment")]
+        [Retry(1)]
+        public void TestEnrollmentCorporateUrl_VF_US()
         {
             Driver.Navigate(Driver.GetUrl("VirtualFranchise", "US"));
 
@@ -65,8 +67,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test US Virtual Franchise Enrollment using Partner Url"), Retry(1)]
-        public void TestEnrollment_PartnerUrl_VF_US()
+        [Test, Description("Test US Virtual Franchise Enrollment using Partner Url")]
+        [Category("LegacyRegression"), Category("VFEnrollment")]
+        [Retry(1)]
+        public void TestEnrollmentPartnerUrl_VF_US()
         {
             Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "US"));
 
@@ -96,8 +100,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test CAN Virtual Franchise Enrollment using Partner Url"), Retry(1)]
-        public void TestEnrollment_PartnerUrl_VF_CA()
+        [Test, Description("Test CAN Virtual Franchise Enrollment using Partner Url")]
+        [Category("LegacyRegression"), Category("VFEnrollment")]
+        [Retry(1)]
+        public void TestEnrollmentPartnerUrl_VF_CA()
         {
             Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "CA"));
 
@@ -128,8 +134,10 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Thread.Sleep(5000);
         }
 
-        [Test, Category("LegacyRegression"), Category("VFEnrollment"), Description("Test AU Virtual Franchise Enrollment using Partner Url"), Retry(1)]
-        public void TestEnrollment_PartnerUrl_VF_AU()
+        [Test, Description("Test AU Virtual Franchise Enrollment using Partner Url")]
+        [Category("LegacyRegression"), Category("VFEnrollment")]
+        [Retry(1)]
+        public void TestEnrollmentPartnerUrl_VF_AU()
         {
             Driver.Navigate(Driver.GetUrl("VirtualFranchisePartner", "AU"));
 

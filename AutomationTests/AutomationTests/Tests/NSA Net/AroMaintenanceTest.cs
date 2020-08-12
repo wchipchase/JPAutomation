@@ -16,12 +16,17 @@ namespace AutomationTests.nsanet.com
     [TestFixture]
     class AroMaintenanceTest
     {
-        Driver Driver;
+        [ThreadStatic]
+        static Driver Driver;
 
-        LoginPage LoginPage;
-        MainPage MainPage;
-        AroEntryPage AroEntryPage;
-        AroMaintenancePage AroMaintenancePage;
+        [ThreadStatic]
+        static LoginPage LoginPage;
+        [ThreadStatic]
+        static MainPage MainPage;
+        [ThreadStatic]
+        static AroEntryPage AroEntryPage;
+        [ThreadStatic]
+        static AroMaintenancePage AroMaintenancePage;
 
         [SetUp]
         public void Setup()
@@ -36,8 +41,10 @@ namespace AutomationTests.nsanet.com
             AroMaintenancePage = new AroMaintenancePage(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Description("Create and Edit US ARO on NSA Net Aro Maintenance"), Repeat(1)]
-        public void AROMaintenance_US()
+        [Test, Description("Create and Edit US ARO on NSA Net Aro Maintenance")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
+        public void AROMaintenance_NSANet_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
@@ -76,8 +83,10 @@ namespace AutomationTests.nsanet.com
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
         }
 
-        [Test, Category("LegacyRegression"), Description("Create and Edit CA ARO on NSA Net Aro Maintenance"), Repeat(1)]
-        public void AROMaintenance_CA()
+        [Test, Description("Create and Edit CA ARO on NSA Net Aro Maintenance")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
+        public void AROMaintenance_NSANet_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
@@ -117,8 +126,10 @@ namespace AutomationTests.nsanet.com
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
         }
 
-        [Test, Category("LegacyRegression"), Description("Create and Edit AU ARO on NSA Net Aro Maintenance"), Repeat(1)]
-        public void AROMaintenance_AU()
+        [Test, Description("Create and Edit AU ARO on NSA Net Aro Maintenance")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
+        public void AROMaintenance_NSANet_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
@@ -158,7 +169,9 @@ namespace AutomationTests.nsanet.com
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("SUCCESS - Changed values are highlighted below in green"));
         }
 
-        [Test, Category("Misc"), Description("Cancel All AROs"), Repeat(1)]
+        [Test, Description("Cancel All AROs")]
+        [Category("Misc")]
+        [Repeat(1)]
         public void CancelAROs_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));

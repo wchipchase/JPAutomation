@@ -52,7 +52,9 @@ namespace AutomationTests.rc.nsaonline
             EditCartPage = new EditCartPage(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Create US ARO on VO."), Repeat(1)]
+        [Test, Description("Create US ARO on VO.")]
+        [Category("LegacyRegression"), Category("Virtual Office")]
+        [Repeat(1)]
         public void AROEntry_VO_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice", "US"));
@@ -67,16 +69,22 @@ namespace AutomationTests.rc.nsaonline
             CheckoutPage.ContinueOrder();
             CheckoutPage.ProcessOrder();
 
-            var SuccessMessageRegex = new Regex(@"USWA\d{5,8}");
-            if (SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0)
+            var SuccessMessageRegex1 = new Regex(@"USWA\d{5,8}");
+            var SuccessMessageRegex2 = new Regex(@"VSG\d{5,14}");
+            if (SuccessMessageRegex1.Matches(CheckoutPage.GetOrderNumber()).Count > 0)
             {
-                Console.Write("USW Confirmation Number: " + SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber())[0].Value);
+                Console.Write("USW Confirmation Number: " + SuccessMessageRegex1.Matches(CheckoutPage.GetOrderNumber())[0].Value);
+            } else if (SuccessMessageRegex2.Matches(CheckoutPage.GetOrderNumber()).Count > 0)
+            {
+                Console.Write("USW Confirmation Number: " + SuccessMessageRegex2.Matches(CheckoutPage.GetOrderNumber())[0].Value);
             }
-            Assert.IsTrue(SuccessMessageRegex.Matches(CheckoutPage.GetOrderNumber()).Count > 0);
+            Assert.IsTrue(SuccessMessageRegex1.Matches(CheckoutPage.GetOrderNumber()).Count > 0 || SuccessMessageRegex2.Matches(CheckoutPage.GetOrderNumber()).Count > 0);
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank You for submitting your customer's order!"));
         }
 
-        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Create CA ARO on VO."), Repeat(1)]
+        [Test, Description("Create CA ARO on VO.")]
+        [Category("LegacyRegression"), Category("Virtual Office")]
+        [Repeat(1)]
         public void AROEntry_VO_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice"));
@@ -101,7 +109,9 @@ namespace AutomationTests.rc.nsaonline
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Thank You for submitting your customer's order!"));
         }
 
-        [Test, Category("LegacyRegression"), Category("Virtual Office"), Description("Create AU ARO on VO."), Repeat(1)]
+        [Test, Description("Create AU ARO on VO.")]
+        [Category("LegacyRegression"), Category("Virtual Office")]
+        [Repeat(1)]
         public void AROEntry_VO_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("VirtualOffice"));

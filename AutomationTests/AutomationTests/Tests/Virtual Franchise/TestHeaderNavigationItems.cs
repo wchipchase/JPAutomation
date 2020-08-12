@@ -26,10 +26,12 @@ namespace AutomationTests.juice.plus.virtualfranchise
             Header = new Header(Driver);
         }
 
-        [Test, Category("LegacyRegression"), Description("Test Virtual Franchise Connectivity"), Repeat(1)]
+        [Test, Description("Test Virtual Franchise Connectivity")]
+        [Category("LegacyRegression")]
+        [Repeat(1)]
         public void TestAllHeaderNavigation_VF_US()
         {
-            Driver.WebDriver.Navigate().GoToUrl(Config.Config.VirtualFranchiseUrl_US_STG);
+            Driver.WebDriver.Navigate().GoToUrl("http://www.juiceplusvirtualfranchise.com");
 
             Header.NavigateJuicePlusProductClick();
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Juice Plus+ is whole food based nutrition in a capsule and chewable form"));
