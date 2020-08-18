@@ -150,6 +150,7 @@
     <Compile Include="PageObjects\towergarden.com\Header.cs" />
     <Compile Include="PageObjects\towergarden.com\MainPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\ExtentHelper.cs" />
     <Compile Include="Tests\BaseTest1.cs" />
     <Compile Include="Tests\BaseTest2.cs" />
     <Compile Include="Tests\Juice Plus Store\CreateAroTest.cs" />

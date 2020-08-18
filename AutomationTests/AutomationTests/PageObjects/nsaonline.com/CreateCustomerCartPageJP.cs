@@ -86,6 +86,31 @@ namespace AutomationTests.PageObjects.nsaonline.com
             EmailAddressField.SendKeys(emailAddress);
         }
 
+        public void InputShippingInformation(String firstName, String lastName, String address, String zip, String city, String state, String phoneNumber, String mobileNumber, String emailAddress)
+        {
+            FirstNameField.SendKeys(firstName);
+            LastNameField.SendKeys(lastName);
+            ShippingAddressField.SendKeys(address);
+            ShippingZipField.SendKeys(zip);
+            ShippingCityField.SendKeys(city);
+            ShippingStateField.SendKeys(state);
+            PhoneNumberField.SendKeys(phoneNumber);
+            MobileNumberField.SendKeys(mobileNumber);
+            EmailAddressField.SendKeys(emailAddress);
+        }
+
+        public void InputShippingInformation(String firstName, String lastName, String address, String zip, String city, String phoneNumber, String mobileNumber, String emailAddress)
+        {
+            FirstNameField.SendKeys(firstName);
+            LastNameField.SendKeys(lastName);
+            ShippingAddressField.SendKeys(address);
+            ShippingZipField.SendKeys(zip);
+            ShippingCityField.SendKeys(city);
+            PhoneNumberField.SendKeys(phoneNumber);
+            MobileNumberField.SendKeys(mobileNumber);
+            EmailAddressField.SendKeys(emailAddress);
+        }
+
         public void InputPaymentInformation(String firstName, String lastName, String phoneNumber, String emailAddress)
         {
             FirstNameField.SendKeys(firstName);

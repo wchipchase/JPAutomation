@@ -44,6 +44,18 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity490105050")]
         public IWebElement JuicePlusCapsules490105050QuantityField { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity490105030")]
+        public IWebElement JuicePlusCapsules490105030QuantityField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity490105001")]
+        public IWebElement JuicePlusCapsules490105001QuantityField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity480110034")]
+        public IWebElement JuicePlusCapsules480110034QuantityField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity490105080")]
+        public IWebElement JuicePlusCapsules490105080QuantityField { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity2000']//following-sibling::div/button")]
         public IWebElement JuicePlusCapsules2000AddToCartButton { get; set; }
 
@@ -65,14 +77,33 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity480105050']//following-sibling::div/button")]
         public IWebElement JuicePlusCapsules480105050AddToCartButton { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity490105030']//following-sibling::div/button")]
+        public IWebElement JuicePlusCapsules490105030AddToCartButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity480105030']//following-sibling::div/button")]
+        public IWebElement JuicePlusCapsules480105030AddToCartButton { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity490105050']//following-sibling::div/button")]
         public IWebElement JuicePlusCapsules490105050AddToCartButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity490105001']//following-sibling::div/button")]
+        public IWebElement JuicePlusCapsules490105001AddToCartButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity480110034']//following-sibling::div/button")]
+        public IWebElement JuicePlusCapsules480110034AddToCartButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity490105080']//following-sibling::div/button")]
+        public IWebElement JuicePlusCapsules490105080AddToCartButton { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".btn.btn-success.shareCart")]
         public IWebElement ShareCartWithCustomerButton { get; set; }
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//button[contains(text(),'CheckOut')]")]
         public IWebElement CheckoutButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customer.shoppingCartAccept.yes")]
+        public IWebElement AcceptAgreementRadioButton { get; set; }
+        
 
         public void AddToCart(String sku, int quantity)
         {
@@ -123,6 +154,27 @@ namespace AutomationTests.PageObjects.nsaonline.com
                 JuicePlusCapsules490105050QuantityField.Clear();
                 JuicePlusCapsules490105050QuantityField.SendKeys("" + quantity);
                 Click(JuicePlusCapsules490105050AddToCartButton);
+            } else if (sku.Equals("490105030"))
+            {
+                JuicePlusCapsules490105030QuantityField.Clear();
+                JuicePlusCapsules490105030QuantityField.SendKeys("" + quantity);
+                Click(JuicePlusCapsules490105030AddToCartButton);
+            } else if (sku.Equals("490105001"))
+            {
+                JuicePlusCapsules490105001QuantityField.Clear();
+                JuicePlusCapsules490105001QuantityField.SendKeys("" + quantity);
+                Click(JuicePlusCapsules490105001AddToCartButton);
+            } else if (sku.Equals("480110034"))
+            {
+                JuicePlusCapsules480110034QuantityField.Clear();
+                JuicePlusCapsules480110034QuantityField.SendKeys("" + quantity);
+                Click(JuicePlusCapsules480110034AddToCartButton);
+            }
+            else if (sku.Equals("490105080"))
+            {
+                JuicePlusCapsules490105080QuantityField.Clear();
+                JuicePlusCapsules490105080QuantityField.SendKeys("" + quantity);
+                Click(JuicePlusCapsules490105080AddToCartButton);
             }
             else
             {
@@ -138,6 +190,11 @@ namespace AutomationTests.PageObjects.nsaonline.com
         public void Checkout()
         {
             CheckoutButton.Click();
+        }
+
+        public void AcceptAgreement()
+        {
+            AcceptAgreementRadioButton.Click();
         }
     }
 }

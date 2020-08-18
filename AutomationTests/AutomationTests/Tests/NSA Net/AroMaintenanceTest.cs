@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsanet.com
 {
-    [TestFixture]
+    [TestFixture, Parallelizable(ParallelScope.All)]
     class AroMaintenanceTest
     {
         [ThreadStatic]
@@ -28,6 +28,15 @@ namespace AutomationTests.nsanet.com
         [ThreadStatic]
         static AroMaintenancePage AroMaintenancePage;
 
+        ExtentHelper ExtentHelper;
+
+        [OneTimeSetUp]
+        public void OneTimeSetup()
+        {
+            ExtentHelper = new ExtentHelper();
+            ExtentHelper.Setup(TestContext.CurrentContext);
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -39,6 +48,8 @@ namespace AutomationTests.nsanet.com
             MainPage = new MainPage(Driver);
             AroEntryPage = new AroEntryPage(Driver);
             AroMaintenancePage = new AroMaintenancePage(Driver);
+
+            ExtentHelper.AddTest(TestContext.CurrentContext);
         }
 
         [Test, Description("Create and Edit US ARO on NSA Net Aro Maintenance")]
@@ -193,7 +204,14 @@ namespace AutomationTests.nsanet.com
         [TearDown]
         public void TearDown()
         {
+            ExtentHelper.LogTest(TestContext.CurrentContext, Driver);
             Driver.Teardown();
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            ExtentHelper.Flush();
         }
     }
 }

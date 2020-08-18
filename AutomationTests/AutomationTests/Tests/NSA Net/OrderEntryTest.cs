@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsanet.com
 {
-    [TestFixture]
+    [TestFixture, Parallelizable(ParallelScope.All)]
     class OrderEntryTest
     {
         [ThreadStatic]
@@ -26,6 +26,15 @@ namespace AutomationTests.nsanet.com
         [ThreadStatic]
         static OrderEntryPage OrderEntryPage;
 
+        ExtentHelper ExtentHelper;
+
+        [OneTimeSetUp]
+        public void OneTimeSetup()
+        {
+            ExtentHelper = new ExtentHelper();
+            ExtentHelper.Setup(TestContext.CurrentContext);
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -36,12 +45,14 @@ namespace AutomationTests.nsanet.com
             LoginPage = new LoginPage(Driver);
             MainPage = new MainPage(Driver);
             OrderEntryPage = new OrderEntryPage(Driver);
+
+            ExtentHelper.AddTest(TestContext.CurrentContext);
         }
 
         [Test, Description("Create US Order on NSA Net Order Entry")]
         [Category("LegacyRegression")]
         [Repeat(1)]
-        public void OrderEntry_NSANet_US()
+         public void OrderEntry_NSANet_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
             LoginPage.Login("jcrocker", "Juiceplus123");
@@ -116,7 +127,14 @@ namespace AutomationTests.nsanet.com
         [TearDown]
         public void TearDown()
         {
+            ExtentHelper.LogTest(TestContext.CurrentContext, Driver);
             Driver.Teardown();
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            ExtentHelper.Flush();
         }
     }
 }

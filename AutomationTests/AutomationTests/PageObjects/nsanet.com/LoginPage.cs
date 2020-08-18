@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationTests.PageObjects.nsanet.com
@@ -13,6 +14,8 @@ namespace AutomationTests.PageObjects.nsanet.com
     {
 
         Driver Driver;
+
+        static Boolean isLoggingIn = false;
 
         public LoginPage(Driver driver)
         {
@@ -37,13 +40,33 @@ namespace AutomationTests.PageObjects.nsanet.com
 
         public void Login(String username, String password)
         {
-            UsernameField.SendKeys(username);
-            PasswordField.SendKeys(password);
-            LoginButton.Click();
+            bool isLoggedIn = false;
 
-            if (Driver.WebDriver.PageSource.Contains("CAS Authentication failed!"))
+            while (!isLoggedIn)
             {
-                CasAuthFailRedirect.Click();
+                if (!isLoggingIn)
+                {
+                    try
+                    {
+                        isLoggingIn = true;
+                        Thread.Sleep(1000);
+                        UsernameField.SendKeys(username);
+                        PasswordField.SendKeys(password);
+                        LoginButton.Click();
+
+                        if (Driver.WebDriver.PageSource.Contains("CAS Authentication failed!"))
+                        {
+                            CasAuthFailRedirect.Click();
+                        }
+                        isLoggedIn = true;
+                    } catch (Exception e)
+                    {
+
+                    } finally
+                    {
+                        isLoggingIn = false;
+                    }
+                }
             }
         }
     }

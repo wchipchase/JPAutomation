@@ -144,7 +144,8 @@ namespace AutomationTests.PageObjects.juiceplus.com
 
         public void InputPaymentMethod(String creditCardType, String creditCardNumber, String expMonth, String expYear, String cvv)
         {
-            WaitUntilElementVisible(By.XPath("//p[contains(text(),'How would you like to pay?')]"), 15);
+            // WaitUntilElementVisible(By.XPath("//p[contains(text(),'How would you like to pay?')]"), 15);
+            WaitUntilElementVisible(By.Id("formCart"), 15);
 
             SelectElement CreditCardTypeDropdown = new SelectElement(CreditCardType);
             SelectElement CreditCardExpMonthDropdown = new SelectElement(CreditCardExpMonth);

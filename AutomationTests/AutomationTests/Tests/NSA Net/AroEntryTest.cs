@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace AutomationTests.nsanet.com
 {
-    [TestFixture]
+    [TestFixture, Parallelizable(ParallelScope.All)]
     class AroEntryTest
     {
         [ThreadStatic]
@@ -30,6 +30,14 @@ namespace AutomationTests.nsanet.com
         [ThreadStatic]
         static AroEntryPage AroEntryPage;
 
+        ExtentHelper ExtentHelper;
+
+        [OneTimeSetUp]
+        public void OneTimeSetup()
+        {
+            ExtentHelper = new ExtentHelper();
+            ExtentHelper.Setup(TestContext.CurrentContext);
+        }
 
         [SetUp]
         public void Setup()
@@ -41,6 +49,8 @@ namespace AutomationTests.nsanet.com
             LoginPage = new LoginPage(Driver);
             MainPage = new MainPage(Driver);
             AroEntryPage = new AroEntryPage(Driver);
+
+            ExtentHelper.AddTest(TestContext.CurrentContext);
         }
 
         [Test, Description("Create US ARO on NSANet Aro Entry")]
@@ -49,7 +59,7 @@ namespace AutomationTests.nsanet.com
         public void AROEntry_NSANet_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
-
+            Thread.Sleep(5000);
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("USA");
@@ -73,7 +83,7 @@ namespace AutomationTests.nsanet.com
         public void AROEntry_NSANet_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
-
+            Thread.Sleep(5000);
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("CAN");
@@ -98,7 +108,7 @@ namespace AutomationTests.nsanet.com
         public void AROEntry_NSANet_AU()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
-
+            Thread.Sleep(15000);
             LoginPage.Login("jcrocker", "Juiceplus123");
             MainPage.NavigateToAroEntry();
             AroEntryPage.InitiateNewAro("AU");
@@ -119,7 +129,14 @@ namespace AutomationTests.nsanet.com
         [TearDown]
         public void TearDown()
         {
+            ExtentHelper.LogTest(TestContext.CurrentContext, Driver);
             Driver.Teardown();
+        }
+
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            ExtentHelper.Flush();
         }
     }
 }

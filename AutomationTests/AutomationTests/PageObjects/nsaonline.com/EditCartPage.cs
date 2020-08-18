@@ -37,6 +37,18 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = "a.cart-btn.checkout-btn")]
         public IWebElement CheckoutButton { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "cookieAccept")]
+        public IWebElement CookieAcceptButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.ClassName, Using = "lang")]
+        public IWebElement LanguageSelectionIcon { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "language-select")]
+        public IWebElement LanguageSelect { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "locationApply")]
+        public IWebElement LanguageSelectionApplyButton { get; set; }
+
         public String GetQuanity(String sku)
         {
             Thread.Sleep(5000);
@@ -68,7 +80,23 @@ namespace AutomationTests.PageObjects.nsaonline.com
 
         public void CheckOut()
         {
-            CheckoutButton.Click();
+            Click(CheckoutButton);
+        }
+
+        public void AcceptCookies()
+        {
+            if (IsElementDisplayed(CookieAcceptButton))
+            {
+                Click(CookieAcceptButton);
+            }
+        }
+
+        public void SelectLanguage(String language)
+        {
+            LanguageSelectionIcon.Click();
+            Thread.Sleep(5000);
+            new SelectElement(LanguageSelect).SelectByText(language);
+            LanguageSelectionApplyButton.Click();
         }
     }
 }

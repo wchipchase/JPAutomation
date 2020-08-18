@@ -136,6 +136,7 @@ namespace AutomationTests.PageObjects
                 {
                     return webElement;
                 }
+                Thread.Sleep(1000);
             }
             return null;
         }
