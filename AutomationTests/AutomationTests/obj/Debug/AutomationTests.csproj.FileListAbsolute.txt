@@ -254,3 +254,4 @@ C:\Users\jcrocker\New folder (3)\JPAutomation\AutomationTests\AutomationTests\ob
 C:\Users\jcrocker\New folder (3)\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.exe
 C:\Users\jcrocker\New folder (3)\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.pdb
 C:\Users\jcrocker\New folder (3)\JPAutomation\AutomationTests\AutomationTests\obj\Debug\AutomationTests.csprojAssemblyReference.cache
+C:\Users\jcrocker\New folder (3)\JPAutomation\AutomationTests\AutomationTests\bin\Debug\SeleniumExtras.WaitHelpers.dll

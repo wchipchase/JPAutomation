@@ -29,6 +29,9 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "selChangeCountry")]
         public IWebElement ChangeCountrySelect { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "selChangeLanguage")]
+        public IWebElement ChangeLanguageSelect { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//span[contains(text(),'Remind me later!')]")]
         public IWebElement RemindMeLaterLink { get; set; }
 
@@ -60,6 +63,13 @@ namespace AutomationTests.PageObjects.nsaonline.com
         {
             CountryLanguageIcon.Click();
             new SelectElement(ChangeCountrySelect).SelectByText(countryName);
+            Thread.Sleep(3000);
+        }
+
+        public void ChangeLanguage(String lanugageCode)
+        {
+            CountryLanguageIcon.Click();
+            new SelectElement(ChangeLanguageSelect).SelectByValue(lanugageCode);
             Thread.Sleep(3000);
         }
 

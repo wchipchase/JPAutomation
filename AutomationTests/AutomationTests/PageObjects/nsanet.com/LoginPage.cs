@@ -66,6 +66,9 @@ namespace AutomationTests.PageObjects.nsanet.com
                     {
                         isLoggingIn = false;
                     }
+                } else
+                {
+                    Thread.Sleep(new Random().Next(1, 99)*100);
                 }
             }
         }

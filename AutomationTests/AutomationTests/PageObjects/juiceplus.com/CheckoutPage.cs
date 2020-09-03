@@ -70,6 +70,9 @@ namespace AutomationTests.PageObjects.juiceplus.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingAddress.state")]
         public IWebElement StateSelect { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingAddress.state")]
+        public IWebElement StateField { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "selPaymentType")]
         public IWebElement CreditCardType { get; set; }
 
@@ -96,6 +99,19 @@ namespace AutomationTests.PageObjects.juiceplus.com
 
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//h5[]")]
         public IWebElement OrderSummaryHeading { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shipToPerson.pob")]
+        public IWebElement PlaceOfBirthField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.dob")]
+        public IWebElement DateOfBirthField { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.gender")]
+        public IWebElement GenderSelect { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "customerOrder.orderShipment.shippingPerson.eurossn")]
+        public IWebElement EuroSsnField { get; set; }
+
 
         public void InputShippingAndBillingInfo(String firstName, String lastName, String phoneNumber, String emailAddress, String address, String zip, String city, String state, String country, Boolean sameBillingInformation, Boolean hasRefferingRep)
         {
@@ -197,7 +213,20 @@ namespace AutomationTests.PageObjects.juiceplus.com
                 IAgreeButton.Click();
             }
             PurchaseButton.Click();
-            // new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementToBeClickable(CheckoutPage.CityNameSelect));
+            try
+            {
+                WebDriverWait newWait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+                newWait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
+            }
+            catch (Exception)
+            {
+                if (ExpectedConditions.AlertIsPresent().Invoke(Driver.WebDriver) != null)
+                {
+                    Driver.WebDriver.SwitchTo().Alert().Dismiss();
+                }
+                WebDriverWait newWait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
+                newWait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div[class='jp-acct-block1']")));
+            }
         }
         public void ZipLookup(String zip, String city)
         {
@@ -209,6 +238,24 @@ namespace AutomationTests.PageObjects.juiceplus.com
             SelectElement CitySelectDropdown = new SelectElement(CitySelect);
             CitySelectDropdown.SelectByValue(city);
             CitySelectGoButton.Click();
+        }
+
+        public void InputCodiceFiscalInformation(String codiceFiscal, String dob, String pob, String gender)
+        {
+            PlaceOfBirthField.SendKeys(pob);
+            new SelectElement(GenderSelect).SelectByText(gender);
+            DateOfBirthField.SendKeys(dob);
+            EuroSsnField.SendKeys(codiceFiscal);
+        }
+
+        public void InputNif(String nif)
+        {
+            EuroSsnField.SendKeys(nif);
+        }
+
+        public void InputState(String state)
+        {
+            StateField.SendKeys(state);
         }
     }
 }

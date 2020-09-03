@@ -56,6 +56,9 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity490105080")]
         public IWebElement JuicePlusCapsules490105080QuantityField { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "quantity490105084")]
+        public IWebElement JuicePlusCapsules490105084QuantityField { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity2000']//following-sibling::div/button")]
         public IWebElement JuicePlusCapsules2000AddToCartButton { get; set; }
 
@@ -95,6 +98,9 @@ namespace AutomationTests.PageObjects.nsaonline.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity490105080']//following-sibling::div/button")]
         public IWebElement JuicePlusCapsules490105080AddToCartButton { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//input[@id='quantity490105084']//following-sibling::div/button")]
+        public IWebElement JuicePlusCapsules490105084AddToCartButton { get; set; }
+
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.CssSelector, Using = ".btn.btn-success.shareCart")]
         public IWebElement ShareCartWithCustomerButton { get; set; }
 
@@ -105,7 +111,7 @@ namespace AutomationTests.PageObjects.nsaonline.com
         public IWebElement AcceptAgreementRadioButton { get; set; }
         
 
-        public void AddToCart(String sku, int quantity)
+        /*public void AddToCart(String sku, int quantity)
         {
             if (sku.Equals("2000"))
             {
@@ -175,11 +181,23 @@ namespace AutomationTests.PageObjects.nsaonline.com
                 JuicePlusCapsules490105080QuantityField.Clear();
                 JuicePlusCapsules490105080QuantityField.SendKeys("" + quantity);
                 Click(JuicePlusCapsules490105080AddToCartButton);
+            } else if (sku.Equals("490105084"))
+            {
+                JuicePlusCapsules490105084QuantityField.Clear();
+                JuicePlusCapsules490105084QuantityField.SendKeys("" + quantity);
+                Click(JuicePlusCapsules490105084AddToCartButton);
             }
             else
             {
                 throw new Exception("Invalid sku!");
             }
+        }*/
+
+        public void AddToCart(String sku, int quantity)
+        {
+            Driver.WebDriver.FindElement(By.Id("quantity" + sku)).Clear();
+            Driver.WebDriver.FindElement(By.Id("quantity" + sku)).SendKeys("" + quantity);
+            Driver.WebDriver.FindElement(By.XPath("//input[@id='quantity" + sku + "']//following-sibling::div/button")).Click();
         }
 
         public void ShareCartWithCustomer()

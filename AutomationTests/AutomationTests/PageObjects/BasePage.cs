@@ -43,7 +43,7 @@ namespace AutomationTests.PageObjects
 
         public void SendKeys(IWebElement webElement, String text)
         {
-            WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver.WebDriver, TimeSpan.FromSeconds(30));
             wait.Until(ExpectedConditions.ElementToBeClickable(webElement));
             for (int i = 0; i < 3; i++)
             {
@@ -62,10 +62,13 @@ namespace AutomationTests.PageObjects
 
         public void SendKeysSlowly(IWebElement webElement, String stringValue)
         {
-            Char[] stringArray = stringValue.ToCharArray();
-            for (int i = 0; i < stringValue.Length; i++)
+            if (!stringValue.Equals("N/A"))
             {
-                webElement.SendKeys(stringArray[i].ToString());
+                Char[] stringArray = stringValue.ToCharArray();
+                for (int i = 0; i < stringValue.Length; i++)
+                {
+                    webElement.SendKeys(stringArray[i].ToString());
+                }
             }
         }
 

@@ -77,35 +77,22 @@ namespace AutomationTests.PageObjects.nsaonline.com
             FirstNameField.SendKeys(firstName);
             LastNameField.SendKeys(lastName);
             ShippingAddressField.SendKeys(address);
-            ShippingZipField.SendKeys(zip);
-            ShippingCityField.SendKeys(city);
-            ShippingCountyField.SendKeys(county);
-            ShippingStateField.SendKeys(state);
-            PhoneNumberField.SendKeys(phoneNumber);
-            MobileNumberField.SendKeys(mobileNumber);
-            EmailAddressField.SendKeys(emailAddress);
-        }
-
-        public void InputShippingInformation(String firstName, String lastName, String address, String zip, String city, String state, String phoneNumber, String mobileNumber, String emailAddress)
-        {
-            FirstNameField.SendKeys(firstName);
-            LastNameField.SendKeys(lastName);
-            ShippingAddressField.SendKeys(address);
-            ShippingZipField.SendKeys(zip);
-            ShippingCityField.SendKeys(city);
-            ShippingStateField.SendKeys(state);
-            PhoneNumberField.SendKeys(phoneNumber);
-            MobileNumberField.SendKeys(mobileNumber);
-            EmailAddressField.SendKeys(emailAddress);
-        }
-
-        public void InputShippingInformation(String firstName, String lastName, String address, String zip, String city, String phoneNumber, String mobileNumber, String emailAddress)
-        {
-            FirstNameField.SendKeys(firstName);
-            LastNameField.SendKeys(lastName);
-            ShippingAddressField.SendKeys(address);
-            ShippingZipField.SendKeys(zip);
-            ShippingCityField.SendKeys(city);
+            if (!zip.Equals("N/A"))
+            {
+                ShippingZipField.SendKeys(zip);
+            }
+            if (!city.Equals("N/A"))
+            {
+                ShippingCityField.SendKeys(city);
+            }
+            if (!county.Equals("N/A"))
+            {
+                ShippingCountyField.SendKeys(county);
+            }
+            if (!state.Equals("N/A"))
+            {
+                ShippingStateField.SendKeys(state);
+            }
             PhoneNumberField.SendKeys(phoneNumber);
             MobileNumberField.SendKeys(mobileNumber);
             EmailAddressField.SendKeys(emailAddress);

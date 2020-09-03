@@ -102,6 +102,15 @@ namespace AutomationTests.PageObjects.nsanet.com
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "new_status_reason_code")]
         public IWebElement StatusReasonCodeSelect { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "new_follow_contact_code")]
+        public IWebElement FollowContactCodeSelect { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "new_follow_reason_code")]
+        public IWebElement FollowReasonCodeSelect { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.Id, Using = "new_cancel_number")]
+        public IWebElement CancelNumber { get; set; }
+
         public void ViewAro(String aroNumber)
         {
             AroNumberField.SendKeys(aroNumber);
@@ -120,15 +129,16 @@ namespace AutomationTests.PageObjects.nsanet.com
             Driver.WebDriver.SwitchTo().Alert().Accept();
         }
 
-        public void EditNextDelivery(String commentCode, String commentText)
+        public void EditNextDelivery()
         {
-            NextDeliveryLink.Click();;
+            NextDeliveryLink.Click();
+            ((IJavaScriptExecutor)Driver.WebDriver).ExecuteScript("arguments[0].scrollIntoView(true);", NextShipAsapButton);
             NextShipAsapButton.Click();
-            InputComments(commentCode, commentText);
+            InputComments();
             UpdateButton.Click();
         }
 
-        public void EditNameAddress(String newLastName, String newAddress, String newPhoneNumber, String newMobileNumber, String commentCode, String commentText)
+        public void EditNameAddress(String newLastName, String newAddress, String newPhoneNumber, String newMobileNumber)
         {
             NameAddressLink.Click();
             LastNameField.Clear();
@@ -139,11 +149,11 @@ namespace AutomationTests.PageObjects.nsanet.com
             PhoneNumberField.SendKeys(newPhoneNumber);
             MobileNumberField.Clear();
             MobileNumberField.SendKeys(newMobileNumber);
-            InputComments(commentCode, commentText);
+            InputComments();
             UpdateButton.Click();
         }
 
-        public void EditCreditCardInfo(String paymentType, String accountNumber, String routingNumber, String commentCode, String commentText)
+        public void EditCreditCardInfo(String paymentType, String accountNumber, String routingNumber)
         {
             CreditCardLink.Click();
             new SelectElement(PaymentTypeSelect).SelectByText(paymentType);
@@ -154,43 +164,63 @@ namespace AutomationTests.PageObjects.nsanet.com
                 RoutingNumberField.Clear();
                 RoutingNumberField.SendKeys(routingNumber);
             }
-            InputComments(commentCode, commentText);
+            InputComments();
             UpdateButton.Click();
         }
 
-        public void EditPaymentPlan(String PaymentPlanType, String commentCode, String commentText)
+        public void EditPaymentPlan(String PaymentPlanType)
         {
             PaymentPlanLink.Click();
             new SelectElement(PaymentPlanSelect).SelectByText(PaymentPlanType);
-            InputComments(commentCode, commentText);
+            InputComments();
             UpdateButton.Click();
         }
 
-        public void EditProductInformation(String newQuantity, String commentCode, String commentText)
+        public void EditProductInformation(String newQuantity)
         {
             ProductLink.Click();
             ExistingQuantityField.Clear();
             ExistingQuantityField.SendKeys(newQuantity);
-            InputComments(commentCode, commentText);
+            InputComments();
             UpdateButton.Click();
         }
 
-        public void CancelAro(String cancelType, String statusReasonCode, String commentCode, String commentText)
+        public void CancelAro(String cancelType, String statusReasonCode)
         {
             CancelAroLink.Click();
+            if (IsElementDisplayed(CancelNumber))
+            {
+                CancelNumber.SendKeys(""+new Random().Next(11111, 1111111111));
+            }
             if (IsElementDisplayed(CancelTypeSelect))
             {
                 new SelectElement(CancelTypeSelect).SelectByText(cancelType);
             }
             new SelectElement(StatusReasonCodeSelect).SelectByText(statusReasonCode);
-            InputComments(commentCode, commentText);
+            InputComments();
             UpdateButton.Click();
         }
 
-        public void InputComments(String commentCode, String commentText)
+        public void InputComments()
         {
-            new SelectElement(CommentCodeSelect).SelectByText(commentCode);
-            CommentCodeTextField.SendKeys(commentText);
+            if (IsElementDisplayed(FollowContactCodeSelect))
+            {
+                new SelectElement(FollowContactCodeSelect).SelectByText("Internal");
+            }
+
+            if (IsElementDisplayed(FollowReasonCodeSelect))
+            {
+                new SelectElement(FollowReasonCodeSelect).SelectByText("Data Changes");
+            }
+
+            try
+            {
+                new SelectElement(CommentCodeSelect).SelectByText("forwarded to"); 
+            } catch (Exception e)
+            {
+                new SelectElement(CommentCodeSelect).SelectByText("DDCI WISMO TRKD PK");
+            }
+            CommentCodeTextField.SendKeys("Test");
         }
     }
 }

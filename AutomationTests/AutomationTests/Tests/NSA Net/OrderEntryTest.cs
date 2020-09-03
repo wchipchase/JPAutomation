@@ -50,12 +50,12 @@ namespace AutomationTests.nsanet.com
         }
 
         [Test, Description("Create US Order on NSA Net Order Entry")]
-        [Category("LegacyRegression")]
+        [Category("LegacyRegression"), Category("OrderEntry")]
         [Repeat(1)]
          public void OrderEntry_NSANet_US()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
-            LoginPage.Login("jcrocker", "Juiceplus123");
+            LoginPage.Login("autodevsvcacct", "Juiceplus123");
             MainPage.NavigateToOrderEntry();
             OrderEntryPage.InitiateNewOrder("USA", "USM0025620");
             OrderEntryPage.InputDeliveryAddressInformation("Test Tester", "140 Crescent Dr.", "38017", "Collierville", "9018503000", "9018503000", "test@testing.com", "UPS - Ground");
@@ -72,15 +72,16 @@ namespace AutomationTests.nsanet.com
             Assert.IsTrue(SuccessMessageRegex.Matches(Driver.WebDriver.PageSource).Count > 0);
             Assert.IsTrue(Driver.WebDriver.PageSource.Contains("Transaction Completed Successfully") || Driver.WebDriver.PageSource.Contains("Order Added"));
             Thread.Sleep(5000);
+            Driver.Pause();
         }
 
         [Test, Description("Create CA Order on NSA Net Order Entry")]
-        [Category("LegacyRegression")]
+        [Category("LegacyRegression"), Category("OrderEntry")]
         [Repeat(1)]
         public void OrderEntry_NSANet_CA()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
-            LoginPage.Login("jcrocker", "Juiceplus123");
+            LoginPage.Login("autodevsvcacct", "Juiceplus123");
             MainPage.NavigateToOrderEntry();
             OrderEntryPage.InitiateNewOrder("CAN", "USM0025620");
             OrderEntryPage.InputDeliveryAddressInformation("Test Tester", "2785 Skymark Ave.", "L4W 4Y3", "Mississauga", "9018503000", "9018503000", "test@testing.com", "Economy");
@@ -100,12 +101,12 @@ namespace AutomationTests.nsanet.com
         }
 
         [Test, Description("Create UK Order on NSA Net Order Entry")]
-        [Category("LegacyRegression")]
+        [Category("LegacyRegression"), Category("OrderEntry")]
         [Repeat(1)]
         public void OrderEntry_NSANet_UK()
         {
             Driver.WebDriver.Navigate().GoToUrl(Driver.GetUrl("NSANet"));
-            LoginPage.Login("jcrocker", "Juiceplus123");
+            LoginPage.Login("autodevsvcacct", "Juiceplus123");
             MainPage.NavigateToOrderEntry();
             OrderEntryPage.InitiateNewOrder("UK", "USM0025620");
             OrderEntryPage.InputDeliveryAddressInformation("Test Tester", "40 Heyes St.", "L5 6SG", "Liverpool", "07720750898", "07720750898", "test@testing.com", "FMNET");
