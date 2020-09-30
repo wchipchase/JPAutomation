@@ -109,7 +109,7 @@ namespace AutomationTests.ConfigElements
                 options.AcceptInsecureCertificates = true;
                 options.UnhandledPromptBehavior = UnhandledPromptBehavior.AcceptAndNotify;
                 // _webDriver = new ChromeDriver(options);
-                _webDriver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options.ToCapabilities(), TimeSpan.FromMinutes(30));
+                _webDriver = new RemoteWebDriver(new Uri("http://memmgmtqatst01.nsanet.local:4444//wd/hub"), options.ToCapabilities(), TimeSpan.FromMinutes(30));
             }
         }
 
